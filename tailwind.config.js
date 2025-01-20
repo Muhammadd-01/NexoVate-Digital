@@ -17,10 +17,10 @@ export default {
           900: "#a10000",
           950: "#570000",
         },
-        "growhub-white": "#FFFFFF",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
   },
