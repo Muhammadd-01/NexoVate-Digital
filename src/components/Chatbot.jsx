@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { FaComments, FaTimes } from "react-icons/fa"
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -63,45 +65,65 @@ const Chatbot = () => {
   }, [isOpen])
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
-      {isOpen ? (
-        <div className="bg-white rounded-lg shadow-xl w-80">
-          <div className="bg-growhub-red text-white p-4 rounded-t-lg flex justify-between items-center">
-            <h3 className="font-bold">Chat with us</h3>
-            <button onClick={() => setIsOpen(false)}>&times;</button>
-          </div>
-          <div className="h-80 overflow-y-auto p-4">
-            {messages.map((message, index) => (
-              <div key={index} className={`mb-2 ${message.sender === "user" ? "text-right" : "text-left"}`}>
-                <span
-                  className={`inline-block p-2 rounded-lg ${message.sender === "user" ? "bg-growhub-red text-white" : "bg-gray-200"}`}
+    <div className="relative">
+      <motion.button
+        onClick={() => setIsOpen(!isOpen)}
+        className="bg-growhub-red-600 text-white p-3 rounded-full shadow-lg hover:bg-growhub-red-500 transition-colors duration-300 flex items-center justify-center"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        {isOpen ? <FaTimes className="text-2xl" /> : <FaComments className="text-2xl" />}
+      </motion.button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            className="absolute bottom-16 right-0 bg-white rounded-lg shadow-xl w-80 overflow-hidden"
+          >
+            <div className="bg-growhub-red-600 text-white p-4 flex justify-between items-center">
+              <h3 className="font-bold">Chat with us</h3>
+            </div>
+            <div className="h-80 overflow-y-auto p-4">
+              {messages.map((message, index) => (
+                <div key={index} className={`mb-2 ${message.sender === "user" ? "text-right" : "text-left"}`}>
+                  <span
+                    className={`inline-block p-2 rounded-lg ${
+                      message.sender === "user" ? "bg-growhub-red-600 text-white" : "bg-gray-200"
+                    }`}
+                  >
+                    {message.text}
+                  </span>
+                </div>
+              ))}
+              {isTyping && (
+                <div className="text-left">
+                  <span className="inline-block p-2 rounded-lg bg-gray-200">Typing...</span>
+                </div>
+              )}
+            </div>
+            <div className="p-4 border-t">
+              <div className="flex">
+                <input
+                  type="text"
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyPress={(e) => e.key === "Enter" && handleSend()}
+                  className="flex-grow p-2 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-growhub-red-600"
+                  placeholder="Type a message..."
+                />
+                <button
+                  onClick={handleSend}
+                  className="bg-growhub-red-600 text-white p-2 rounded-r-lg hover:bg-growhub-red-500 transition-colors duration-300"
                 >
-                  {message.text}
-                </span>
+                  Send
+                </button>
               </div>
-            ))}
-            {isTyping && (
-              <div className="text-left">
-                <span className="inline-block p-2 rounded-lg bg-gray-200">Typing...</span>
-              </div>
-            )}
-          </div>
-          <div className="p-4 border-t">
-            <input
-              type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyPress={(e) => e.key === "Enter" && handleSend()}
-              className="w-full p-2 border rounded-lg"
-              placeholder="Type a message..."
-            />
-          </div>
-        </div>
-      ) : (
-        <button onClick={() => setIsOpen(true)} className="bg-growhub-red text-white p-4 rounded-full shadow-lg">
-          Chat
-        </button>
-      )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
