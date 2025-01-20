@@ -26,16 +26,17 @@ const BackgroundAnimation = () => {
         radius: Math.random() * 2 + 1,
         dx: (Math.random() - 0.5) * 0.5,
         dy: (Math.random() - 0.5) * 0.5,
+        color: `rgba(255, ${Math.floor(Math.random() * 50)}, ${Math.floor(Math.random() * 50)}, ${Math.random() * 0.5 + 0.1})`,
       })
     }
 
     const drawParticles = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
-      ctx.fillStyle = "rgba(255, 0, 0, 0.1)"
 
       particles.forEach((particle) => {
         ctx.beginPath()
         ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2)
+        ctx.fillStyle = particle.color
         ctx.fill()
 
         particle.x += particle.dx
@@ -44,6 +45,9 @@ const BackgroundAnimation = () => {
         if (particle.x < 0 || particle.x > canvas.width) particle.dx = -particle.dx
         if (particle.y < 0 || particle.y > canvas.height) particle.dy = -particle.dy
       })
+
+      ctx.fillStyle = "rgba(255, 255, 255, 0.01)"
+      ctx.fillRect(0, 0, canvas.width, canvas.height)
 
       animationFrameId = requestAnimationFrame(drawParticles)
     }
