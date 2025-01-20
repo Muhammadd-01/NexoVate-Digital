@@ -29,15 +29,18 @@ export default function Header() {
       transition={{ duration: 0.5 }}
       className="bg-gradient-to-b from-white to-growhub-red-50 shadow-md sticky top-0 z-50 backdrop-blur-sm"
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link to="/" className="-m-1.5 p-1.5">
             <span className="sr-only">GrowHub.Co</span>
-            <img
-              className="h-12 w-auto"
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-01-09%20at%2011.09.49-jEPFeODsDv0Nb0UoZKqk2l6MtN29JS.jpeg"
-              alt="GrowHub.Co"
-            />
+            <motion.div whileHover={{ scale: 1.05 }} className="relative">
+              <img
+                className="h-16 w-auto rounded-2xl shadow-lg"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-01-09%20at%2011.09.49-jEPFeODsDv0Nb0UoZKqk2l6MtN29JS.jpeg"
+                alt="GrowHub.Co"
+              />
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-growhub-red-600/20 to-transparent" />
+            </motion.div>
           </Link>
         </div>
         <div className="flex lg:hidden">

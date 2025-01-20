@@ -1,16 +1,62 @@
 import { useState } from "react"
 import emailjs from "emailjs-com"
 import SEO from "../components/SEO"
-import Map from "react-map-gl"
+import Map, { Marker } from "react-map-gl"
 import { motion } from "framer-motion"
+import CountUp from "react-countup"
+import { useInView } from "react-intersection-observer"
+import toast from "react-hot-toast"
+import { MapPin, Phone, Mail, Clock } from "lucide-react"
+import "mapbox-gl/dist/mapbox-gl.css"
+
+const contactInfo = [
+  {
+    icon: MapPin,
+    title: "Visit us",
+    details: ["123 Business Avenue", "Tech District", "Silicon Valley, CA 94000"],
+  },
+  {
+    icon: Phone,
+    title: "Call us",
+    details: ["+1 (123) 456-7890", "+1 (123) 456-7891"],
+  },
+  {
+    icon: Mail,
+    title: "Email us",
+    details: ["info@growhub.co", "support@growhub.co"],
+  },
+  {
+    icon: Clock,
+    title: "Working hours",
+    details: ["Monday - Friday: 9AM - 6PM", "Saturday: 10AM - 2PM"],
+  },
+]
+
+const stats = [
+  { id: 1, name: "Years of Experience", value: 10 },
+  { id: 2, name: "Projects Completed", value: 500 },
+  { id: 3, name: "Team Members", value: 50 },
+  { id: 4, name: "Client Satisfaction", value: 98 },
+]
 
 export default function Contact() {
+  const [viewState, setViewState] = useState({
+    latitude: 37.7749,
+    longitude: -122.4194,
+    zoom: 12,
+  })
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    subject: "",
     message: "",
   })
-  const [status, setStatus] = useState("")
+
+  const [ref, inView] = useInView({
+    threshold: 0.1,
+    triggerOnce: true,
+  })
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -18,23 +64,13 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    setStatus("sending")
+
     try {
-      await emailjs.send(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-        },
-        "YOUR_USER_ID",
-      )
-      setStatus("success")
-      setFormData({ name: "", email: "", message: "" })
+      await emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", formData, "YOUR_USER_ID")
+      toast.success("Message sent successfully!")
+      setFormData({ name: "", email: "", subject: "", message: "" })
     } catch (error) {
-      console.error("Error sending email:", error)
-      setStatus("error")
+      toast.error("Failed to send message. Please try again.")
     }
   }
 
@@ -42,147 +78,190 @@ export default function Contact() {
     <>
       <SEO
         title="Contact Us"
-        description="Get in touch with GrowHub Solutions for any inquiries or support."
-        keywords="contact us, software development inquiries, support"
+        description="Get in touch with GrowHub.Co for innovative software solutions"
+        keywords="contact, software development, tech support"
       />
-      <div className="bg-white py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:max-w-none">
-            <motion.h2
-              initial={{ opacity: 0, y: -50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl text-center"
-            >
-              Get in touch
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: -30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="mt-2 text-lg leading-8 text-gray-600 text-center"
-            >
-              We'd love to hear from you. Please fill out this form or use our contact information below.
-            </motion.p>
 
-            <div className="mt-16 flex flex-col lg:flex-row gap-16">
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="lg:w-1/2"
-              >
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-semibold leading-6 text-gray-900">
-                      Name
-                    </label>
-                    <div className="mt-2.5">
-                      <input
-                        type="text"
-                        name="name"
-                        id="name"
-                        autoComplete="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-growhub-red-600 sm:text-sm sm:leading-6"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
-                      Email
-                    </label>
-                    <div className="mt-2.5">
-                      <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        autoComplete="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-growhub-red-600 sm:text-sm sm:leading-6"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-semibold leading-6 text-gray-900">
-                      Message
-                    </label>
-                    <div className="mt-2.5">
-                      <textarea
-                        name="message"
-                        id="message"
-                        rows={4}
-                        value={formData.message}
-                        onChange={handleChange}
-                        required
-                        className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-growhub-red-600 sm:text-sm sm:leading-6"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <button
-                      type="submit"
-                      disabled={status === "sending"}
-                      className="block w-full rounded-md bg-growhub-red-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-growhub-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-growhub-red-600 disabled:opacity-50"
-                    >
-                      {status === "sending" ? "Sending..." : "Send message"}
-                    </button>
-                  </div>
-                  {status === "success" && (
-                    <p className="mt-4 text-sm text-green-600">Your message has been sent successfully!</p>
-                  )}
-                  {status === "error" && (
-                    <p className="mt-4 text-sm text-red-600">
-                      There was an error sending your message. Please try again.
-                    </p>
-                  )}
-                </form>
-              </motion.div>
+      {/* Hero Section */}
+      <div className="relative bg-gradient-to-b from-growhub-red-600 to-growhub-red-700 py-24">
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+            alt="Contact background"
+            className="w-full h-full object-cover opacity-10"
+          />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-4xl font-bold text-white sm:text-5xl md:text-6xl"
+          >
+            Get in Touch
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mt-4 text-xl text-white/80"
+          >
+            Let's discuss how we can help your business grow
+          </motion.p>
+        </div>
+      </div>
 
+      {/* Stats Section */}
+      <div className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-4" ref={ref}>
+            {stats.map((stat) => (
               <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                className="lg:w-1/2 space-y-6"
+                key={stat.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, delay: stat.id * 0.2 }}
+                className="text-center"
               >
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900">Our Office</h3>
-                  <p className="mt-2 text-base text-gray-600">
-                    123 Tech Street
-                    <br />
-                    Silicon Valley, CA 94000
-                    <br />
-                    United States
-                  </p>
+                <div className="text-4xl font-bold text-growhub-red-600">
+                  {inView && <CountUp end={stat.value} duration={2.5} suffix={stat.id === 4 ? "%" : "+"} />}
                 </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900">Contact Information</h3>
-                  <p className="mt-2 text-base text-gray-600">
-                    Email: info@growhubsolutions.com
-                    <br />
-                    Phone: +1 (123) 456-7890
-                  </p>
-                </div>
-                <div className="h-64 w-full">
-                  <Map
-                    initialViewState={{
-                      latitude: 37.7749,
-                      longitude: -122.4194,
-                      zoom: 12,
-                    }}
-                    style={{ width: "100%", height: "100%" }}
-                    mapStyle="mapbox://styles/mapbox/streets-v9"
-                    mapboxAccessToken="YOUR_MAPBOX_ACCESS_TOKEN"
-                  />
-                </div>
+                <div className="mt-2 text-sm text-gray-600">{stat.name}</div>
               </motion.div>
-            </div>
+            ))}
           </div>
         </div>
+      </div>
+
+      {/* Contact Info & Form Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+          {/* Contact Information */}
+          <div>
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">Contact Information</h2>
+            <div className="grid gap-8">
+              {contactInfo.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.2 }}
+                  className="flex items-start gap-4"
+                >
+                  <div className="p-3 bg-growhub-red-100 rounded-lg">
+                    <item.icon className="w-6 h-6 text-growhub-red-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900">{item.title}</h3>
+                    {item.details.map((detail, idx) => (
+                      <p key={idx} className="text-gray-600">
+                        {detail}
+                      </p>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Contact Form */}
+          <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">Send us a Message</h2>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-growhub-red-500 focus:ring-growhub-red-500"
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-growhub-red-500 focus:ring-growhub-red-500"
+                />
+              </div>
+              <div>
+                <label htmlFor="subject" className="block text-sm font-medium text-gray-700">
+                  Subject
+                </label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  required
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-growhub-red-500 focus:ring-growhub-red-500"
+                />
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-growhub-red-500 focus:ring-growhub-red-500"
+                />
+              </div>
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                type="submit"
+                className="w-full bg-growhub-red-600 text-white py-3 px-6 rounded-md hover:bg-growhub-red-700 transition-colors duration-200"
+              >
+                Send Message
+              </motion.button>
+            </form>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Map Section */}
+      <div className="h-[500px] w-full mt-16">
+        <Map
+          {...viewState}
+          onMove={(evt) => setViewState(evt.viewState)}
+          mapStyle="mapbox://styles/mapbox/light-v11"
+          mapboxAccessToken="YOUR_MAPBOX_ACCESS_TOKEN"
+          className="w-full h-full"
+        >
+          <Marker latitude={37.7749} longitude={-122.4194}>
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+              }}
+            >
+              <div className="w-8 h-8 bg-growhub-red-600 rounded-full flex items-center justify-center text-white">
+                <MapPin className="w-5 h-5" />
+              </div>
+            </motion.div>
+          </Marker>
+        </Map>
       </div>
     </>
   )
