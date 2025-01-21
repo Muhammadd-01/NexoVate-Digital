@@ -1,13 +1,11 @@
 import { useState } from "react"
 import emailjs from "emailjs-com"
 import SEO from "../components/SEO"
-import Map, { Marker } from "react-map-gl"
 import { motion } from "framer-motion"
-import CountUp from "react-countup"
 import { useInView } from "react-intersection-observer"
 import toast from "react-hot-toast"
 import { MapPin, Phone, Mail, Clock } from "lucide-react"
-import "mapbox-gl/dist/mapbox-gl.css"
+import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api"
 
 const contactInfo = [
   {
@@ -32,20 +30,17 @@ const contactInfo = [
   },
 ]
 
-const stats = [
-  { id: 1, name: "Years of Experience", value: 10 },
-  { id: 2, name: "Projects Completed", value: 500 },
-  { id: 3, name: "Team Members", value: 50 },
-  { id: 4, name: "Client Satisfaction", value: 98 },
-]
+const mapContainerStyle = {
+  width: "100%",
+  height: "400px",
+}
+
+const center = {
+  lat: 37.7749, // Replace with your actual latitude
+  lng: -122.4194, // Replace with your actual longitude
+}
 
 export default function Contact() {
-  const [viewState, setViewState] = useState({
-    latitude: 37.7749,
-    longitude: -122.4194,
-    zoom: 12,
-  })
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -111,34 +106,12 @@ export default function Contact() {
         </div>
       </div>
 
-      {/* Stats Section */}
-      <div className="bg-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-8 md:grid-cols-4" ref={ref}>
-            {stats.map((stat) => (
-              <motion.div
-                key={stat.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: stat.id * 0.2 }}
-                className="text-center"
-              >
-                <div className="text-4xl font-bold text-growhub-red-600">
-                  {inView && <CountUp end={stat.value} duration={2.5} suffix={stat.id === 4 ? "%" : "+"} />}
-                </div>
-                <div className="mt-2 text-sm text-gray-600">{stat.name}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-
       {/* Contact Info & Form Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           {/* Contact Information */}
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">Contact Information</h2>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">Contact Information</h2>
             <div className="grid gap-8">
               {contactInfo.map((item, index) => (
                 <motion.div
@@ -148,13 +121,13 @@ export default function Contact() {
                   transition={{ duration: 0.8, delay: index * 0.2 }}
                   className="flex items-start gap-4"
                 >
-                  <div className="p-3 bg-growhub-red-100 rounded-lg">
-                    <item.icon className="w-6 h-6 text-growhub-red-600" />
+                  <div className="p-3 bg-growhub-red-100 dark:bg-growhub-red-900 rounded-lg">
+                    <item.icon className="w-6 h-6 text-growhub-red-600 dark:text-growhub-red-400" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900">{item.title}</h3>
+                    <h3 className="font-semibold text-gray-900 dark:text-white">{item.title}</h3>
                     {item.details.map((detail, idx) => (
-                      <p key={idx} className="text-gray-600">
+                      <p key={idx} className="text-gray-600 dark:text-gray-300">
                         {detail}
                       </p>
                     ))}
@@ -166,10 +139,10 @@ export default function Contact() {
 
           {/* Contact Form */}
           <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">Send us a Message</h2>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">Send us a Message</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Name
                 </label>
                 <input
@@ -179,11 +152,11 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-growhub-red-500 focus:ring-growhub-red-500"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-growhub-red-500 focus:ring-growhub-red-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Email
                 </label>
                 <input
@@ -193,11 +166,11 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-growhub-red-500 focus:ring-growhub-red-500"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-growhub-red-500 focus:ring-growhub-red-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                 />
               </div>
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Subject
                 </label>
                 <input
@@ -207,11 +180,11 @@ export default function Contact() {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-growhub-red-500 focus:ring-growhub-red-500"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-growhub-red-500 focus:ring-growhub-red-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Message
                 </label>
                 <textarea
@@ -221,7 +194,7 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-growhub-red-500 focus:ring-growhub-red-500"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-growhub-red-500 focus:ring-growhub-red-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                 />
               </div>
               <motion.button
@@ -238,30 +211,12 @@ export default function Contact() {
       </div>
 
       {/* Map Section */}
-      <div className="h-[500px] w-full mt-16">
-        <Map
-          {...viewState}
-          onMove={(evt) => setViewState(evt.viewState)}
-          mapStyle="mapbox://styles/mapbox/light-v11"
-          mapboxAccessToken="YOUR_MAPBOX_ACCESS_TOKEN"
-          className="w-full h-full"
-        >
-          <Marker latitude={37.7749} longitude={-122.4194}>
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{
-                type: "spring",
-                stiffness: 260,
-                damping: 20,
-              }}
-            >
-              <div className="w-8 h-8 bg-growhub-red-600 rounded-full flex items-center justify-center text-white">
-                <MapPin className="w-5 h-5" />
-              </div>
-            </motion.div>
-          </Marker>
-        </Map>
+      <div className="w-full mt-16">
+        <LoadScript googleMapsApiKey="YOUR_GOOGLE_MAPS_API_KEY">
+          <GoogleMap mapContainerStyle={mapContainerStyle} center={center} zoom={14}>
+            <Marker position={center} />
+          </GoogleMap>
+        </LoadScript>
       </div>
     </>
   )

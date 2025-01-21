@@ -1,17 +1,28 @@
 import { Link } from "react-router-dom"
 import { ArrowRightIcon, CheckCircleIcon } from "@heroicons/react/24/outline"
+import { FaProjectDiagram, FaUsers, FaUserTie, FaClock } from "react-icons/fa"
 import SEO from "../components/SEO"
 import { motion, useScroll, useTransform } from "framer-motion"
-import Slider from "react-slick"
+import Slider from "../components/Slider"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import { FadeInWhenVisible, SlideIn, GradientText } from "../components/Animations"
 import CountUp from "react-countup"
-import { useInView } from "react-intersection-observer"
-import { Parallax } from "react-scroll-parallax"
 import { Typewriter } from "react-simple-typewriter"
 import { Player } from "@lottiefiles/react-lottie-player"
 import confetti from "canvas-confetti"
+import { useQuery, gql } from "@apollo/client"
+
+const GET_FEATURED_PROJECTS = gql`
+  query GetFeaturedProjects {
+    featuredProjects {
+      id
+      title
+      description
+      image
+    }
+  }
+`
 
 const features = [
   "Custom Software Development",
@@ -23,10 +34,10 @@ const features = [
 ]
 
 const stats = [
-  { id: 1, name: "Projects Completed", value: 500, suffix: "+" },
-  { id: 2, name: "Satisfied Clients", value: 200, suffix: "+" },
-  { id: 3, name: "Team Members", value: 50, suffix: "+" },
-  { id: 4, name: "Years of Experience", value: 10, suffix: "+" },
+  { id: 1, name: "Projects Completed", value: 500, suffix: "+", icon: FaProjectDiagram },
+  { id: 2, name: "Satisfied Clients", value: 200, suffix: "+", icon: FaUsers },
+  { id: 3, name: "Team Members", value: 50, suffix: "+", icon: FaUserTie },
+  { id: 4, name: "Years of Experience", value: 10, suffix: "+", icon: FaClock },
 ]
 
 const testimonials = [
@@ -77,44 +88,32 @@ const projects = [
   },
 ]
 
+const slides = [
+  {
+    title: "Innovative Software Solutions",
+    description: "Transforming ideas into powerful applications",
+    image:
+      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
+  },
+  {
+    title: "Cutting-edge Technologies",
+    description: "Leveraging the latest in tech for your success",
+    image:
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
+  },
+  {
+    title: "Expert Team",
+    description: "Dedicated professionals committed to your growth",
+    image:
+      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
+  },
+]
+
 export default function Home() {
   const { scrollYProgress } = useScroll()
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.5])
 
-  const [ref, inView] = useInView({
-    threshold: 0.1,
-    triggerOnce: true,
-  })
-
-  const sliderSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 5000,
-  }
-
-  const projectSliderSettings = {
-    ...sliderSettings,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
-  }
+  const { loading, error, data } = useQuery(GET_FEATURED_PROJECTS)
 
   const handleConfetti = () => {
     confetti({
@@ -179,7 +178,7 @@ export default function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
-                  className="mt-10 flex items-center justify-center gap-x-6"
+                  className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-x-6"
                 >
                   <Link
                     to="/contact"
@@ -202,26 +201,25 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className="mt-16 flow-root sm:mt-24"
               >
-                <Parallax translateY={[-20, 20]}>
-                  <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
-                    <img
-                      src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80"
-                      alt="App screenshot"
-                      width={2432}
-                      height={1442}
-                      className="rounded-md shadow-2xl ring-1 ring-gray-900/10"
-                    />
-                  </div>
-                </Parallax>
+                <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
+                  <img
+                    src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80"
+                    alt="App screenshot"
+                    width={2432}
+                    height={1442}
+                    className="rounded-md shadow-2xl ring-1 ring-gray-900/10"
+                  />
+                </div>
               </motion.div>
             </div>
           </div>
         </div>
-
+        {/* Slider section */}
+        <Slider slides={slides} />
         {/* Stats section */}
-        <div className="bg-white py-24 sm:py-32">
+        <div className="bg-white dark:bg-gray-800 py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-4">
+            <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center sm:grid-cols-2 lg:grid-cols-4">
               {stats.map((stat) => (
                 <motion.div
                   key={stat.id}
@@ -231,8 +229,9 @@ export default function Home() {
                   transition={{ duration: 0.8 }}
                   viewport={{ once: true }}
                 >
-                  <dt className="text-base leading-7 text-gray-600">{stat.name}</dt>
-                  <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+                  <dt className="text-base leading-7 text-gray-600 dark:text-gray-300">{stat.name}</dt>
+                  <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-5xl flex items-center justify-center">
+                    <stat.icon className="w-8 h-8 mr-2 text-growhub-red-600 dark:text-growhub-red-400" />
                     <CountUp end={stat.value} duration={2.5} suffix={stat.suffix} />
                   </dd>
                 </motion.div>
@@ -240,22 +239,23 @@ export default function Home() {
             </dl>
           </div>
         </div>
-
         {/* Features section */}
         <SlideIn>
           <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl font-bold tracking-tight text-gray-900">Comprehensive Software Solutions</h2>
-                <p className="mt-6 text-lg text-gray-600">
+                <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
+                  Comprehensive Software Solutions
+                </h2>
+                <p className="mt-6 text-lg text-gray-600 dark:text-gray-300">
                   From custom software development to cloud solutions, we offer a wide range of services to help your
                   business thrive in the digital world.
                 </p>
                 <div className="mt-8 grid grid-cols-1 gap-4">
                   {features.map((feature) => (
                     <motion.div key={feature} className="flex items-center gap-3" whileHover={{ x: 10 }}>
-                      <CheckCircleIcon className="h-5 w-5 text-growhub-red-600" />
-                      <span className="text-gray-700">{feature}</span>
+                      <CheckCircleIcon className="h-5 w-5 text-growhub-red-600 dark:text-growhub-red-400" />
+                      <span className="text-gray-700 dark:text-gray-300">{feature}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -273,67 +273,63 @@ export default function Home() {
             </div>
           </div>
         </SlideIn>
-
         {/* Project Showcase Slider */}
         <FadeInWhenVisible>
           <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 text-center mb-12">Our Latest Projects</h2>
-            <Slider {...projectSliderSettings}>
-              {projects.map((project, index) => (
-                <div key={index} className="px-4">
-                  <motion.div whileHover={{ y: -10 }} className="relative overflow-hidden rounded-lg shadow-lg">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 dark:text-white text-center mb-12">
+              Our Latest Projects
+            </h2>
+            <Slider slides={projects} />
+          </div>
+        </FadeInWhenVisible>
+        {/* Featured Projects Section */}
+        <FadeInWhenVisible>
+          <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 dark:text-white text-center mb-12">
+              Featured Projects
+            </h2>
+            {loading && <p>Loading featured projects...</p>}
+            {error && <p>Error loading featured projects: {error.message}</p>}
+            {data && (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {data.featuredProjects.map((project) => (
+                  <div key={project.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
                     <img
                       src={project.image || "/placeholder.svg"}
                       alt={project.title}
-                      className="w-full h-64 object-cover"
+                      className="w-full h-48 object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6">
-                      <h3 className="text-xl font-bold text-white">{project.title}</h3>
-                      <p className="text-white/80">{project.description}</p>
+                    <div className="p-6">
+                      <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                      <p className="text-gray-600 dark:text-gray-300">{project.description}</p>
                     </div>
-                  </motion.div>
-                </div>
-              ))}
-            </Slider>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </FadeInWhenVisible>
 
         {/* Testimonials section */}
         <FadeInWhenVisible>
-          <div className="bg-gradient-to-b from-white to-growhub-red-50 py-24">
+          <div className="bg-gradient-to-b from-white to-growhub-red-50 dark:from-gray-900 dark:to-gray-800 py-24">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 text-center mb-12">
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 dark:text-white text-center mb-12">
                 What Our Clients Say
               </h2>
-              <Slider {...sliderSettings}>
-                {testimonials.map((testimonial, index) => (
-                  <div key={index} className="px-4">
-                    <motion.div whileHover={{ y: -10 }} className="bg-white rounded-lg shadow-lg p-8 mx-4">
-                      <div className="flex items-center gap-4 mb-6">
-                        <img
-                          src={testimonial.image || "/placeholder.svg"}
-                          alt={testimonial.name}
-                          className="w-16 h-16 rounded-full object-cover"
-                        />
-                        <div>
-                          <h3 className="font-semibold text-gray-900">{testimonial.name}</h3>
-                          <p className="text-gray-600">{testimonial.role}</p>
-                        </div>
-                      </div>
-                      <p className="text-gray-700 italic">"{testimonial.quote}"</p>
-                    </motion.div>
-                  </div>
-                ))}
-              </Slider>
+              <Slider
+                slides={testimonials.map((t) => ({ ...t, image: t.image, title: t.name, description: t.quote }))}
+              />
             </div>
           </div>
         </FadeInWhenVisible>
-
         {/* CTA section */}
         <FadeInWhenVisible>
           <div className="bg-gradient-to-r from-growhub-red-600 to-growhub-red-700 py-24">
             <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-white mb-8">Ready to Transform Your Business?</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-8">
+                Ready to Transform Your Business?
+              </h2>
               <p className="text-lg text-white/80 mb-12">
                 Let's discuss how our innovative software solutions can help your business grow and succeed in the
                 digital age.
@@ -350,7 +346,6 @@ export default function Home() {
             </div>
           </div>
         </FadeInWhenVisible>
-
         {/* Lottie Animation */}
         <div className="py-16">
           <Player

@@ -1,26 +1,26 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
         "growhub-red": {
-          50: "#fff1f1",
-          100: "#ffe1e1",
-          200: "#ffc7c7",
-          300: "#ffa0a0",
-          400: "#ff6b6b",
-          500: "#ff3b3b",
-          600: "#ff1111",
-          700: "#e70000",
-          800: "#c00",
-          900: "#a10000",
-          950: "#570000",
+          50: "var(--growhub-red-50)",
+          100: "var(--growhub-red-100)",
+          200: "var(--growhub-red-200)",
+          300: "var(--growhub-red-300)",
+          400: "var(--growhub-red-400)",
+          500: "var(--growhub-red-500)",
+          600: "var(--growhub-red-600)",
+          700: "var(--growhub-red-700)",
+          800: "var(--growhub-red-800)",
+          900: "var(--growhub-red-900)",
+          950: "var(--growhub-red-950)",
         },
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
   },
