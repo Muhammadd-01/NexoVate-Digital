@@ -3,13 +3,13 @@ import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa"
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-b from-growhub-red-50 to-white dark:from-gray-800 dark:to-gray-900 shadow-md mt-auto">
+    <footer className="bg-white dark:bg-black shadow-md mt-auto">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1">
             <Link to="/">
               <img
-                className="h-12 w-auto"
+                className="h-20 w-auto"
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo%20png%20-FIY3oXNxi02MktABHYNa4FW1a6ZyOe.png"
                 alt="GrowHub.Co"
               />

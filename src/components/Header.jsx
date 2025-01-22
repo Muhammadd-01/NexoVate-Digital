@@ -31,7 +31,7 @@ export default function Header() {
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-gradient-to-b from-white to-growhub-red-50 dark:from-gray-900 dark:to-gray-800 shadow-md sticky top-0 z-50 backdrop-blur-sm"
+      className="bg-white dark:bg-black shadow-md sticky top-0 z-50 backdrop-blur-sm"
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
@@ -39,11 +39,10 @@ export default function Header() {
             <span className="sr-only">GrowHub.Co</span>
             <motion.div whileHover={{ scale: 1.05 }} className="relative">
               <img
-                className="h-12 w-auto sm:h-16 rounded-2xl shadow-lg"
+                className="h-16 w-auto sm:h-20 rounded-2xl shadow-lg"
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo%20png%20-FIY3oXNxi02MktABHYNa4FW1a6ZyOe.png"
                 alt="GrowHub.Co"
               />
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-growhub-red-600/20 to-transparent" />
             </motion.div>
           </Link>
         </div>
@@ -90,13 +89,13 @@ export default function Header() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "tween", duration: 0.3 }}
-            className="lg:hidden fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white dark:bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+            className="lg:hidden fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white dark:bg-black px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
           >
             <div className="flex items-center justify-between">
               <Link to="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">GrowHub.Co</span>
                 <img
-                  className="h-8 w-auto"
+                  className="h-12 w-auto"
                   src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo%20png%20-FIY3oXNxi02MktABHYNa4FW1a6ZyOe.png"
                   alt="GrowHub.Co"
                 />
