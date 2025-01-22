@@ -6,6 +6,7 @@ import { ThemeContext } from "../contexts/ThemeContext"
 
 const navigation = [
   { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
   { name: "Packages", href: "/packages" },
   { name: "Services", href: "/services" },
   { name: "Portfolios", href: "/portfolios" },
@@ -39,7 +40,7 @@ export default function Header() {
             <motion.div whileHover={{ scale: 1.05 }} className="relative">
               <img
                 className="h-12 w-auto sm:h-16 rounded-2xl shadow-lg"
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-01-09%20at%2011.09.49-jEPFeODsDv0Nb0UoZKqk2l6MtN29JS.jpeg"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo%20png%20-FIY3oXNxi02MktABHYNa4FW1a6ZyOe.png"
                 alt="GrowHub.Co"
               />
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-growhub-red-600/20 to-transparent" />
@@ -96,7 +97,7 @@ export default function Header() {
                 <span className="sr-only">GrowHub.Co</span>
                 <img
                   className="h-8 w-auto"
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-01-09%20at%2011.09.49-jEPFeODsDv0Nb0UoZKqk2l6MtN29JS.jpeg"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo%20png%20-FIY3oXNxi02MktABHYNa4FW1a6ZyOe.png"
                   alt="GrowHub.Co"
                 />
               </Link>

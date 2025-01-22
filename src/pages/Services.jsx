@@ -1,4 +1,5 @@
 import SEO from "../components/SEO"
+import ParticleBackground from "../components/ParticleBackground"
 import {
   CodeBracketIcon,
   CpuChipIcon,
@@ -55,38 +56,53 @@ export default function Services() {
         description="Explore our range of software development services tailored to your business needs."
         keywords="software development, web applications, mobile apps, cloud solutions, DevOps, cybersecurity"
       />
-      <div className="bg-white py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-base font-semibold leading-7 text-growhub-red">Our Services</h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Comprehensive Software Solutions for Your Business
-            </p>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-              At GrowHub Solutions, we offer a wide range of software development services to help your business thrive
-              in the digital world. Our expert team is committed to delivering high-quality, innovative solutions
-              tailored to your specific needs.
-            </p>
-          </div>
-          <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-            <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
-              {services.map((service) => (
-                <div key={service.name} className="flex flex-col">
-                  <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
-                    <service.icon className="h-5 w-5 flex-none text-growhub-red" aria-hidden="true" />
-                    {service.name}
-                  </dt>
-                  <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
-                    <p className="flex-auto">{service.description}</p>
-                    <p className="mt-6">
-                      <a href="#" className="text-sm font-semibold leading-6 text-growhub-red">
-                        Learn more <span aria-hidden="true">→</span>
-                      </a>
-                    </p>
-                  </dd>
-                </div>
-              ))}
-            </dl>
+      <div className="relative min-h-screen">
+        <div className="absolute inset-0">
+          <ParticleBackground />
+        </div>
+        <div className="relative z-10">
+          <div className="bg-white/95 dark:bg-black/95 text-gray-900 dark:text-white py-24 sm:py-32">
+            <div className="mx-auto max-w-7xl px-6 lg:px-8">
+              <div className="mx-auto max-w-2xl lg:text-center">
+                <h2 className="text-base font-semibold leading-7 text-growhub-red-600 dark:text-growhub-red-400">
+                  Our Services
+                </h2>
+                <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+                  Comprehensive Software Solutions for Your Business
+                </p>
+                <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
+                  At GrowHub Solutions, we offer a wide range of software development services to help your business
+                  thrive in the digital world. Our expert team is committed to delivering high-quality, innovative
+                  solutions tailored to your specific needs.
+                </p>
+              </div>
+              <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+                <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+                  {services.map((service) => (
+                    <div key={service.name} className="flex flex-col">
+                      <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900 dark:text-white">
+                        <service.icon
+                          className="h-5 w-5 flex-none text-growhub-red-600 dark:text-growhub-red-400"
+                          aria-hidden="true"
+                        />
+                        {service.name}
+                      </dt>
+                      <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600 dark:text-gray-300">
+                        <p className="flex-auto">{service.description}</p>
+                        <p className="mt-6">
+                          <a
+                            href="#"
+                            className="text-sm font-semibold leading-6 text-growhub-red-600 dark:text-growhub-red-400"
+                          >
+                            Learn more <span aria-hidden="true">→</span>
+                          </a>
+                        </p>
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </div>
           </div>
         </div>
       </div>

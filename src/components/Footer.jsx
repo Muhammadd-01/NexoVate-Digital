@@ -10,7 +10,7 @@ export default function Footer() {
             <Link to="/">
               <img
                 className="h-12 w-auto"
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-01-09%20at%2011.09.49-jEPFeODsDv0Nb0UoZKqk2l6MtN29JS.jpeg"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo%20png%20-FIY3oXNxi02MktABHYNa4FW1a6ZyOe.png"
                 alt="GrowHub.Co"
               />
             </Link>

@@ -130,18 +130,14 @@ export default function Home() {
         description="GrowHub.Co - Your partner for innovative software solutions"
         keywords="software development, web applications, mobile apps, cloud solutions"
       />
-      <div className="relative isolate">
+      <div className="relative">
         {/* Hero section */}
-        <div className="relative pt-14">
-          <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
-            <div
-              className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-growhub-red-600 to-white opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-              style={{
-                clipPath:
-                  "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-              }}
-            />
-          </div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="relative pt-14"
+        >
           <div className="py-24 sm:py-32 lg:pb-40">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-2xl text-center">
@@ -149,7 +145,7 @@ export default function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
-                  className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
+                  className="text-4xl font-bold tracking-tight text-white sm:text-6xl"
                 >
                   <GradientText>
                     <Typewriter
@@ -169,7 +165,7 @@ export default function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
-                  className="mt-6 text-lg leading-8 text-gray-600"
+                  className="mt-6 text-lg leading-8 text-gray-300"
                 >
                   At GrowHub.Co, we transform your ideas into powerful, scalable, and user-friendly software
                   applications.
@@ -189,7 +185,7 @@ export default function Home() {
                   </Link>
                   <Link
                     to="/services"
-                    className="text-sm font-semibold leading-6 text-gray-900 hover:text-growhub-red-600 transition-colors duration-200"
+                    className="text-sm font-semibold leading-6 text-gray-300 hover:text-growhub-red-400 transition-colors duration-200"
                   >
                     Learn more <span aria-hidden="true">→</span>
                   </Link>
@@ -213,11 +209,11 @@ export default function Home() {
               </motion.div>
             </div>
           </div>
-        </div>
+        </motion.div>
         {/* Slider section */}
         <Slider slides={slides} />
         {/* Stats section */}
-        <div className="bg-white dark:bg-gray-800 py-24 sm:py-32">
+        <div className="py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center sm:grid-cols-2 lg:grid-cols-4">
               {stats.map((stat) => (
@@ -229,9 +225,9 @@ export default function Home() {
                   transition={{ duration: 0.8 }}
                   viewport={{ once: true }}
                 >
-                  <dt className="text-base leading-7 text-gray-600 dark:text-gray-300">{stat.name}</dt>
-                  <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-5xl flex items-center justify-center">
-                    <stat.icon className="w-8 h-8 mr-2 text-growhub-red-600 dark:text-growhub-red-400" />
+                  <dt className="text-base leading-7 text-gray-400">{stat.name}</dt>
+                  <dd className="order-first text-3xl font-semibold tracking-tight text-white sm:text-5xl flex items-center justify-center">
+                    <stat.icon className="w-8 h-8 mr-2 text-growhub-red-400" />
                     <CountUp end={stat.value} duration={2.5} suffix={stat.suffix} />
                   </dd>
                 </motion.div>
@@ -244,18 +240,18 @@ export default function Home() {
           <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
+                <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
                   Comprehensive Software Solutions
                 </h2>
-                <p className="mt-6 text-lg text-gray-600 dark:text-gray-300">
+                <p className="mt-6 text-lg text-gray-300">
                   From custom software development to cloud solutions, we offer a wide range of services to help your
                   business thrive in the digital world.
                 </p>
                 <div className="mt-8 grid grid-cols-1 gap-4">
                   {features.map((feature) => (
                     <motion.div key={feature} className="flex items-center gap-3" whileHover={{ x: 10 }}>
-                      <CheckCircleIcon className="h-5 w-5 text-growhub-red-600 dark:text-growhub-red-400" />
-                      <span className="text-gray-700 dark:text-gray-300">{feature}</span>
+                      <CheckCircleIcon className="h-5 w-5 text-growhub-red-400" />
+                      <span className="text-gray-300">{feature}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -276,7 +272,7 @@ export default function Home() {
         {/* Project Showcase Slider */}
         <FadeInWhenVisible>
           <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 dark:text-white text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white text-center mb-12">
               Our Latest Projects
             </h2>
             <Slider slides={projects} />
@@ -285,36 +281,40 @@ export default function Home() {
         {/* Featured Projects Section */}
         <FadeInWhenVisible>
           <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 dark:text-white text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white text-center mb-12">
               Featured Projects
             </h2>
-            {loading && <p>Loading featured projects...</p>}
-            {error && <p>Error loading featured projects: {error.message}</p>}
+            {loading && <p className="text-center text-gray-300">Loading featured projects...</p>}
+            {error && <p className="text-center text-red-400">Error loading featured projects: {error.message}</p>}
             {data && (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {data.featuredProjects.map((project) => (
-                  <div key={project.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                  <motion.div
+                    key={project.id}
+                    className="bg-gray-800 rounded-lg shadow-md overflow-hidden"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
                     <img
                       src={project.image || "/placeholder.svg"}
                       alt={project.title}
                       className="w-full h-48 object-cover"
                     />
                     <div className="p-6">
-                      <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                      <p className="text-gray-600 dark:text-gray-300">{project.description}</p>
+                      <h3 className="text-xl font-semibold mb-2 text-white">{project.title}</h3>
+                      <p className="text-gray-300">{project.description}</p>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             )}
           </div>
         </FadeInWhenVisible>
-
         {/* Testimonials section */}
         <FadeInWhenVisible>
-          <div className="bg-gradient-to-b from-white to-growhub-red-50 dark:from-gray-900 dark:to-gray-800 py-24">
+          <div className="py-24">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
-              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 dark:text-white text-center mb-12">
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white text-center mb-12">
                 What Our Clients Say
               </h2>
               <Slider
@@ -337,7 +337,7 @@ export default function Home() {
               <motion.div whileHover={{ scale: 1.05 }} className="inline-block">
                 <Link
                   to="/contact"
-                  className="rounded-md bg-white px-6 py-3 text-lg font-semibold text-growhub-red-600 shadow-lg hover:bg-gray-50 transition-colors duration-200"
+                  className="rounded-md bg-white px-6 py-3 text-lg font-semibold text-growhub-red-600 shadow-lg hover:bg-gray-100 transition-colors duration-200"
                   onClick={handleConfetti}
                 >
                   Get Started Today

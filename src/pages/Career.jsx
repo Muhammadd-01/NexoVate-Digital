@@ -66,11 +66,13 @@ export default function Career() {
         description="Join our team at GrowHub Solutions and be part of innovative software development projects."
         keywords="software development jobs, tech careers, job openings"
       />
-      <div className="bg-white py-24 sm:py-32">
+      <div className="bg-white dark:bg-black text-gray-900 dark:text-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Open positions</h2>
-            <p className="mt-2 text-lg leading-8 text-gray-600">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+              Open positions
+            </h2>
+            <p className="mt-2 text-lg leading-8 text-gray-600 dark:text-gray-300">
               Join our team and help shape the future of software development.
             </p>
           </div>
@@ -81,25 +83,25 @@ export default function Career() {
                   <time dateTime={position.closeDate} className="text-gray-500">
                     {position.closeDateFull}
                   </time>
-                  <span className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">
+                  <span className="relative z-10 rounded-full bg-gray-50 dark:bg-gray-800 px-3 py-1.5 font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
                     {position.type}
                   </span>
                 </div>
                 <div className="group relative">
-                  <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                  <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300">
                     <button onClick={() => setSelectedPosition(position)}>
                       <span className="absolute inset-0" />
                       {position.title}
                     </button>
                   </h3>
-                  <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
+                  <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600 dark:text-gray-300">
                     {position.department} · {position.location}
                   </p>
                 </div>
                 <div className="relative mt-8 flex items-center gap-x-4">
                   <button
                     onClick={() => setSelectedPosition(position)}
-                    className="text-sm font-semibold leading-6 text-growhub-red"
+                    className="text-sm font-semibold leading-6 text-growhub-red-600 dark:text-growhub-red-400"
                   >
                     Apply now <span aria-hidden="true">→</span>
                   </button>
@@ -112,11 +114,13 @@ export default function Career() {
 
       {selectedPosition && (
         <div className="fixed inset-0 z-50 overflow-y-auto bg-gray-500 bg-opacity-75 flex items-center justify-center">
-          <div className="bg-white p-8 rounded-lg max-w-md w-full">
-            <h2 className="text-2xl font-bold mb-4">Apply for {selectedPosition.title}</h2>
+          <div className="bg-white dark:bg-gray-800 p-8 rounded-lg max-w-md w-full">
+            <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+              Apply for {selectedPosition.title}
+            </h2>
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Name
                 </label>
                 <input
@@ -126,11 +130,11 @@ export default function Career() {
                   value={applicationData.name}
                   onChange={handleInputChange}
                   required
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-growhub-red focus:ring-growhub-red sm:text-sm"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-growhub-red-500 focus:ring-growhub-red-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm"
                 />
               </div>
               <div className="mb-4">
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Email
                 </label>
                 <input
@@ -140,11 +144,11 @@ export default function Career() {
                   value={applicationData.email}
                   onChange={handleInputChange}
                   required
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-growhub-red focus:ring-growhub-red sm:text-sm"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-growhub-red-500 focus:ring-growhub-red-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm"
                 />
               </div>
               <div className="mb-4">
-                <label htmlFor="resume" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="resume" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Resume
                 </label>
                 <input
@@ -153,16 +157,18 @@ export default function Career() {
                   name="resume"
                   onChange={handleFileChange}
                   required
-                  className="mt-1 block w-full text-sm text-gray-500
+                  className="mt-1 block w-full text-sm text-gray-500 dark:text-gray-300
                     file:mr-4 file:py-2 file:px-4
                     file:rounded-full file:border-0
                     file:text-sm file:font-semibold
-                    file:bg-growhub-red file:text-white
-                    hover:file:bg-red-600"
+                    file:bg-growhub-red-600 file:text-white
+                    hover:file:bg-red-600
+                    dark:file:bg-growhub-red-400 dark:file:text-gray-800
+                    dark:hover:file:bg-red-500"
                 />
               </div>
               <div className="mb-4">
-                <label htmlFor="coverLetter" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="coverLetter" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Cover Letter
                 </label>
                 <textarea
@@ -171,20 +177,20 @@ export default function Career() {
                   value={applicationData.coverLetter}
                   onChange={handleInputChange}
                   rows={4}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-growhub-red focus:ring-growhub-red sm:text-sm"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-growhub-red-500 focus:ring-growhub-red-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm"
                 ></textarea>
               </div>
               <div className="flex justify-end space-x-4">
                 <button
                   type="button"
                   onClick={() => setSelectedPosition(null)}
-                  className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-growhub-red"
+                  className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-growhub-red-500 dark:bg-gray-600 dark:text-white dark:hover:bg-gray-500"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 text-sm font-medium text-white bg-growhub-red rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-growhub-red"
+                  className="px-4 py-2 text-sm font-medium text-white bg-growhub-red-600 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-growhub-red-500 dark:bg-growhub-red-400 dark:text-gray-800 dark:hover:bg-red-500"
                 >
                   Submit Application
                 </button>
