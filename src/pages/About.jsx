@@ -10,7 +10,7 @@ const About = () => {
         description="Learn more about GrowHub.Co and our mission to provide innovative software solutions"
         keywords="about us, software development, company mission, team"
       />
-      <div className="bg-white dark:bg-black text-black dark:text-white py-16 px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 text-black dark:text-white py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <motion.h1
             initial={{ opacity: 0, y: -20 }}

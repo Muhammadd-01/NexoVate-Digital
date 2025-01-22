@@ -36,7 +36,7 @@ export default function Testimonials() {
           <ParticleBackground />
         </div>
         <div className="relative z-10">
-          <div className="bg-white/95 dark:bg-black/95 text-gray-900 dark:text-white py-24 sm:py-32">
+          <div className="text-gray-900 dark:text-white py-24 sm:py-32">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-xl text-center">
                 <h2 className="text-lg font-semibold leading-8 tracking-tight text-growhub-red-600 dark:text-growhub-red-400">

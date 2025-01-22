@@ -61,7 +61,7 @@ export default function Services() {
           <ParticleBackground />
         </div>
         <div className="relative z-10">
-          <div className="bg-white/95 dark:bg-black/95 text-gray-900 dark:text-white py-24 sm:py-32">
+          <div className="text-gray-900 dark:text-white py-24 sm:py-32">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-2xl lg:text-center">
                 <h2 className="text-base font-semibold leading-7 text-growhub-red-600 dark:text-growhub-red-400">
