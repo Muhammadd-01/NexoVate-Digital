@@ -7,6 +7,7 @@ import Chatbot from "./components/Chatbot"
 import WhatsAppButton from "./components/WhatsAppButton"
 import ParticleBackground from "./components/ParticleBackground"
 import AnimatedBackground from "./components/AnimatedBackground"
+import ScrollToTop from "./components/ScrollToTop"
 
 import Home from "./pages/Home"
 import About from "./pages/About"
@@ -70,11 +71,12 @@ function App() {
         </motion.main>
       </AnimatePresence>
       <Footer />
-      <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end space-y-4">
+      <div className="fixed bottom-4 right-4 z-40 flex flex-col items-end space-y-4">
         <Chatbot />
         <WhatsAppButton />
       </div>
       <Toaster position="top-right" />
+      <ScrollToTop />
     </div>
   )
 }

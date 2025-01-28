@@ -24,7 +24,12 @@ export default function Header() {
 
   useEffect(() => {
     setMobileMenuOpen(false)
-  }, [location])
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = "unset"
+    }
+  }, [location, mobileMenuOpen])
 
   return (
     <motion.header
@@ -39,7 +44,7 @@ export default function Header() {
             <span className="sr-only">GrowHub.Co</span>
             <motion.div whileHover={{ scale: 1.05 }} className="relative">
               <img
-                className="h-16 w-auto sm:h-20 rounded-2xl shadow-lg"
+                className="h-20 w-auto sm:h-24 rounded-2xl shadow-lg"
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo%20png%20-FIY3oXNxi02MktABHYNa4FW1a6ZyOe.png"
                 alt="GrowHub.Co"
               />
@@ -89,7 +94,7 @@ export default function Header() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "tween", duration: 0.3 }}
-            className="lg:hidden fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white dark:bg-black px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+            className="lg:hidden fixed inset-0 z-50 w-full h-full overflow-y-auto bg-white dark:bg-black px-6 py-6"
           >
             <div className="flex items-center justify-between">
               <Link to="/" className="-m-1.5 p-1.5">

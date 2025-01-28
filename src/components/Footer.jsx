@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="col-span-1">
             <Link to="/">
               <img
-                className="h-20 w-auto"
+                className="h-24 w-auto"
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo%20png%20-FIY3oXNxi02MktABHYNa4FW1a6ZyOe.png"
                 alt="GrowHub.Co"
               />
