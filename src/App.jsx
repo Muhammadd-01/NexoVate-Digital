@@ -74,9 +74,10 @@ function App() {
       <div className="fixed bottom-4 right-4 z-40 flex flex-col items-end space-y-4">
         <Chatbot />
         <WhatsAppButton />
+        <ScrollToTop />
       </div>
       <Toaster position="top-right" />
-      <ScrollToTop />
+      
     </div>
   )
 }
