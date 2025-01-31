@@ -2,6 +2,7 @@ import SEO from "../components/SEO"
 import { motion } from "framer-motion"
 import { CheckIcon } from "@heroicons/react/24/outline"
 import ParticleBackground from "../components/ParticleBackground"
+import { FadeInWhenVisible } from "../components/Animations"
 
 const packages = [
   {
@@ -57,51 +58,53 @@ export default function Packages() {
                   looking to scale, we have a solution for you.
                 </p>
               </div>
-              <div className="mx-auto mt-16 grid max-w-lg gap-8 grid-cols-1 items-center sm:mt-20 lg:max-w-4xl lg:grid-cols-3">
-                {packages.map((pkg, index) => (
-                  <motion.div
-                    key={pkg.name}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className={`flex flex-col justify-between rounded-3xl bg-white dark:bg-gray-800 p-8 shadow-xl ring-1 ring-gray-900/10 dark:ring-gray-100/10 sm:p-10 ${
-                      pkg.popular ? "relative z-10 scale-105" : ""
-                    }`}
-                  >
-                    {pkg.popular && (
-                      <div className="absolute -top-4 right-8 rounded-full bg-growhub-red-600 px-4 py-1 text-xs font-semibold text-white">
-                        Popular
-                      </div>
-                    )}
-                    <div>
-                      <h3 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{pkg.name}</h3>
-                      <div className="mt-4 flex items-baseline text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
-                        {pkg.price}
-                      </div>
-                      <ul role="list" className="mt-8 space-y-3 text-sm leading-6 text-gray-600 dark:text-gray-300">
-                        {pkg.features.map((feature) => (
-                          <li key={feature} className="flex gap-x-3">
-                            <CheckIcon className="h-6 w-5 flex-none text-growhub-red-600" aria-hidden="true" />
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <motion.a
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      href="#"
-                      className={`mt-8 block w-full rounded-md px-3.5 py-2 text-center text-sm font-semibold leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${
-                        pkg.popular
-                          ? "bg-growhub-red-600 text-white hover:bg-growhub-red-500 focus-visible:outline-growhub-red-600"
-                          : "bg-gray-50 text-gray-900 hover:bg-gray-100 focus-visible:outline-gray-600"
-                      } dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600`}
+              <FadeInWhenVisible>
+                <div className="mx-auto mt-16 grid max-w-lg gap-8 grid-cols-1 items-center sm:mt-20 lg:max-w-4xl lg:grid-cols-3">
+                  {packages.map((pkg, index) => (
+                    <motion.div
+                      key={pkg.name}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      className={`flex flex-col justify-between rounded-3xl bg-white dark:bg-gray-800 p-8 shadow-xl ring-1 ring-gray-900/10 dark:ring-gray-100/10 sm:p-10 ${
+                        pkg.popular ? "relative z-10 scale-105" : ""
+                      }`}
                     >
-                      {pkg.cta}
-                    </motion.a>
-                  </motion.div>
-                ))}
-              </div>
+                      {pkg.popular && (
+                        <div className="absolute -top-4 right-8 rounded-full bg-growhub-red-600 px-4 py-1 text-xs font-semibold text-white">
+                          Popular
+                        </div>
+                      )}
+                      <div>
+                        <h3 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{pkg.name}</h3>
+                        <div className="mt-4 flex items-baseline text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
+                          {pkg.price}
+                        </div>
+                        <ul role="list" className="mt-8 space-y-3 text-sm leading-6 text-gray-600 dark:text-gray-300">
+                          {pkg.features.map((feature) => (
+                            <li key={feature} className="flex gap-x-3">
+                              <CheckIcon className="h-6 w-5 flex-none text-growhub-red-600" aria-hidden="true" />
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <motion.a
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        href="#"
+                        className={`mt-8 block w-full rounded-md px-3.5 py-2 text-center text-sm font-semibold leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${
+                          pkg.popular
+                            ? "bg-growhub-red-600 text-white hover:bg-growhub-red-500 focus-visible:outline-growhub-red-600"
+                            : "bg-gray-50 text-gray-900 hover:bg-gray-100 focus-visible:outline-gray-600"
+                        } dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600`}
+                      >
+                        {pkg.cta}
+                      </motion.a>
+                    </motion.div>
+                  ))}
+                </div>
+              </FadeInWhenVisible>
             </div>
           </div>
         </div>

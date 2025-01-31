@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { ArrowRightIcon, CheckCircleIcon } from "@heroicons/react/24/outline"
+import { CheckCircleIcon } from "@heroicons/react/24/outline"
 import { FaProjectDiagram, FaUsers, FaUserTie, FaClock } from "react-icons/fa"
 import SEO from "../components/SEO"
 import { motion, useScroll, useTransform } from "framer-motion"
