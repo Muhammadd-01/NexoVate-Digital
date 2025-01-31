@@ -14,9 +14,7 @@ export default function Footer() {
                 alt="GrowHub.Co"
               />
             </Link>
-            <p className="mt-4 text-sm text-gray-600 dark:text-gray-300">
-              Empowering businesses through innovative software solutions.
-            </p>
+            <p className="mt-4 text-sm text-content">Empowering businesses through innovative software solutions.</p>
           </div>
           <div>
             <h3 className="text-sm font-semibold text-gray-900 dark:text-white">Company</h3>
@@ -107,7 +105,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 border-t border-gray-200 dark:border-gray-700 pt-8">
-          <p className="text-center text-sm text-gray-600 dark:text-gray-300">
+          <p className="text-center text-sm text-content">
             &copy; {new Date().getFullYear()} GrowHub.Co. All rights reserved.
           </p>
         </div>

@@ -145,7 +145,7 @@ export default function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
-                  className="text-4xl font-bold tracking-tight text-white sm:text-6xl"
+                  className="text-4xl font-bold tracking-tight text-content sm:text-6xl"
                 >
                   <GradientText>
                     <Typewriter
@@ -165,7 +165,7 @@ export default function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
-                  className="mt-6 text-lg leading-8 text-gray-300"
+                  className="mt-6 text-lg leading-8 text-content"
                 >
                   At GrowHub.Co, we transform your ideas into powerful, scalable, and user-friendly software
                   applications.
@@ -225,8 +225,8 @@ export default function Home() {
                   transition={{ duration: 0.8 }}
                   viewport={{ once: true }}
                 >
-                  <dt className="text-base leading-7 text-gray-400">{stat.name}</dt>
-                  <dd className="order-first text-3xl font-semibold tracking-tight text-white sm:text-5xl flex items-center justify-center">
+                  <dt className="text-base leading-7 text-content">{stat.name}</dt>
+                  <dd className="order-first text-3xl font-semibold tracking-tight text-content sm:text-5xl flex items-center justify-center">
                     <stat.icon className="w-8 h-8 mr-2 text-growhub-red-400" />
                     <CountUp end={stat.value} duration={2.5} suffix={stat.suffix} />
                   </dd>
@@ -240,10 +240,10 @@ export default function Home() {
           <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+                <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-content">
                   Comprehensive Software Solutions
                 </h2>
-                <p className="mt-6 text-lg text-gray-300">
+                <p className="mt-6 text-lg text-content">
                   From custom software development to cloud solutions, we offer a wide range of services to help your
                   business thrive in the digital world.
                 </p>
@@ -272,7 +272,7 @@ export default function Home() {
         {/* Project Showcase Slider */}
         <FadeInWhenVisible>
           <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-content text-center mb-12">
               Our Latest Projects
             </h2>
             <Slider slides={projects} />
@@ -281,7 +281,7 @@ export default function Home() {
         {/* Featured Projects Section */}
         <FadeInWhenVisible>
           <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-content text-center mb-12">
               Featured Projects
             </h2>
             {loading && <p className="text-center text-gray-300">Loading featured projects...</p>}
@@ -301,7 +301,7 @@ export default function Home() {
                       className="w-full h-48 object-cover"
                     />
                     <div className="p-6">
-                      <h3 className="text-xl font-semibold mb-2 text-white">{project.title}</h3>
+                      <h3 className="text-xl font-semibold mb-2 text-content">{project.title}</h3>
                       <p className="text-gray-300">{project.description}</p>
                     </div>
                   </motion.div>
@@ -314,7 +314,7 @@ export default function Home() {
         <FadeInWhenVisible>
           <div className="py-24">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
-              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white text-center mb-12">
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-content text-center mb-12">
                 What Our Clients Say
               </h2>
               <Slider
@@ -327,10 +327,10 @@ export default function Home() {
         <FadeInWhenVisible>
           <div className="bg-gradient-to-r from-growhub-red-600 to-growhub-red-700 py-24">
             <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
-              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-8">
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-content mb-8">
                 Ready to Transform Your Business?
               </h2>
-              <p className="text-lg text-white/80 mb-12">
+              <p className="text-lg text-content/80 mb-12">
                 Let's discuss how our innovative software solutions can help your business grow and succeed in the
                 digital age.
               </p>

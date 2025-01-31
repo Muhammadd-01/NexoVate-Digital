@@ -65,10 +65,10 @@ export default function Header() {
             <Link
               key={item.name}
               to={item.href}
-              className={`text-sm font-semibold leading-6 transition-colors duration-200 ${
+              className={`text-sm font-semibold leading-6 transition-colors duration-200 text-content ${
                 location.pathname === item.href
                   ? "text-growhub-red-600 dark:text-growhub-red-400"
-                  : "text-gray-900 dark:text-gray-200 hover:text-growhub-red-600 dark:hover:text-growhub-red-400"
+                  : "hover:text-growhub-red-600 dark:hover:text-growhub-red-400"
               }`}
             >
               <motion.span whileHover={{ scale: 1.05 }} className="inline-block">

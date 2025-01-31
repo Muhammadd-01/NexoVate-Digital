@@ -18,7 +18,7 @@
 }
 
 body {
-  @apply bg-black text-white;
+  @apply bg-black text-white text-black dark:text-white;
 }
 
 /* Smooth scrolling */
@@ -47,5 +47,24 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--growhub-red-700);
+}
+
+/* Global text color styles */
+.text-content {
+  @apply text-black dark:text-white;
+}
+
+/* Override any conflicting styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+div,
+li {
+  @apply text-black dark:text-white;
 }
 
