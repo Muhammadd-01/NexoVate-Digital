@@ -71,7 +71,8 @@ function App() {
         </motion.main>
       </AnimatePresence>
       <Footer />
-      <div className="fixed bottom-4 right-4 z-40 flex flex-col items-end space-y-4">
+      <div className="fixed bottom-4 right-4 z-40 flex flex-col items-end space-y-4"
+          style={{ position: "fixed", bottom: "1rem", right: "1rem" }}>
         <Chatbot />
         <WhatsAppButton />
         <ScrollToTop />

@@ -166,7 +166,7 @@ export default function Packages() {
         <div className="text-gray-900 dark:text-white py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl sm:text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+              <h2 className="text-3xl font-bold tracking-tight text-black dark:text-white sm:text-4xl">
                 Our Service Packages
               </h2>
               <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
@@ -177,7 +177,7 @@ export default function Packages() {
             {packageCategories.map((category, categoryIndex) => (
               <FadeInWhenVisible key={category.title}>
                 <div className="mt-24">
-                  <h3 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl mb-12 text-center">
+                  <h3 className="text-2xl font-bold tracking-tight text-black dark:text-white sm:text-3xl mb-12 text-center">
                     {category.title}
                   </h3>
                   <div className="mx-auto grid max-w-lg gap-8 grid-cols-1 items-center lg:max-w-none lg:grid-cols-3">
@@ -197,13 +197,11 @@ export default function Packages() {
                           </div>
                         )}
                         <div>
-                          <h3 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                            {pkg.name}
-                          </h3>
-                          <div className="mt-4 flex items-baseline text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
+                          <h3 className="text-2xl font-bold tracking-tight text-black dark:text-white">{pkg.name}</h3>
+                          <div className="mt-4 flex items-baseline text-5xl font-bold tracking-tight text-black dark:text-white">
                             {pkg.price}
                           </div>
-                          <ul role="list" className="mt-8 space-y-3 text-sm leading-6 text-gray-600 dark:text-gray-300">
+                          <ul role="list" className="mt-8 space-y-3 text-sm leading-6 text-black dark:text-white">
                             {pkg.features.map((feature) => (
                               <li key={feature} className="flex gap-x-3">
                                 <CheckIcon className="h-6 w-5 flex-none text-growhub-red-600" aria-hidden="true" />
@@ -232,7 +230,7 @@ export default function Packages() {
             ))}
 
             <div className="mt-32">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl text-center mb-16">
+              <h2 className="text-3xl font-bold tracking-tight text-black dark:text-white sm:text-4xl text-center mb-16">
                 Why Choose GrowHub Solutions?
               </h2>
               <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -242,8 +240,8 @@ export default function Packages() {
                   transition={{ duration: 0.5 }}
                   className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"
                 >
-                  <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Expertise</h3>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <h3 className="text-xl font-semibold mb-4 text-black dark:text-white">Expertise</h3>
+                  <p className="text-black dark:text-white">
                     Our team of skilled professionals brings years of experience and cutting-edge knowledge to every
                     project.
                   </p>
@@ -254,8 +252,8 @@ export default function Packages() {
                   transition={{ duration: 0.5, delay: 0.1 }}
                   className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"
                 >
-                  <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Customization</h3>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <h3 className="text-xl font-semibold mb-4 text-black dark:text-white">Customization</h3>
+                  <p className="text-black dark:text-white">
                     We tailor our solutions to fit your unique business needs, ensuring maximum impact and efficiency.
                   </p>
                 </motion.div>
@@ -265,8 +263,8 @@ export default function Packages() {
                   transition={{ duration: 0.5, delay: 0.2 }}
                   className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"
                 >
-                  <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Support</h3>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <h3 className="text-xl font-semibold mb-4 text-black dark:text-white">Support</h3>
+                  <p className="text-black dark:text-white">
                     We provide ongoing support and maintenance to ensure your digital solutions continue to perform at
                     their best.
                   </p>
