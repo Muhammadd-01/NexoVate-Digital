@@ -1,16 +1,16 @@
-import React from "react"
 import SEO from "../components/SEO"
 import { motion } from "framer-motion"
+import { Link } from "react-router-dom"
 
 const About = () => {
   return (
     <>
       <SEO
         title="About Us"
-        description="Learn more about GrowHub.Co and our mission to provide innovative software solutions"
-        keywords="about us, software development, company mission, team"
+        description="Learn more about Grow Hub Solutions and our mission to empower businesses with premium digital solutions"
+        keywords="about us, digital solutions, graphic design, website development, social media services"
       />
-      <div className="relative z-10 text-black dark:text-white py-16 px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 text-gray-900 dark:text-white py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
@@ -18,7 +18,7 @@ const About = () => {
             transition={{ duration: 0.5 }}
             className="text-4xl font-bold mb-8 text-center"
           >
-            About GrowHub.Co
+            About Grow Hub Solutions
           </motion.h1>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -27,50 +27,26 @@ const About = () => {
             className="grid grid-cols-1 md:grid-cols-2 gap-12"
           >
             <div>
-              <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
               <p className="mb-4">
-                At GrowHub.Co, our mission is to empower businesses through innovative software solutions. We strive to
-                deliver cutting-edge technology that drives growth, efficiency, and success for our clients.
+                Grow Hub Solutions is dedicated to empowering businesses with premium graphic design, website
+                development, and strategic social media services. With over 4 years of experience, we aim to help brands
+                thrive in today's competitive digital space.
               </p>
-              <p>
-                With a team of passionate experts and a commitment to excellence, we're dedicated to transforming ideas
-                into powerful, scalable applications that make a real difference in the digital landscape.
-              </p>
+              <h2 className="text-2xl font-semibold mb-4">Our Vision</h2>
+              <p className="mb-4">To be a global leader in digital solutions for businesses.</p>
+              <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
+              <p className="mb-4">Deliver creative strategies and designs that drive measurable results.</p>
             </div>
-            <div>
-              <h2 className="text-2xl font-semibold mb-4">Our Approach</h2>
-              <ul className="list-disc list-inside space-y-2">
-                <li>Client-Centric Focus</li>
-                <li>Innovative Problem Solving</li>
-                <li>Agile Development Methodology</li>
-                <li>Continuous Learning and Improvement</li>
-                <li>Quality-Driven Results</li>
-                <li>Collaborative Partnerships</li>
-              </ul>
+            <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg">
+              <h2 className="text-2xl font-semibold mb-4">Let's build something amazing together!</h2>
+              <p className="mb-4">Email us at contact@growhubsolutions.com</p>
+              <Link
+                to="/contact"
+                className="inline-block rounded-md bg-growhub-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-growhub-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-growhub-red-600"
+              >
+                Contact Us
+              </Link>
             </div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-12"
-          >
-            <h2 className="text-2xl font-semibold mb-4">Our Expertise</h2>
-            <p className="mb-4">
-              With years of experience in the software development industry, we specialize in a wide range of
-              technologies and services, including:
-            </p>
-            <ul className="list-disc list-inside space-y-2 columns-2 sm:columns-3">
-              <li>Custom Software Development</li>
-              <li>Web Application Development</li>
-              <li>Mobile App Development</li>
-              <li>Cloud Solutions</li>
-              <li>DevOps Services</li>
-              <li>AI & Machine Learning</li>
-              <li>IoT Solutions</li>
-              <li>Blockchain Development</li>
-              <li>Data Analytics</li>
-            </ul>
           </motion.div>
         </div>
       </div>
