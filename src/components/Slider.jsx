@@ -26,7 +26,7 @@ const Slider = ({ slides }) => {
           custom={currentIndex}
           variants={{
             enter: (direction) => ({
-              x: direction > 0 ? 1000 : -1000,
+              x: direction > 0 ? "100%" : "-100%",
               opacity: 0,
             }),
             center: {
@@ -36,7 +36,7 @@ const Slider = ({ slides }) => {
             },
             exit: (direction) => ({
               zIndex: 0,
-              x: direction < 0 ? 1000 : -1000,
+              x: direction < 0 ? "100%" : "-100%",
               opacity: 0,
             }),
           }}
@@ -45,7 +45,7 @@ const Slider = ({ slides }) => {
           exit="exit"
           transition={{
             x: { type: "spring", stiffness: 300, damping: 30 },
-            opacity: { duration: 0.2 },
+            opacity: { duration: 0.5 },
           }}
           className="absolute w-full h-full"
         >

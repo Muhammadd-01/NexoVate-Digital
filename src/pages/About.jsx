@@ -23,7 +23,7 @@ const About = () => {
               transition={{ duration: 0.5 }}
               className="text-4xl font-bold mb-8 text-center"
             >
-              About Grow Hub Solutions
+              About GrowHub Solutions
             </motion.h1>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -32,26 +32,62 @@ const About = () => {
               className="grid grid-cols-1 md:grid-cols-2 gap-12"
             >
               <div>
+                <h2 className="text-2xl font-semibold mb-4">Our Story</h2>
                 <p className="mb-4">
-                  Grow Hub Solutions is dedicated to empowering businesses with premium graphic design, website
-                  development, and strategic social media services. With over 4 years of experience, we aim to help
-                  brands thrive in today's competitive digital space.
+                  Founded in 2019, GrowHub Solutions emerged from a passion for empowering businesses through innovative
+                  digital solutions. Our journey began with a small team of dedicated professionals who believed in the
+                  power of technology to transform businesses.
                 </p>
-                <h2 className="text-2xl font-semibold mb-4">Our Vision</h2>
-                <p className="mb-4">To be a global leader in digital solutions for businesses.</p>
-                <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
-                <p className="mb-4">Deliver creative strategies and designs that drive measurable results.</p>
+                <p className="mb-4">
+                  Today, we've grown into a dynamic agency, serving clients across various industries. Our commitment to
+                  excellence and customer satisfaction has been the driving force behind our success.
+                </p>
+                <h2 className="text-2xl font-semibold mb-4">Our Expertise</h2>
+                <ul className="list-disc pl-5 mb-4">
+                  <li>Custom Website Development</li>
+                  <li>E-commerce Solutions</li>
+                  <li>Search Engine Optimization (SEO)</li>
+                  <li>Graphic Design and Branding</li>
+                  <li>Digital Marketing Strategies</li>
+                  <li>Software Development</li>
+                </ul>
               </div>
-              <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg">
-                <h2 className="text-2xl font-semibold mb-4">Let's build something amazing together!</h2>
-                <p className="mb-4">Email us at contact@growhubsolutions.com</p>
-                <Link
-                  to="/contact"
-                  className="inline-block rounded-md bg-growhub-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-growhub-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-growhub-red-600"
-                >
-                  Contact Us
-                </Link>
+              <div>
+                <h2 className="text-2xl font-semibold mb-4">Our Approach</h2>
+                <p className="mb-4">
+                  At GrowHub Solutions, we believe in a collaborative approach. We work closely with our clients to
+                  understand their unique needs and challenges. This allows us to deliver tailored solutions that drive
+                  real results.
+                </p>
+                <h2 className="text-2xl font-semibold mb-4">Our Values</h2>
+                <ul className="list-disc pl-5 mb-4">
+                  <li>Innovation: We stay at the forefront of technology trends.</li>
+                  <li>Integrity: We build trust through honest and transparent practices.</li>
+                  <li>Quality: We deliver excellence in every project we undertake.</li>
+                  <li>Collaboration: We believe in the power of teamwork and partnership.</li>
+                </ul>
+                <h2 className="text-2xl font-semibold mb-4">Our Impact</h2>
+                <p className="mb-4">
+                  Over the years, we've helped numerous businesses increase their online visibility, streamline their
+                  operations, and achieve significant growth. Our client success stories are a testament to our
+                  commitment and expertise.
+                </p>
               </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="mt-12 text-center"
+            >
+              <h2 className="text-2xl font-semibold mb-4">Ready to grow with us?</h2>
+              <p className="mb-4">Let's discuss how we can help your business thrive in the digital landscape.</p>
+              <Link
+                to="/contact"
+                className="inline-block rounded-md bg-growhub-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-growhub-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-growhub-red-600"
+              >
+                Get in Touch
+              </Link>
             </motion.div>
           </div>
         </div>
