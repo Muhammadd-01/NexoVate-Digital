@@ -21,7 +21,7 @@ const ParticleBackground = () => {
         },
         background: {
           color: {
-            value: theme === "dark" ? "#000000" : "#ffffff",
+            value: theme === "dark" ? "#000000" : "#FFFFFF",
           },
         },
         fpsLimit: 120,
@@ -49,10 +49,10 @@ const ParticleBackground = () => {
         },
         particles: {
           color: {
-            value: theme === "dark" ? "#ffffff" : "#000000",
+            value: theme === "dark" ? "#FFFFFF" : "#0000FF",
           },
           links: {
-            color: theme === "dark" ? "#ffffff" : "#000000",
+            color: theme === "dark" ? "#FFFFFF" : "#0000FF",
             distance: 150,
             enable: true,
             opacity: 0.5,
