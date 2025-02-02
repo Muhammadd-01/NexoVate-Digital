@@ -36,12 +36,12 @@ export default function Header() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link to="/" className="-m-1.5 p-1.5">
-            <span className="sr-only">GrowHub.Co</span>
+            <span className="sr-only">NexoVate Digital</span>
             <motion.div whileHover={{ scale: 1.05 }} className="relative">
               <img
                 className="h-20 w-auto sm:h-24 rounded-2xl shadow-lg"
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo%20png%20-FIY3oXNxi02MktABHYNa4FW1a6ZyOe.png"
-                alt="GrowHub.Co"
+                alt="NexoVate Digital"
               />
             </motion.div>
           </Link>
@@ -49,7 +49,7 @@ export default function Header() {
         <div className="flex lg:hidden">
           <button
             type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 dark:text-gray-200"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-nexovate-blue-700 dark:text-nexovate-blue-200"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <span className="sr-only">Open main menu</span>
@@ -67,8 +67,8 @@ export default function Header() {
               to={item.href}
               className={`text-sm font-semibold leading-6 transition-colors duration-200 text-content ${
                 location.pathname === item.href
-                  ? "text-growhub-red-600 dark:text-growhub-red-400"
-                  : "hover:text-growhub-red-600 dark:hover:text-growhub-red-400"
+                  ? "text-nexovate-purple-600 dark:text-nexovate-purple-400"
+                  : "hover:text-nexovate-purple-600 dark:hover:text-nexovate-purple-400"
               }`}
             >
               <motion.span whileHover={{ scale: 1.05 }} className="inline-block">
@@ -80,7 +80,7 @@ export default function Header() {
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <button
             onClick={toggleTheme}
-            className="rounded-full p-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
+            className="rounded-full p-2 bg-nexovate-blue-100 dark:bg-nexovate-blue-700 text-nexovate-blue-800 dark:text-nexovate-blue-200"
           >
             {theme === "dark" ? <SunIcon className="h-5 w-5" /> : <MoonIcon className="h-5 w-5" />}
           </button>

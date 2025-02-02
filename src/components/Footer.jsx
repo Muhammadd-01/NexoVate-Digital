@@ -8,13 +8,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1">
             <Link to="/">
-              <img
-                className="h-24 w-auto"
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo%20png%20-FIY3oXNxi02MktABHYNa4FW1a6ZyOe.png"
-                alt="GrowHub.Co"
-              />
+              <img className="h-24 w-auto" src="/nexovate-logo.png" alt="NexoVate Digital" />
             </Link>
-            <p className="mt-4 text-sm text-content">Empowering businesses through innovative software solutions.</p>
+            <p className="mt-4 text-sm text-content">Empowering businesses through innovative digital solutions.</p>
           </div>
           <div>
             <h3 className="text-sm font-semibold text-gray-900 dark:text-white">Company</h3>
@@ -22,7 +18,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/about"
-                  className="text-sm text-gray-600 dark:text-gray-300 hover:text-growhub-red-600 dark:hover:text-growhub-red-400"
+                  className="text-sm text-nexovate-blue-600 dark:text-nexovate-blue-300 hover:text-nexovate-purple-600 dark:hover:text-nexovate-purple-400"
                 >
                   About
                 </Link>
@@ -30,7 +26,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/career"
-                  className="text-sm text-gray-600 dark:text-gray-300 hover:text-growhub-red-600 dark:hover:text-growhub-red-400"
+                  className="text-sm text-nexovate-blue-600 dark:text-nexovate-blue-300 hover:text-nexovate-purple-600 dark:hover:text-nexovate-purple-400"
                 >
                   Careers
                 </Link>
@@ -38,7 +34,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/contact"
-                  className="text-sm text-gray-600 dark:text-gray-300 hover:text-growhub-red-600 dark:hover:text-growhub-red-400"
+                  className="text-sm text-nexovate-blue-600 dark:text-nexovate-blue-300 hover:text-nexovate-purple-600 dark:hover:text-nexovate-purple-400"
                 >
                   Contact
                 </Link>
@@ -51,7 +47,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/services"
-                  className="text-sm text-gray-600 dark:text-gray-300 hover:text-growhub-red-600 dark:hover:text-growhub-red-400"
+                  className="text-sm text-nexovate-blue-600 dark:text-nexovate-blue-300 hover:text-nexovate-purple-600 dark:hover:text-nexovate-purple-400"
                 >
                   Web Development
                 </Link>
@@ -59,7 +55,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/services"
-                  className="text-sm text-gray-600 dark:text-gray-300 hover:text-growhub-red-600 dark:hover:text-growhub-red-400"
+                  className="text-sm text-nexovate-blue-600 dark:text-nexovate-blue-300 hover:text-nexovate-purple-600 dark:hover:text-nexovate-purple-400"
                 >
                   Mobile Apps
                 </Link>
@@ -67,7 +63,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/services"
-                  className="text-sm text-gray-600 dark:text-gray-300 hover:text-growhub-red-600 dark:hover:text-growhub-red-400"
+                  className="text-sm text-nexovate-blue-600 dark:text-nexovate-blue-300 hover:text-nexovate-purple-600 dark:hover:text-nexovate-purple-400"
                 >
                   Cloud Solutions
                 </Link>
@@ -80,7 +76,7 @@ export default function Footer() {
               <li>
                 <a
                   href="https://twitter.com"
-                  className="text-sm text-gray-600 dark:text-gray-300 hover:text-growhub-red-600 dark:hover:text-growhub-red-400 flex items-center"
+                  className="text-sm text-nexovate-blue-600 dark:text-nexovate-blue-300 hover:text-nexovate-purple-600 dark:hover:text-nexovate-purple-400 flex items-center"
                 >
                   <FaTwitter className="mr-2" /> Twitter
                 </a>
@@ -88,7 +84,7 @@ export default function Footer() {
               <li>
                 <a
                   href="https://linkedin.com"
-                  className="text-sm text-gray-600 dark:text-gray-300 hover:text-growhub-red-600 dark:hover:text-growhub-red-400 flex items-center"
+                  className="text-sm text-nexovate-blue-600 dark:text-nexovate-blue-300 hover:text-nexovate-purple-600 dark:hover:text-nexovate-purple-400 flex items-center"
                 >
                   <FaLinkedin className="mr-2" /> LinkedIn
                 </a>
@@ -96,7 +92,7 @@ export default function Footer() {
               <li>
                 <a
                   href="https://github.com"
-                  className="text-sm text-gray-600 dark:text-gray-300 hover:text-growhub-red-600 dark:hover:text-growhub-red-400 flex items-center"
+                  className="text-sm text-nexovate-blue-600 dark:text-nexovate-blue-300 hover:text-nexovate-purple-600 dark:hover:text-nexovate-purple-400 flex items-center"
                 >
                   <FaGithub className="mr-2" /> GitHub
                 </a>
@@ -106,7 +102,7 @@ export default function Footer() {
         </div>
         <div className="mt-8 border-t border-gray-200 dark:border-gray-700 pt-8">
           <p className="text-center text-sm text-content">
-            &copy; {new Date().getFullYear()} GrowHub.Co. All rights reserved.
+            &copy; {new Date().getFullYear()} NexoVate Digital. All rights reserved.
           </p>
         </div>
       </div>

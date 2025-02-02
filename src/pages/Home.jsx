@@ -47,7 +47,7 @@ const testimonials = [
     image:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
     quote:
-      "GrowHub.Co transformed our business with their innovative software solutions. Their team's expertise and dedication are unmatched.",
+      "NexoVate Digital transformed our business with their innovative digital solutions. Their team's expertise and dedication are unmatched.",
   },
   {
     name: "Jane Smith",
@@ -55,7 +55,7 @@ const testimonials = [
     image:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
     quote:
-      "Working with GrowHub.Co was a game-changer for our startup. They delivered a high-quality product that exceeded our expectations.",
+      "Working with NexoVate Digital was a game-changer for our startup. They delivered high-quality digital products that exceeded our expectations.",
   },
   {
     name: "Mike Johnson",
@@ -63,7 +63,7 @@ const testimonials = [
     image:
       "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
     quote:
-      "The AI solutions provided by GrowHub.Co have significantly improved our data analysis capabilities. Highly recommended!",
+      "The AI-powered solutions provided by NexoVate Digital have significantly improved our data analysis capabilities. Highly recommended!",
   },
 ]
 
@@ -127,8 +127,8 @@ export default function Home() {
     <>
       <SEO
         title="Home"
-        description="GrowHub.Co - Your partner for innovative software solutions"
-        keywords="software development, web applications, mobile apps, cloud solutions"
+        description="NexoVate Digital - Your partner for innovative digital solutions"
+        keywords="digital solutions, web development, mobile apps, cloud solutions"
       />
       <div className="relative">
         {/* Hero section */}
@@ -167,8 +167,8 @@ export default function Home() {
                   transition={{ duration: 0.8, delay: 0.2 }}
                   className="mt-6 text-lg leading-8 text-content"
                 >
-                  At GrowHub.Co, we transform your ideas into powerful, scalable, and user-friendly software
-                  applications.
+                  At NexoVate Digital, we transform your ideas into powerful, scalable, and user-friendly digital
+                  solutions.
                 </motion.p>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -185,7 +185,7 @@ export default function Home() {
                   </Link>
                   <Link
                     to="/services"
-                    className="text-sm font-semibold leading-6 text-gray-300 hover:text-growhub-red-400 transition-colors duration-200"
+                    className="text-sm font-semibold leading-6 text-content hover:text-growhub-red-400 transition-colors duration-200"
                   >
                     Learn more <span aria-hidden="true">→</span>
                   </Link>
@@ -241,7 +241,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-content">
-                  Comprehensive Software Solutions
+                  Comprehensive Digital Solutions
                 </h2>
                 <p className="mt-6 text-lg text-content">
                   From custom software development to cloud solutions, we offer a wide range of services to help your
@@ -251,7 +251,7 @@ export default function Home() {
                   {features.map((feature) => (
                     <motion.div key={feature} className="flex items-center gap-3" whileHover={{ x: 10 }}>
                       <CheckCircleIcon className="h-5 w-5 text-growhub-red-400" />
-                      <span className="text-gray-300">{feature}</span>
+                      <span className="text-content">{feature}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -284,14 +284,14 @@ export default function Home() {
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-content text-center mb-12">
               Featured Projects
             </h2>
-            {loading && <p className="text-center text-gray-300">Loading featured projects...</p>}
+            {loading && <p className="text-center text-content">Loading featured projects...</p>}
             {error && <p className="text-center text-red-400">Error loading featured projects: {error.message}</p>}
             {data && (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {data.featuredProjects.map((project) => (
                   <motion.div
                     key={project.id}
-                    className="bg-gray-800 rounded-lg shadow-md overflow-hidden"
+                    className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
@@ -302,7 +302,7 @@ export default function Home() {
                     />
                     <div className="p-6">
                       <h3 className="text-xl font-semibold mb-2 text-content">{project.title}</h3>
-                      <p className="text-gray-300">{project.description}</p>
+                      <p className="text-content">{project.description}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -327,12 +327,12 @@ export default function Home() {
         <FadeInWhenVisible>
           <div className="bg-gradient-to-r from-growhub-red-600 to-growhub-red-700 py-24">
             <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
-              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-content mb-8">
-                Ready to Transform Your Business?
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-8">
+                Ready to Digitally Transform Your Business?
               </h2>
-              <p className="text-lg text-content/80 mb-12">
-                Let's discuss how our innovative software solutions can help your business grow and succeed in the
-                digital age.
+              <p className="text-lg text-white/80 mb-12">
+                Let's discuss how our innovative digital solutions can help your business grow and succeed in the
+                digital era.
               </p>
               <motion.div whileHover={{ scale: 1.05 }} className="inline-block">
                 <Link
