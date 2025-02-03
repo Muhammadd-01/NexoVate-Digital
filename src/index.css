@@ -4,19 +4,18 @@
 
 /* Custom styles */
 :root {
-  --growhub-red-50: #fff1f1;
-  --growhub-red-100: #ffe1e1;
-  --growhub-red-200: #ffc7c7;
-  --growhub-red-300: #ffa0a0;
-  --growhub-red-400: #ff6b6b;
-  --growhub-red-500: #ff3b3b;
-  --growhub-red-600: #ff1111;
-  --growhub-red-700: #e70000;
-  --growhub-red-800: #c00;
-  --growhub-red-900: #a10000;
-  --growhub-red-950: #570000;
+  --nexovate-blue-50: #f0f9ff;  /* Lightest blue */
+  --nexovate-blue-100: #e0f2fe;
+  --nexovate-blue-200: #bae6fd;
+  --nexovate-blue-300: #7dd3fc;
+  --nexovate-blue-400: #38bdf8;
+  --nexovate-blue-500: #0ea5e9;  /* Base blue */
+  --nexovate-blue-600: #0284c7;
+  --nexovate-blue-700: #0369a1;
+  --nexovate-blue-800: #075985;
+  --nexovate-blue-900: #0c4a6e;  /* Darkest blue */
+  --nexovate-blue-950: #082f49;
 }
-
 body {
   @apply bg-black text-white text-black dark:text-white;
 }

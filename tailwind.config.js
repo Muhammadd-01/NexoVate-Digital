@@ -5,18 +5,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        "growhub-red": {
-          50: "var(--growhub-red-50)",
-          100: "var(--growhub-red-100)",
-          200: "var(--growhub-red-200)",
-          300: "var(--growhub-red-300)",
-          400: "var(--growhub-red-400)",
-          500: "var(--growhub-red-500)",
-          600: "var(--growhub-red-600)",
-          700: "var(--growhub-red-700)",
-          800: "var(--growhub-red-800)",
-          900: "var(--growhub-red-900)",
-          950: "var(--growhub-red-950)",
+        "nexovate-blue": {
+          50: "var(--nexovate-blue-50)",
+          100: "var(--nexovate-blue-100)",
+          200: "var(--nexovate-blue-200)",
+          300: "var(--nexovate-blue-300)",
+          400: "var(--nexovate-blue-400)",
+          500: "var(--nexovate-blue-500)",
+          600: "var(--nexovate-blue-600)",
+          700: "var(--nexovate-blue-700)",
+          800: "var(--nexovate-blue-800)",
+          900: "var(--nexovate-blue-900)",
+          950: "var(--nexovate-blue-950)",
         },
       },
       backgroundImage: {
@@ -26,4 +26,3 @@ export default {
   },
   plugins: [],
 }
-
