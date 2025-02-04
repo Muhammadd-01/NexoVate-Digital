@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1">
             <Link to="/">
-              <img className="h-24 w-auto" src="/nexovate-logo.png" alt="NexoVate Digital" />
+              <img className="h-24 w-auto" src="src/assets/nexovate-logo.png" alt="NexoVate Digital" />
             </Link>
             <p className="mt-4 text-sm text-content">Empowering businesses through innovative digital solutions.</p>
           </div>

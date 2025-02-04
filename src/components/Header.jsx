@@ -1,8 +1,8 @@
-import { Link, useLocation } from "react-router-dom"
-import { useState, useEffect, useContext } from "react"
-import { Bars3Icon, XMarkIcon, MoonIcon, SunIcon } from "@heroicons/react/24/outline"
-import { motion, AnimatePresence } from "framer-motion"
-import { ThemeContext } from "../contexts/ThemeContext"
+import { Link, useLocation } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { Bars3Icon, XMarkIcon, MoonIcon, SunIcon } from "@heroicons/react/24/outline";
+import { motion, AnimatePresence } from "framer-motion";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -15,16 +15,16 @@ const navigation = [
   { name: "Team", href: "/team" },
   { name: "Career", href: "/career" },
   { name: "Contact", href: "/contact" },
-]
+];
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const location = useLocation()
-  const { theme, toggleTheme } = useContext(ThemeContext)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   useEffect(() => {
-    setMobileMenuOpen(false)
-  }, [])
+    setMobileMenuOpen(false);
+  }, []);
 
   return (
     <motion.header
@@ -37,10 +37,10 @@ export default function Header() {
         <div className="flex lg:flex-1">
           <Link to="/" className="-m-1.5 p-1.5">
             <span className="sr-only">NexoVate Digital</span>
-            <motion.div whileHover={{ scale: 1.05 }} className="relative">
+            <motion.div whileHover={{ scale: 1.05 }} className="relative flex items-center">
               <img
-                className="h-20 w-auto sm:h-24 rounded-2xl shadow-lg"
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo%20png%20-FIY3oXNxi02MktABHYNa4FW1a6ZyOe.png"
+                className="h-12 w-auto sm:h-16 md:h-20 lg:h-24 rounded-2xl shadow-lg"
+                src="src/assets/nexovate-logo.png"
                 alt="NexoVate Digital"
               />
             </motion.div>
@@ -112,8 +112,8 @@ export default function Header() {
               ))}
               <button
                 onClick={() => {
-                  toggleTheme()
-                  setMobileMenuOpen(false)
+                  toggleTheme();
+                  setMobileMenuOpen(false);
                 }}
                 className="block w-full text-left rounded-md px-3 py-2 text-base font-medium text-white hover:bg-nexovate-blue-700"
               >
@@ -124,6 +124,5 @@ export default function Header() {
         )}
       </AnimatePresence>
     </motion.header>
-  )
+  );
 }
-
