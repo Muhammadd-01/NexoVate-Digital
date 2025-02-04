@@ -231,7 +231,7 @@ export default function Packages() {
 
             <div className="mt-32">
               <h2 className="text-3xl font-bold tracking-tight text-black dark:text-white sm:text-4xl text-center mb-16">
-                Why Choose GrowHub Solutions?
+                Why Choose Nexovate?
               </h2>
               <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 <motion.div
@@ -277,4 +277,3 @@ export default function Packages() {
     </div>
   )
 }
-
