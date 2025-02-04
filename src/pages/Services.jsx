@@ -49,11 +49,10 @@ export default function Services() {
                 Our Services
               </h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-                Comprehensive Digital Solutions for Your Business
+                Empowering Your Business with Innovative Digital Solutions
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-                At Grow Hub Solutions, we offer a wide range of digital services to help your business thrive in the
-                online world.
+                At Nexovate, we provide cutting-edge digital services designed to elevate your business and drive growth in the digital landscape.
               </p>
             </div>
             <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
@@ -82,7 +81,7 @@ export default function Services() {
             </div>
             <div className="mt-16 text-center">
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-4">
-                Let's bring your vision to life! Contact us at contact@growhubsolutions.com
+                Ready to transform your business? Reach out to us at contact@nexovate.com
               </p>
               <Link
                 to="/contact"
@@ -97,4 +96,3 @@ export default function Services() {
     </div>
   )
 }
-
