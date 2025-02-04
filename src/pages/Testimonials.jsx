@@ -39,7 +39,7 @@ export default function Testimonials() {
           <div className="text-gray-900 dark:text-white py-24 sm:py-32">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-xl text-center">
-                <h2 className="text-lg font-semibold leading-8 tracking-tight text-growhub-red-600 dark:text-growhub-red-400">
+                <h2 className="text-lg font-semibold leading-8 tracking-tight text-nexovate-blue-600 dark:text-nexovate-blue-400">
                   Testimonials
                 </h2>
                 <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">

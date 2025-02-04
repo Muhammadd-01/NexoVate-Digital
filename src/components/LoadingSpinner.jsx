@@ -15,8 +15,8 @@ const LoadingSpinner = () => {
         }}
         className="relative w-16 h-16"
       >
-        <div className="absolute w-full h-full border-4 border-growhub-red-200 rounded-full"></div>
-        <div className="absolute w-full h-full border-4 border-growhub-red-600 rounded-full border-t-transparent animate-spin"></div>
+        <div className="absolute w-full h-full border-4 border-nexovate-blue-200 rounded-full"></div>
+        <div className="absolute w-full h-full border-4 border-nexovate-blue-600 rounded-full border-t-transparent animate-spin"></div>
       </motion.div>
     </div>
   )

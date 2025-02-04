@@ -68,7 +68,7 @@ const Chatbot = () => {
     <div className="relative">
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-growhub-red-600 text-white p-3 rounded-full shadow-lg hover:bg-growhub-red-500 transition-colors duration-300 flex items-center justify-center"
+        className="bg-nexovate-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-nexovate-blue-500 transition-colors duration-300 flex items-center justify-center"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
@@ -82,7 +82,7 @@ const Chatbot = () => {
             exit={{ opacity: 0, y: 20 }}
             className="absolute bottom-16 right-0 bg-white rounded-lg shadow-xl w-80 overflow-hidden"
           >
-            <div className="bg-growhub-red-600 text-white p-4 flex justify-between items-center">
+            <div className="bg-nexovate-blue-600 text-white p-4 flex justify-between items-center">
               <h3 className="font-bold">Chat with us</h3>
             </div>
             <div className="h-80 overflow-y-auto p-4">
@@ -90,7 +90,7 @@ const Chatbot = () => {
                 <div key={index} className={`mb-2 ${message.sender === "user" ? "text-right" : "text-left"}`}>
                   <span
                     className={`inline-block p-2 rounded-lg ${
-                      message.sender === "user" ? "bg-growhub-red-600 text-white" : "bg-gray-200"
+                      message.sender === "user" ? "bg-nexovate-blue-600 text-white" : "bg-gray-200"
                     }`}
                   >
                     {message.text}
@@ -110,12 +110,12 @@ const Chatbot = () => {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyPress={(e) => e.key === "Enter" && handleSend()}
-                  className="flex-grow p-2 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-growhub-red-600"
+                  className="flex-grow p-2 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-nexovate-blue-600"
                   placeholder="Type a message..."
                 />
                 <button
                   onClick={handleSend}
-                  className="bg-growhub-red-600 text-white p-2 rounded-r-lg hover:bg-growhub-red-500 transition-colors duration-300"
+                  className="bg-nexovate-blue-600 text-white p-2 rounded-r-lg hover:bg-nexovate-blue-500 transition-colors duration-300"
                 >
                   Send
                 </button>

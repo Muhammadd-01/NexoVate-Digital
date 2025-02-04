@@ -192,7 +192,7 @@ export default function Packages() {
                         }`}
                       >
                         {pkg.popular && (
-                          <div className="absolute -top-4 right-8 rounded-full bg-growhub-red-600 px-4 py-1 text-xs font-semibold text-white">
+                          <div className="absolute -top-4 right-8 rounded-full bg-nexovate-blue-600 px-4 py-1 text-xs font-semibold text-white">
                             Popular
                           </div>
                         )}
@@ -204,7 +204,7 @@ export default function Packages() {
                           <ul role="list" className="mt-8 space-y-3 text-sm leading-6 text-black dark:text-white">
                             {pkg.features.map((feature) => (
                               <li key={feature} className="flex gap-x-3">
-                                <CheckIcon className="h-6 w-5 flex-none text-growhub-red-600" aria-hidden="true" />
+                                <CheckIcon className="h-6 w-5 flex-none text-nexovate-blue-600" aria-hidden="true" />
                                 {feature}
                               </li>
                             ))}
@@ -216,7 +216,7 @@ export default function Packages() {
                           href="#"
                           className={`mt-8 block w-full rounded-md px-3.5 py-2 text-center text-sm font-semibold leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${
                             pkg.popular
-                              ? "bg-growhub-red-600 text-white hover:bg-growhub-red-500 focus-visible:outline-growhub-red-600"
+                              ? "bg-nexovate-blue-600 text-white hover:bg-nexovate-blue-500 focus-visible:outline-nexovate-blue-600"
                               : "bg-gray-50 text-gray-900 hover:bg-gray-100 focus-visible:outline-gray-600"
                           } dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600`}
                         >

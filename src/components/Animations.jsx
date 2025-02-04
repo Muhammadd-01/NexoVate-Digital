@@ -29,7 +29,7 @@ export const SlideIn = ({ children, direction = "left" }) => {
 export const GradientText = ({ children, className = "" }) => {
   return (
     <motion.span
-      className={`bg-gradient-to-r from-growhub-red-600 to-growhub-red-400 bg-clip-text text-transparent ${className}`}
+      className={`bg-gradient-to-r from-nexovate-blue-600 to-nexovate-blue-400 bg-clip-text text-transparent ${className}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}

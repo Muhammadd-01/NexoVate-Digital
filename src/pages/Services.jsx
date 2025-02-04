@@ -45,7 +45,7 @@ export default function Services() {
         <div className="text-gray-900 dark:text-white py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl lg:text-center">
-              <h2 className="text-base font-semibold leading-7 text-growhub-red-600 dark:text-growhub-red-400">
+              <h2 className="text-base font-semibold leading-7 text-nexovate-blue-600 dark:text-nexovate-blue-400">
                 Our Services
               </h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
@@ -68,7 +68,7 @@ export default function Services() {
                   >
                     <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900 dark:text-white">
                       <service.icon
-                        className="h-5 w-5 flex-none text-growhub-red-600 dark:text-growhub-red-400"
+                        className="h-5 w-5 flex-none text-nexovate-blue-600 dark:text-nexovate-blue-400"
                         aria-hidden="true"
                       />
                       {service.name}
@@ -86,7 +86,7 @@ export default function Services() {
               </p>
               <Link
                 to="/contact"
-                className="inline-block rounded-md bg-growhub-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-growhub-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-growhub-red-600"
+                className="inline-block rounded-md bg-nexovate-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-nexovate-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-nexovate-blue-600"
               >
                 Get in Touch
               </Link>

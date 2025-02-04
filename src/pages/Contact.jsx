@@ -85,7 +85,7 @@ export default function Contact() {
                       >
                         <dt>
                           <item.icon
-                            className="h-7 w-6 text-growhub-red-600 dark:text-growhub-red-400"
+                            className="h-7 w-6 text-nexovate-blue-600 dark:text-nexovate-blue-400"
                             aria-hidden="true"
                           />
                         </dt>
@@ -123,7 +123,7 @@ export default function Contact() {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-growhub-red-500 focus:ring-growhub-red-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-nexovate-blue-500 focus:ring-nexovate-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                       />
                     </div>
                     <div>
@@ -137,7 +137,7 @@ export default function Contact() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-growhub-red-500 focus:ring-growhub-red-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-nexovate-blue-500 focus:ring-nexovate-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                       />
                     </div>
                     <div>
@@ -151,14 +151,14 @@ export default function Contact() {
                         value={formData.message}
                         onChange={handleChange}
                         required
-                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-growhub-red-500 focus:ring-growhub-red-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-nexovate-blue-500 focus:ring-nexovate-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                       />
                     </div>
                     <motion.button
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       type="submit"
-                      className="w-full bg-growhub-red-600 text-white py-3 px-6 rounded-md hover:bg-growhub-red-700 transition-colors duration-200"
+                      className="w-full bg-nexovate-blue-600 text-white py-3 px-6 rounded-md hover:bg-nexovate-blue-700 transition-colors duration-200"
                     >
                       Send Message
                     </motion.button>

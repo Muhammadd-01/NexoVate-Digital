@@ -178,14 +178,14 @@ export default function Home() {
                 >
                   <Link
                     to="/contact"
-                    className="rounded-md bg-growhub-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-growhub-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-growhub-red-600 transition-colors duration-200"
+                    className="rounded-md bg-nexovate-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-nexovate-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-nexovate-blue-600 transition-colors duration-200"
                     onClick={handleConfetti}
                   >
                     Get started
                   </Link>
                   <Link
                     to="/services"
-                    className="text-sm font-semibold leading-6 text-content hover:text-growhub-red-400 transition-colors duration-200"
+                    className="text-sm font-semibold leading-6 text-content hover:text-nexovate-blue-400 transition-colors duration-200"
                   >
                     Learn more <span aria-hidden="true">→</span>
                   </Link>
@@ -227,7 +227,7 @@ export default function Home() {
                 >
                   <dt className="text-base leading-7 text-content">{stat.name}</dt>
                   <dd className="order-first text-3xl font-semibold tracking-tight text-content sm:text-5xl flex items-center justify-center">
-                    <stat.icon className="w-8 h-8 mr-2 text-growhub-red-400" />
+                    <stat.icon className="w-8 h-8 mr-2 text-nexovate-blue-400" />
                     <CountUp end={stat.value} duration={2.5} suffix={stat.suffix} />
                   </dd>
                 </motion.div>
@@ -250,7 +250,7 @@ export default function Home() {
                 <div className="mt-8 grid grid-cols-1 gap-4">
                   {features.map((feature) => (
                     <motion.div key={feature} className="flex items-center gap-3" whileHover={{ x: 10 }}>
-                      <CheckCircleIcon className="h-5 w-5 text-growhub-red-400" />
+                      <CheckCircleIcon className="h-5 w-5 text-nexovate-blue-400" />
                       <span className="text-content">{feature}</span>
                     </motion.div>
                   ))}
@@ -264,7 +264,7 @@ export default function Home() {
                     className="rounded-lg shadow-2xl"
                   />
                 </motion.div>
-                <div className="absolute inset-0 bg-growhub-red-600/10 rounded-lg" />
+                <div className="absolute inset-0 bg-nexovate-blue-600/10 rounded-lg" />
               </div>
             </div>
           </div>
@@ -325,7 +325,7 @@ export default function Home() {
         </FadeInWhenVisible>
         {/* CTA section */}
         <FadeInWhenVisible>
-          <div className="bg-gradient-to-r from-growhub-red-600 to-growhub-red-700 py-24">
+          <div className="bg-gradient-to-r from-nexovate-blue-600 to-nexovate-blue-700 py-24">
             <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
               <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-8">
                 Ready to Digitally Transform Your Business?
@@ -337,7 +337,7 @@ export default function Home() {
               <motion.div whileHover={{ scale: 1.05 }} className="inline-block">
                 <Link
                   to="/contact"
-                  className="rounded-md bg-white px-6 py-3 text-lg font-semibold text-growhub-red-600 shadow-lg hover:bg-gray-100 transition-colors duration-200"
+                  className="rounded-md bg-white px-6 py-3 text-lg font-semibold text-nexovate-blue-600 shadow-lg hover:bg-gray-100 transition-colors duration-200"
                   onClick={handleConfetti}
                 >
                   Get Started Today

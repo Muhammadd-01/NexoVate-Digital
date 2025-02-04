@@ -169,7 +169,7 @@ export default function Career() {
                   <div className="relative mt-8 flex items-center gap-x-4">
                     <button
                       onClick={() => setSelectedPosition(position)}
-                      className="text-sm font-semibold leading-6 text-growhub-red-600 dark:text-growhub-red-400"
+                      className="text-sm font-semibold leading-6 text-nexovate-blue-600 dark:text-nexovate-blue-400"
                     >
                       Apply now <span aria-hidden="true">→</span>
                     </button>
@@ -198,7 +198,7 @@ export default function Career() {
                     value={applicationData.name}
                     onChange={handleInputChange}
                     required
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-growhub-red-500 focus:ring-growhub-red-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm"
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-nexovate-blue-500 focus:ring-nexovate-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm"
                   />
                 </div>
                 <div className="mb-4">
@@ -212,7 +212,7 @@ export default function Career() {
                     value={applicationData.email}
                     onChange={handleInputChange}
                     required
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-growhub-red-500 focus:ring-growhub-red-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm"
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-nexovate-blue-500 focus:ring-nexovate-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm"
                   />
                 </div>
                 <div className="mb-4">
@@ -229,9 +229,9 @@ export default function Career() {
                       file:mr-4 file:py-2 file:px-4
                       file:rounded-full file:border-0
                       file:text-sm file:font-semibold
-                      file:bg-growhub-red-600 file:text-white
+                      file:bg-nexovate-blue-600 file:text-white
                       hover:file:bg-red-600
-                      dark:file:bg-growhub-red-400 dark:file:text-gray-800
+                      dark:file:bg-nexovate-blue-400 dark:file:text-gray-800
                       dark:hover:file:bg-red-500"
                   />
                 </div>
@@ -245,20 +245,20 @@ export default function Career() {
                     value={applicationData.coverLetter}
                     onChange={handleInputChange}
                     rows={4}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-growhub-red-500 focus:ring-growhub-red-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm"
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-nexovate-blue-500 focus:ring-nexovate-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm"
                   ></textarea>
                 </div>
                 <div className="flex justify-end space-x-4">
                   <button
                     type="button"
                     onClick={() => setSelectedPosition(null)}
-                    className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-growhub-red-500 dark:bg-gray-600 dark:text-white dark:hover:bg-gray-500"
+                    className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-nexovate-blue-500 dark:bg-gray-600 dark:text-white dark:hover:bg-gray-500"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="px-4 py-2 text-sm font-medium text-white bg-growhub-red-600 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-growhub-red-500 dark:bg-growhub-red-400 dark:text-gray-800 dark:hover:bg-red-500"
+                    className="px-4 py-2 text-sm font-medium text-white bg-nexovate-blue-600 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-nexovate-blue-500 dark:bg-nexovate-blue-400 dark:text-gray-800 dark:hover:bg-red-500"
                   >
                     Submit Application
                   </button>

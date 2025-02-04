@@ -30,7 +30,7 @@ const ScrollToTop = () => {
       {isVisible && (
         <div
           onClick={scrollToTop}
-          className="p-2 bg-growhub-red-600 text-white rounded-full cursor-pointer hover:bg-growhub-red-700 transition-colors duration-300"
+          className="p-2 bg-nexovate-blue-600 text-white rounded-full cursor-pointer hover:bg-nexovate-blue-700 transition-colors duration-300"
         >
           <ChevronUpIcon className="h-6 w-6" />
         </div>
