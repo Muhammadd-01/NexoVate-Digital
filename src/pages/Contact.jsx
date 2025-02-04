@@ -10,7 +10,7 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Our Location",
-    details: ["Grow Hub Solutions", "Your City, Your Country"],
+    details: ["NexoVate Digital", "Your City, Your Country"],
   },
   {
     icon: Phone,
@@ -56,7 +56,7 @@ export default function Contact() {
         <div className="relative z-10">
           <SEO
             title="Get in Touch"
-            description="Contact Grow Hub Solutions for innovative digital solutions and collaborations"
+            description="Contact NexoVate Digital for innovative digital solutions and collaborations"
             keywords="contact, digital solutions, collaboration, get in touch"
           />
           <div className="text-gray-900 dark:text-white py-24 sm:py-32">
