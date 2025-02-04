@@ -3,7 +3,7 @@ import ParticleBackground from "../components/ParticleBackground"
 
 const testimonials = [
   {
-    body: "GrowHub Solutions transformed our business with their innovative software. Their team's expertise and dedication are unmatched.",
+    body: "NexoVate Digital transformed our business with their innovative software. Their team's expertise and dedication are unmatched.",
     author: {
       name: "Leslie Alexander",
       handle: "lesliealexander",
@@ -12,7 +12,7 @@ const testimonials = [
     },
   },
   {
-    body: "Working with GrowHub was a game-changer for our startup. They delivered a high-quality product that exceeded our expectations.",
+    body: "Working with NexoVate was a game-changer for our startup. They delivered a high-quality product that exceeded our expectations.",
     author: {
       name: "Michael Foster",
       handle: "michaelfoster",
@@ -28,7 +28,7 @@ export default function Testimonials() {
     <>
       <SEO
         title="Testimonials"
-        description="Read what our clients say about GrowHub Solutions and our software development services."
+        description="Read what our clients say about NexoVate Digital and our software development services."
         keywords="client testimonials, customer reviews, software development feedback"
       />
       <div className="relative min-h-screen">

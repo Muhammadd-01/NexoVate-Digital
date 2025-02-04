@@ -90,7 +90,7 @@ export default function Portfolios() {
             </div>
             <div className="mt-16 text-center">
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-4">
-                Like what you see? Let's work together! Contact us at contact@growhubsolutions.com
+                Like what you see? Let's work together! Contact us at contactnexovate.com
               </p>
               <Link
                 to="/contact"

@@ -3,7 +3,7 @@ import { FaWhatsapp } from "react-icons/fa"
 
 const WhatsAppButton = () => {
   const phoneNumber = "03128538773"
-  const message = "Hello, I would like to know more about GrowHub Solutions."
+  const message = "Hello, I would like to know more about NexoVate Digital."
 
   const handleClick = () => {
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank")

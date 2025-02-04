@@ -38,7 +38,7 @@ export default function Team() {
     <>
       <SEO
         title="Our Team"
-        description="Meet the talented individuals behind GrowHub.Co's success"
+        description="Meet the talented individuals behind NexoVate.Co's success"
         keywords="team, software development, tech experts"
       />
       <div className="relative min-h-screen">
@@ -53,7 +53,7 @@ export default function Team() {
                   Meet Our Team
                 </h2>
                 <p className="mt-4 text-lg leading-8 text-gray-600 dark:text-gray-300">
-                  The talented individuals driving innovation and excellence at GrowHub.Co
+                  The talented individuals driving innovation and excellence at NexoVate.Co
                 </p>
               </div>
               <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-4">

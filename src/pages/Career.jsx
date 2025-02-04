@@ -90,7 +90,7 @@ export default function Career() {
     <>
       <SEO
         title="Careers"
-        description="Join our team at GrowHub Solutions and be part of innovative software development projects."
+        description="Join our team at NexoVate Digital and be part of innovative software development projects."
         keywords="software development jobs, tech careers, job openings"
       />
       <div className="relative min-h-screen">
@@ -106,7 +106,7 @@ export default function Career() {
                 transition={{ duration: 0.5 }}
                 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl"
               >
-                Join the GrowHub Solutions Team
+                Join the NexoVate Digital Team
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -126,7 +126,7 @@ export default function Career() {
             >
               <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">Why Work With Us?</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-6">
-                At GrowHub Solutions, we're passionate about innovation, collaboration, and personal growth. Join us to
+                At NexoVate Digital, we're passionate about innovation, collaboration, and personal growth. Join us to
                 work on cutting-edge projects, learn from industry experts, and make a real impact in the world of
                 technology.
               </p>

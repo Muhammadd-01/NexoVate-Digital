@@ -9,7 +9,7 @@ const Chatbot = () => {
   const [isTyping, setIsTyping] = useState(false)
 
   const botResponses = {
-    greeting: ["Hello! How can I assist you today?", "Welcome to GrowHub Solutions! What can I help you with?"],
+    greeting: ["Hello! How can I assist you today?", "Welcome to NexoVate Digital! What can I help you with?"],
     services: [
       "We offer a wide range of services including web development, mobile app development, and cloud solutions. Would you like more details on any specific service?",
     ],

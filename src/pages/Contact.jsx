@@ -20,7 +20,7 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    details: ["contact@growhubsolutions.com"],
+    details: ["contactnexovate@gmail.com"],
   },
 ]
 
