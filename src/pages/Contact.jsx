@@ -1,10 +1,9 @@
-import { useState } from "react"
-import emailjs from "emailjs-com"
-import SEO from "../components/SEO"
-import { motion } from "framer-motion"
-import toast from "react-hot-toast"
-import { MapPin, Phone, Mail } from "lucide-react"
-import ParticleBackground from "../components/ParticleBackground"
+import { useState } from "react";
+import SEO from "../components/SEO";
+import { motion } from "framer-motion";
+import toast from "react-hot-toast";
+import { MapPin, Phone, Mail } from "lucide-react";
+import ParticleBackground from "../components/ParticleBackground";
 
 const contactInfo = [
   {
@@ -22,30 +21,45 @@ const contactInfo = [
     title: "Email",
     details: ["contactnexovate@gmail.com"],
   },
-]
+];
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
-  })
+  });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-
+    e.preventDefault();
+  
     try {
-      await emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", formData, "YOUR_USER_ID")
-      toast.success("Message sent successfully!")
-      setFormData({ name: "", email: "", message: "" })
+      const response = await fetch("https://formspree.io/f/xwplpald", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      if (response.ok) {
+        toast.success("Message sent successfully!");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        const errorData = await response.json();
+        toast.error(errorData.error || "Failed to send message. Please try again.");
+      }
     } catch (error) {
-      toast.error("Failed to send message. Please try again.")
+      console.error("Formspree Error:", error);
+      toast.error("Something went wrong. Try again later.");
     }
-  }
+  };
+  
 
   return (
     <>
@@ -84,10 +98,7 @@ export default function Contact() {
                         className="flex gap-x-4"
                       >
                         <dt>
-                          <item.icon
-                            className="h-7 w-6 text-nexovate-blue-600 dark:text-nexovate-blue-400"
-                            aria-hidden="true"
-                          />
+                          <item.icon className="h-7 w-6 text-nexovate-blue-600 dark:text-nexovate-blue-400" aria-hidden="true" />
                         </dt>
                         <dd>
                           <h4 className="text-base font-semibold leading-7 text-gray-900 dark:text-white">
@@ -103,11 +114,7 @@ export default function Contact() {
                     ))}
                   </dl>
                 </div>
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5 }}
-                >
+                <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
                   <h3 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white mb-8">
                     Send us a Message
                   </h3>
@@ -175,6 +182,5 @@ export default function Contact() {
         </div>
       </div>
     </>
-  )
+  );
 }
-
