@@ -37,22 +37,25 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
   
-    const formData = new FormData();
-    formData.append("email", formDataState.email);
-    formData.append("message", formDataState.message);
-  
     try {
       const response = await fetch("https://formspree.io/f/xwplpald", {
         method: "POST",
-        body: formData, // FormData instead of JSON
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          message: formData.message,
+        }),
       });
   
       if (response.ok) {
         toast.success("Message sent successfully!");
-        setFormDataState({ name: "", email: "", message: "" });
+        setFormData({ name: "", email: "", message: "" });
       } else {
         const errorData = await response.json();
-        toast.error(errorData.error || "Failed to send message. Please try again.");
+        console.error("Formspree Error Response:", errorData);
+        toast.error("Failed to send message. Please try again.");
       }
     } catch (error) {
       console.error("Formspree Error:", error);
