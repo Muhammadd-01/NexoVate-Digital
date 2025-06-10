@@ -9,7 +9,7 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Our Location",
-    details: ["NexoVate Digital", "Your City, Your Country"],
+    details: ["NexoVate Digital", "Karachi, Pakistan"],
   },
   {
     icon: Phone,
@@ -135,7 +135,7 @@ export default function Contact() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.5 }}
-                    className="bg-green-500 text-white px-4 py-2 rounded-md text-center shadow-md hover:blur-sm hover:opacity-0 transition-opacity duration-1000"
+                    className="bg-blue-500 text-white px-4 py-2 rounded-md text-center shadow-md hover:blur-sm hover:opacity-0 transition-opacity duration-1000"
                   >
                     ✅ Message sent successfully!
                   </motion.div>
