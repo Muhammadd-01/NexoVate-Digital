@@ -1,13 +1,40 @@
-import { motion } from "framer-motion"
-import { FaWhatsapp } from "react-icons/fa"
+import { motion } from "framer-motion";
+import { FaWhatsapp } from "react-icons/fa";
+import { useLocation } from "react-router-dom";
 
 const WhatsAppButton = () => {
-  const phoneNumber = "03128538773"
-  const message = "Hello, I would like to know more about NexoVate Digital."
+  const phoneNumber = "03128538773";
+  const location = useLocation();
+  const pathname = location.pathname;
+
+  const getSectionName = (path) => {
+    const map = {
+      "/": "Home",
+      "/about": "About",
+      "/services": "Services",
+      "/packages": "Packages",
+      "/portfolios": "Portfolios",
+      "/testimonials": "Testimonials",
+      "/blog": "Blog",
+      "/career": "Career",
+      "/contact": "Contact",
+      "/team": "Team",
+    };
+
+    if (path.startsWith("/blog/")) return "Blog Post";
+
+    return map[path] || "Website";
+  };
+
+  const section = getSectionName(pathname);
+  const message = `Hello,👋 I was exploring the "${section}" section on the NexoVate Digital website and I’d like to know more.`;
 
   const handleClick = () => {
-    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank")
-  }
+    window.open(
+      `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`,
+      "_blank"
+    );
+  };
 
   return (
     <motion.button
@@ -18,8 +45,7 @@ const WhatsAppButton = () => {
     >
       <FaWhatsapp className="text-2xl" />
     </motion.button>
-  )
-}
+  );
+};
 
-export default WhatsAppButton
-
+export default WhatsAppButton;
