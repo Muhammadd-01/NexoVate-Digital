@@ -13,6 +13,7 @@ import WhatsAppButton from "./components/WhatsAppButton"
 import ParticleBackground from "./components/ParticleBackground"
 import AnimatedBackground from "./components/AnimatedBackground"
 import ScrollToTop from "./components/ScrollToTop"
+import AutoScrollToTop from "./components/AutoScrollToTop"
 
 import Home from "./pages/Home"
 import About from "./pages/About"
@@ -84,6 +85,7 @@ const location = useLocation();
       <div className="fixed bottom-4 right-4 z-40 flex flex-col items-end space-y-4"
          style={{ position: "fixed", bottom: "1rem", right: "1rem", width: "auto" }}
          >
+        <AutoScrollToTop />
         <Chatbot />
         <WhatsAppButton />
         <ScrollToTop />
