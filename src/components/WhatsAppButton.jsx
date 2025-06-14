@@ -27,7 +27,7 @@ const WhatsAppButton = () => {
   };
 
   const section = getSectionName(pathname);
-  const message = `Hello,👋 I was exploring the "${section}" section on the NexoVate Digital website and I’d like to know more.`;
+  const message = `Hello,👋 I was exploring the "${section}" section on the NexoVate Digital and I’d like to know more.`;
 
   const handleClick = () => {
     window.open(
