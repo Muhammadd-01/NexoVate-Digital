@@ -49,7 +49,8 @@ const location = useLocation();
   }
 
   return (
-    <div className={`flex flex-col min-h-screen overflow-x-hidden ${theme === "dark" ? "dark" : ""}`}>
+    <div className={` ${theme === "dark" ? "dark" : ""}`}>
+      <div className="flex flex-col min-h-screen" >
    {location.pathname === "/" && (
   <AnimatedBackground>
     <ParticleBackground key={location.pathname} />
@@ -58,6 +59,9 @@ const location = useLocation();
 
 
       <Header />
+
+
+      <div className="overflow-x-hidden flex-grow">
       <AnimatePresence mode="wait">
         <motion.main
           className="flex-grow relative"
@@ -81,6 +85,7 @@ const location = useLocation();
           </Routes>
         </motion.main>
       </AnimatePresence>
+      </div>
       <Footer />
       <div className="fixed bottom-4 right-4 z-40 flex flex-col items-end space-y-4"
          style={{ position: "fixed", bottom: "1rem", right: "1rem", width: "auto" }}
@@ -91,7 +96,7 @@ const location = useLocation();
         <ScrollToTop />
       </div>
       <Toaster position="top-right" />
-      
+      </div>
     </div>
   )
 }
