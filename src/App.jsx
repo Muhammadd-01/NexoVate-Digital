@@ -49,7 +49,7 @@ const location = useLocation();
   }
 
   return (
-    <div className={`flex flex-col min-h-screen ${theme === "dark" ? "dark" : ""}`}>
+    <div className={`flex flex-col min-h-screen overflow-x-hidden ${theme === "dark" ? "dark" : ""}`}>
    {location.pathname === "/" && (
   <AnimatedBackground>
     <ParticleBackground key={location.pathname} />
