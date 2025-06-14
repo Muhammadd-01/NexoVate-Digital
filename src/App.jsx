@@ -1,3 +1,8 @@
+import { useLocation } from "react-router-dom"; // Add this
+
+// Inside App function:
+
+
 import { Routes, Route } from "react-router-dom"
 import { Toaster } from "react-hot-toast"
 import { motion, AnimatePresence } from "framer-motion"
@@ -26,6 +31,7 @@ import { ThemeContext } from "./contexts/ThemeContext"
 function App() {
   const [error, setError] = React.useState(null)
   const { theme } = useContext(ThemeContext)
+const location = useLocation();
 
   React.useEffect(() => {
     const handleError = (error) => {
@@ -43,9 +49,13 @@ function App() {
 
   return (
     <div className={`flex flex-col min-h-screen ${theme === "dark" ? "dark" : ""}`}>
-      <AnimatedBackground>
-        <ParticleBackground />
-      </AnimatedBackground>
+   {location.pathname === "/" && (
+  <AnimatedBackground>
+    <ParticleBackground key={location.pathname} />
+  </AnimatedBackground>
+)}
+
+
       <Header />
       <AnimatePresence mode="wait">
         <motion.main
