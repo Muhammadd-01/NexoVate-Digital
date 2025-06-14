@@ -9,7 +9,9 @@ const AutoScrollToTop = () => {
 
     useEffect(()=>{
         window.scrollTo({top: 0,behavior:"smooth"});
-    }),{pathname};
+    },[pathname])
+
+    return null
 }
 
 export default AutoScrollToTop
