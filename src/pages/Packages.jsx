@@ -10,13 +10,13 @@ const packageCategories = [
     packages: [
       {
         name: "Basic",
-        price: "$2,999",
+        price: "$1,499",
         features: ["Simple web application", "Up to 5 pages", "Basic functionality", "1 month of support"],
         cta: "Get Started",
       },
       {
         name: "Premium",
-        price: "$7,999",
+        price: "$3,499",
         features: [
           "Advanced web application",
           "Up to 15 pages",
@@ -31,7 +31,7 @@ const packageCategories = [
         name: "Custom",
         price: "Custom Quote",
         features: [
-          "Tailored solution",
+          "Tailored enterprise solution",
           "Unlimited pages",
           "Advanced features",
           "API integrations",
@@ -42,20 +42,102 @@ const packageCategories = [
     ],
   },
   {
+    title: "Website Packages",
+    packages: [
+      {
+        name: "Starter",
+        price: "$499",
+        features: [
+          "Modern 5-page website",
+          "Responsive design (mobile-friendly)",
+          "Basic SEO setup",
+          "1 month of support",
+        ],
+        cta: "Get Started",
+      },
+      {
+        name: "Business",
+        price: "$999",
+        features: [
+          "Up to 10 pages",
+          "Custom UI/UX design",
+          "Speed optimization",
+          "Basic content upload",
+          "3 months of support",
+        ],
+        cta: "Upgrade Plan",
+        popular: true,
+      },
+      {
+        name: "E-Commerce",
+        price: "$1,499",
+        features: [
+          "Full online store setup",
+          "Payment gateway integration",
+          "Product management panel",
+          "Inventory & order tracking",
+          "6 months of support",
+        ],
+        cta: "Launch Store",
+      },
+    ],
+  },
+  {
+    title: "Mobile App Packages (iOS & Android)",
+    packages: [
+      {
+        name: "Basic App",
+        price: "$1,299",
+        features: [
+          "Hybrid mobile app (React Native / Flutter)",
+          "Up to 5 screens",
+          "Basic backend setup",
+          "1 month of support",
+        ],
+        cta: "Get Started",
+      },
+      {
+        name: "Business App",
+        price: "$2,499",
+        features: [
+          "iOS & Android build",
+          "Custom UI design",
+          "Firebase / API integration",
+          "Push notifications",
+          "3 months of support",
+        ],
+        cta: "Build My App",
+        popular: true,
+      },
+      {
+        name: "Advanced / Enterprise",
+        price: "$3,999",
+        features: [
+          "Fully custom app (Native / Cross-platform)",
+          "Database & cloud integration",
+          "Admin panel & analytics",
+          "User authentication & roles",
+          "6 months of premium support",
+        ],
+        cta: "Get a Quote",
+      },
+    ],
+  },
+  {
     title: "Graphic Design",
     packages: [
       {
         name: "Basic",
-        price: "$499/month",
+        price: "$299/month",
         features: ["5 design requests", "Logo design", "Social media graphics", "3 revisions per design"],
         cta: "Start Designing",
       },
       {
         name: "Premium",
-        price: "$999/month",
+        price: "$599/month",
         features: [
           "10 design requests",
-          "Logo design",
+          "Logo + branding",
           "Social media graphics",
           "Marketing materials",
           "Unlimited revisions",
@@ -68,8 +150,8 @@ const packageCategories = [
         price: "Custom Quote",
         features: [
           "Unlimited design requests",
-          "Full brand identity",
-          "Print and digital designs",
+          "Full brand identity suite",
+          "Print & digital designs",
           "Dedicated designer",
           "24/7 support",
         ],
@@ -82,32 +164,32 @@ const packageCategories = [
     packages: [
       {
         name: "Basic",
-        price: "$799/month",
+        price: "$499/month",
         features: ["Keyword research", "On-page optimization", "Monthly reporting", "Local SEO"],
         cta: "Boost Rankings",
       },
       {
         name: "Premium",
-        price: "$1,599/month",
+        price: "$899/month",
         features: [
           "Advanced keyword research",
-          "On-page and off-page optimization",
+          "On + Off-page SEO",
           "Content strategy",
-          "Link building",
+          "Backlink building",
           "Weekly reporting",
         ],
         cta: "Dominate Search",
         popular: true,
       },
       {
-        name: "Custom",
+        name: "Enterprise",
         price: "Custom Quote",
         features: [
-          "Enterprise-level SEO",
           "International SEO",
           "Advanced analytics",
           "Competitor analysis",
           "Dedicated SEO team",
+          "Ongoing optimization",
         ],
         cta: "Contact Us",
       },
@@ -117,33 +199,32 @@ const packageCategories = [
     title: "Digital Marketing",
     packages: [
       {
-        name: "Basic",
-        price: "$1,299/month",
-        features: ["Social media management", "Email marketing", "Basic PPC campaigns", "Monthly reporting"],
+        name: "Starter",
+        price: "$699/month",
+        features: ["Social media management", "Email marketing", "Basic PPC", "Monthly report"],
         cta: "Start Marketing",
       },
       {
-        name: "Premium",
-        price: "$2,499/month",
+        name: "Growth",
+        price: "$1,299/month",
         features: [
-          "Social media management",
-          "Email marketing",
-          "Advanced PPC campaigns",
-          "Content marketing",
+          "Multi-platform ads",
+          "Email automation",
           "Influencer outreach",
+          "Content creation",
+          "Weekly insights",
         ],
         cta: "Grow Your Reach",
         popular: true,
       },
       {
-        name: "Custom",
+        name: "Pro / Custom",
         price: "Custom Quote",
         features: [
-          "Full-service digital marketing",
-          "Multi-channel campaigns",
-          "Marketing automation",
+          "Full-service marketing strategy",
           "Conversion rate optimization",
-          "Dedicated marketing team",
+          "Analytics dashboard",
+          "Dedicated marketing expert",
         ],
         cta: "Contact Us",
       },
@@ -157,12 +238,14 @@ export default function Packages() {
       <div className="absolute inset-0">
         <ParticleBackground />
       </div>
+
       <div className="relative z-10">
         <SEO
           title="Packages"
-          description="Explore our range of software solution packages tailored to your business needs."
-          keywords="software packages, business solutions, pricing plans"
+          description="Explore Nexovate’s affordable software, website, and app development packages designed to help your business grow."
+          keywords="web development, mobile apps, SEO, branding, software packages"
         />
+
         <div className="text-gray-900 dark:text-white py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl sm:text-center">
@@ -170,10 +253,11 @@ export default function Packages() {
                 Our Service Packages
               </h2>
               <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-                Choose the right package for your business needs. We offer a range of services to help you grow and
-                succeed.
+                High-quality digital solutions at realistic prices. Choose what fits your vision — from websites to
+                apps, branding to SEO.
               </p>
             </div>
+
             {packageCategories.map((category, categoryIndex) => (
               <FadeInWhenVisible key={category.title}>
                 <div className="mt-24">
@@ -213,7 +297,7 @@ export default function Packages() {
                         <motion.a
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
-                          href="#"
+                          href="/contact"
                           className={`mt-8 block w-full rounded-md px-3.5 py-2 text-center text-sm font-semibold leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${
                             pkg.popular
                               ? "bg-nexovate-blue-600 text-white hover:bg-nexovate-blue-500 focus-visible:outline-nexovate-blue-600"
@@ -242,8 +326,8 @@ export default function Packages() {
                 >
                   <h3 className="text-xl font-semibold mb-4 text-black dark:text-white">Expertise</h3>
                   <p className="text-black dark:text-white">
-                    Our team of skilled professionals brings years of experience and cutting-edge knowledge to every
-                    project.
+                    Our experienced developers, designers, and marketers deliver professional quality at budget-friendly
+                    rates.
                   </p>
                 </motion.div>
                 <motion.div
@@ -254,7 +338,7 @@ export default function Packages() {
                 >
                   <h3 className="text-xl font-semibold mb-4 text-black dark:text-white">Customization</h3>
                   <p className="text-black dark:text-white">
-                    We tailor our solutions to fit your unique business needs, ensuring maximum impact and efficiency.
+                    Every project is uniquely tailored — from web apps to mobile experiences — for your business goals.
                   </p>
                 </motion.div>
                 <motion.div
@@ -265,8 +349,7 @@ export default function Packages() {
                 >
                   <h3 className="text-xl font-semibold mb-4 text-black dark:text-white">Support</h3>
                   <p className="text-black dark:text-white">
-                    We provide ongoing support and maintenance to ensure your digital solutions continue to perform at
-                    their best.
+                    Our post-launch support ensures your website or app keeps running smoothly — long after delivery.
                   </p>
                 </motion.div>
               </div>

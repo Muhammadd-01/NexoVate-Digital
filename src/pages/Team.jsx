@@ -9,6 +9,7 @@ const teamMembers = [
     image:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80",
     description: "John has over 20 years of experience in software development and business leadership.",
+    portfolio: "https://example.com/john-portfolio",
   },
   {
     name: "Jane Smith",
@@ -16,6 +17,7 @@ const teamMembers = [
     image:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80",
     description: "Jane is a tech visionary with a passion for innovative solutions and emerging technologies.",
+    portfolio: "https://example.com/jane-portfolio",
   },
   {
     name: "Mike Johnson",
@@ -23,6 +25,7 @@ const teamMembers = [
     image:
       "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80",
     description: "Mike brings a wealth of experience in full-stack development and software architecture.",
+    portfolio: "https://example.com/mike-portfolio",
   },
   {
     name: "Sarah Lee",
@@ -30,6 +33,7 @@ const teamMembers = [
     image:
       "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80",
     description: "Sarah is passionate about creating intuitive and beautiful user experiences.",
+    portfolio: "https://example.com/sarah-portfolio",
   },
 ]
 
@@ -73,6 +77,20 @@ export default function Team() {
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{member.name}</h3>
                     <p className="text-sm text-nexovate-blue-600 dark:text-nexovate-blue-400">{member.role}</p>
                     <p className="mt-4 text-sm text-gray-600 dark:text-gray-300 text-center">{member.description}</p>
+
+                    {/* ✅ Added Portfolio Button */}
+                    <motion.a
+                      href={member.portfolio}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.97 }}
+                      className="mt-5 inline-block rounded-full px-4 py-2 text-sm font-medium transition
+                                 bg-nexovate-blue-600 text-white hover:bg-nexovate-blue-700
+                                 dark:bg-nexovate-blue-500 dark:hover:bg-nexovate-blue-400 shadow-md"
+                    >
+                      View Portfolio
+                    </motion.a>
                   </motion.div>
                 ))}
               </div>
@@ -83,4 +101,3 @@ export default function Team() {
     </>
   )
 }
-
