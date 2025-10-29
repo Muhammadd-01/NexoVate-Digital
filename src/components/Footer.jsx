@@ -1,24 +1,40 @@
 import { Link } from "react-router-dom"
 import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa"
+import { motion } from "framer-motion"
 
 export default function Footer() {
   return (
-    <footer className="bg-white dark:bg-black shadow-md mt-auto">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <motion.footer
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="bg-nexovate-gradient/80 backdrop-blur-sm shadow-md mt-auto relative z-40"
+    >
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 text-white">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Logo Section */}
           <div className="col-span-1">
             <Link to="/">
-              <img className="h-24 w-auto" src="src/assets/nexovate-logo.png" alt="NexoVate Digital" />
+              <motion.img
+                whileHover={{ scale: 1.05 }}
+                className="h-14 w-auto rounded-xl shadow-md"
+                src="src/assets/nexovate-logo.png"
+                alt="NexoVate Digital"
+              />
             </Link>
-            <p className="mt-4 text-sm text-content">Empowering businesses through innovative digital solutions.</p>
+            <p className="mt-3 text-sm text-gray-200/90">
+              Empowering businesses through innovative digital solutions.
+            </p>
           </div>
+
+          {/* Company */}
           <div>
-            <h3 className="text-sm font-semibold text-gray-900 dark:text-white">Company</h3>
-            <ul className="mt-4 space-y-4">
+            <h3 className="text-sm font-semibold text-white">Company</h3>
+            <ul className="mt-3 space-y-3">
               <li>
                 <Link
                   to="/about"
-                  className="text-sm text-nexovate-blue-600 dark:text-nexovate-blue-300 hover:text-nexovate-purple-600 dark:hover:text-nexovate-purple-400"
+                  className="text-sm text-gray-200 hover:text-nexovate-blue-300 transition"
                 >
                   About
                 </Link>
@@ -26,7 +42,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/career"
-                  className="text-sm text-nexovate-blue-600 dark:text-nexovate-blue-300 hover:text-nexovate-purple-600 dark:hover:text-nexovate-purple-400"
+                  className="text-sm text-gray-200 hover:text-nexovate-blue-300 transition"
                 >
                   Careers
                 </Link>
@@ -34,20 +50,22 @@ export default function Footer() {
               <li>
                 <Link
                   to="/contact"
-                  className="text-sm text-nexovate-blue-600 dark:text-nexovate-blue-300 hover:text-nexovate-purple-600 dark:hover:text-nexovate-purple-400"
+                  className="text-sm text-gray-200 hover:text-nexovate-blue-300 transition"
                 >
                   Contact
                 </Link>
               </li>
             </ul>
           </div>
+
+          {/* Services */}
           <div>
-            <h3 className="text-sm font-semibold text-gray-900 dark:text-white">Services</h3>
-            <ul className="mt-4 space-y-4">
+            <h3 className="text-sm font-semibold text-white">Services</h3>
+            <ul className="mt-3 space-y-3">
               <li>
                 <Link
                   to="/services"
-                  className="text-sm text-nexovate-blue-600 dark:text-nexovate-blue-300 hover:text-nexovate-purple-600 dark:hover:text-nexovate-purple-400"
+                  className="text-sm text-gray-200 hover:text-nexovate-blue-300 transition"
                 >
                   Web Development
                 </Link>
@@ -55,7 +73,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/services"
-                  className="text-sm text-nexovate-blue-600 dark:text-nexovate-blue-300 hover:text-nexovate-purple-600 dark:hover:text-nexovate-purple-400"
+                  className="text-sm text-gray-200 hover:text-nexovate-blue-300 transition"
                 >
                   Mobile Apps
                 </Link>
@@ -63,20 +81,22 @@ export default function Footer() {
               <li>
                 <Link
                   to="/services"
-                  className="text-sm text-nexovate-blue-600 dark:text-nexovate-blue-300 hover:text-nexovate-purple-600 dark:hover:text-nexovate-purple-400"
+                  className="text-sm text-gray-200 hover:text-nexovate-blue-300 transition"
                 >
                   Cloud Solutions
                 </Link>
               </li>
             </ul>
           </div>
+
+          {/* Connect */}
           <div>
-            <h3 className="text-sm font-semibold text-gray-900 dark:text-white">Connect</h3>
-            <ul className="mt-4 space-y-4">
+            <h3 className="text-sm font-semibold text-white">Connect</h3>
+            <ul className="mt-3 space-y-3">
               <li>
                 <a
                   href="https://twitter.com"
-                  className="text-sm text-nexovate-blue-600 dark:text-nexovate-blue-300 hover:text-nexovate-purple-600 dark:hover:text-nexovate-purple-400 flex items-center"
+                  className="flex items-center text-sm text-gray-200 hover:text-nexovate-blue-300 transition"
                 >
                   <FaTwitter className="mr-2" /> Twitter
                 </a>
@@ -84,7 +104,7 @@ export default function Footer() {
               <li>
                 <a
                   href="https://linkedin.com"
-                  className="text-sm text-nexovate-blue-600 dark:text-nexovate-blue-300 hover:text-nexovate-purple-600 dark:hover:text-nexovate-purple-400 flex items-center"
+                  className="flex items-center text-sm text-gray-200 hover:text-nexovate-blue-300 transition"
                 >
                   <FaLinkedin className="mr-2" /> LinkedIn
                 </a>
@@ -92,7 +112,7 @@ export default function Footer() {
               <li>
                 <a
                   href="https://github.com"
-                  className="text-sm text-nexovate-blue-600 dark:text-nexovate-blue-300 hover:text-nexovate-purple-600 dark:hover:text-nexovate-purple-400 flex items-center"
+                  className="flex items-center text-sm text-gray-200 hover:text-nexovate-blue-300 transition"
                 >
                   <FaGithub className="mr-2" /> GitHub
                 </a>
@@ -100,13 +120,14 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="mt-8 border-t border-gray-200 dark:border-gray-700 pt-8">
-          <p className="text-center text-sm text-content">
+
+        {/* Divider */}
+        <div className="mt-6 border-t border-white/20 pt-6 text-center">
+          <p className="text-sm text-gray-300/90">
             &copy; {new Date().getFullYear()} NexoVate Digital. All rights reserved.
           </p>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   )
 }
-

@@ -10,10 +10,10 @@ const navigation = [
   { name: "Packages", href: "/packages" },
   { name: "Services", href: "/services" },
   { name: "Portfolios", href: "/portfolios" },
-  { name: "Testimonials", href: "/testimonials" },
-  { name: "Blog", href: "/blog" },
+  // { name: "Testimonials", href: "/testimonials" },
+  // { name: "Blog", href: "/blog" },
   { name: "Team", href: "/team" },
-  { name: "Career", href: "/career" },
+  // { name: "Career", href: "/career" },
   { name: "Contact", href: "/contact" },
 ];
 

@@ -10,7 +10,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Chatbot from "./components/Chatbot";
 import WhatsAppButton from "./components/WhatsAppButton";
-import ParticleBackground from "./components/ParticleBackground";
+import ParticleBackground from "./components/ParticleBackground"; 
 import AnimatedBackground from "./components/AnimatedBackground";
 import ScrollToTop from "./components/ScrollToTop";
 import AutoScrollToTop from "./components/AutoScrollToTop";
