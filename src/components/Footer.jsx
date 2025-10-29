@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom"
-import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa"
-import { motion } from "framer-motion"
+import { Link } from "react-router-dom";
+import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
@@ -41,10 +41,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  to="/career"
+                  to="/packages"
                   className="text-sm text-gray-200 hover:text-nexovate-blue-300 transition"
                 >
-                  Careers
+                  Packages
                 </Link>
               </li>
               <li>
@@ -124,10 +124,11 @@ export default function Footer() {
         {/* Divider */}
         <div className="mt-6 border-t border-white/20 pt-6 text-center">
           <p className="text-sm text-gray-300/90">
-            &copy; {new Date().getFullYear()} NexoVate Digital. All rights reserved.
+            &copy; {new Date().getFullYear()} NexoVate Digital. All rights
+            reserved.
           </p>
         </div>
       </div>
     </motion.footer>
-  )
+  );
 }
