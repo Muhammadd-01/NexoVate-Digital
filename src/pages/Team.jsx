@@ -4,12 +4,12 @@ import ParticleBackground from "../components/ParticleBackground"
 
 const teamMembers = [
   {
-    name: "John Doe",
+    name: "Muhammad Affan",
     role: "CEO & Founder",
     image:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80",
     description: "John has over 20 years of experience in software development and business leadership.",
-    portfolio: "https://example.com/john-portfolio",
+    portfolio: "https://affann-portfolio.vercel.app/",
   },
   {
     name: "Jane Smith",
