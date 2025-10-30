@@ -1,32 +1,59 @@
 import SEO from "../components/SEO"
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
-import { CodeBracketIcon, MagnifyingGlassIcon, PaintBrushIcon, ShoppingCartIcon } from "@heroicons/react/24/outline"
+import {
+  CodeBracketIcon,
+  MagnifyingGlassIcon,
+  PaintBrushIcon,
+  WrenchScrewdriverIcon,
+  GlobeAltIcon,
+  DevicePhoneMobileIcon,
+  CameraIcon,
+} from "@heroicons/react/24/outline"
 import ParticleBackground from "../components/ParticleBackground"
 
 const services = [
   {
-    name: "Website Development",
+    name: "Full-Stack Web Development",
     description:
-      "Custom website design and development tailored to your business needs. Responsive, fast, and user-friendly websites.",
+      "We build powerful, scalable, and high-performing websites using React, Next.js, Angular, Laravel, .NET, PHP, TailwindCSS, and TypeScript. From sleek landing pages to enterprise-grade platforms — we deliver digital experiences that attract and convert audiences worldwide.",
     icon: CodeBracketIcon,
   },
   {
-    name: "SEO (Search Engine Optimization)",
+    name: "UI/UX Design",
     description:
-      "On-page and off-page SEO to improve search engine rankings. Keyword research, website audits, and performance tracking.",
+      "Our creative design team focuses on building modern, engaging, and conversion-driven interfaces. Every pixel, layout, and motion effect is crafted to create an intuitive experience that users love to interact with.",
+    icon: DevicePhoneMobileIcon,
+  },
+  {
+    name: "SEO & Digital Marketing",
+    description:
+      "Rank higher and grow faster. We implement advanced on-page, off-page, and technical SEO strategies with data-backed marketing campaigns — boosting visibility, leads, and global recognition across all major platforms.",
     icon: MagnifyingGlassIcon,
   },
   {
-    name: "Graphic Designing",
-    description: "Social media posts, stories, and reels. Logo design, branding, and promotional materials.",
+    name: "Branding & Graphic Design",
+    description:
+      "We help brands find their voice through creative design and storytelling. From logos and brand kits to social media visuals — we design identities that inspire trust and make your brand unforgettable.",
     icon: PaintBrushIcon,
   },
   {
-    name: "Shopify Store Creation",
+    name: "Photo & Video Editing",
     description:
-      "Custom Shopify store setup and design. Product listings, payment integrations, and store management support.",
-    icon: ShoppingCartIcon,
+      "Our media team specializes in cinematic video editing, promotional content, reels, and corporate branding visuals. Whether it’s a business campaign or personal brand storytelling — we turn raw visuals into emotionally powerful digital art that connects with audiences.",
+    icon: CameraIcon,
+  },
+  {
+    name: "Website Maintenance & Support",
+    description:
+      "Your website deserves consistent care. We handle updates, backups, performance monitoring, and security — ensuring your site stays fast, safe, and always online so you can focus on growing your business.",
+    icon: WrenchScrewdriverIcon,
+  },
+  {
+    name: "Global Business Solutions",
+    description:
+      "We empower startups and enterprises to scale beyond borders with automation, cloud integration, and smart digital solutions. Nexovate helps businesses go from local to global — efficiently and strategically.",
+    icon: GlobeAltIcon,
   },
 ]
 
@@ -39,8 +66,8 @@ export default function Services() {
       <div className="relative z-10">
         <SEO
           title="Our Services"
-          description="Explore our range of digital services including website development, SEO, graphic design, and Shopify store creation."
-          keywords="website development, SEO, graphic design, Shopify store, digital services"
+          description="Discover Nexovate’s global digital services including web development, SEO, UI/UX design, branding, photo and video editing, and business automation solutions."
+          keywords="web development, SEO, branding, UI/UX design, photo editing, video editing, digital marketing, global IT services, full-stack development"
         />
         <div className="text-gray-900 dark:text-white py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -49,12 +76,13 @@ export default function Services() {
                 Our Services
               </h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-                Empowering Your Business with Innovative Digital Solutions
+                Transforming Ideas Into Digital Powerhouses
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-                At Nexovate, we provide cutting-edge digital services designed to elevate your business and drive growth in the digital landscape.
+                At Nexovate, we combine technology, creativity, and strategy to help businesses thrive in the digital world. From web solutions to marketing and media — we deliver excellence that speaks results.
               </p>
             </div>
+
             <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
               <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
                 {services.map((service) => (
@@ -79,9 +107,10 @@ export default function Services() {
                 ))}
               </dl>
             </div>
+
             <div className="mt-16 text-center">
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-4">
-                Ready to transform your business? Reach out to us at contact@nexovate.com
+                Ready to bring your vision to life? Let’s collaborate and build something that sets your brand apart globally.
               </p>
               <Link
                 to="/contact"

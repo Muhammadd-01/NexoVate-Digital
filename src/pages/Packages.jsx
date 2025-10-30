@@ -10,13 +10,13 @@ const packageCategories = [
     packages: [
       {
         name: "Basic",
-        price: "$1,499",
+        price: "$999",
         features: ["Simple web application", "Up to 5 pages", "Basic functionality", "1 month of support"],
         cta: "Get Started",
       },
       {
         name: "Premium",
-        price: "$3,499",
+        price: "$2,499",
         features: [
           "Advanced web application",
           "Up to 15 pages",
@@ -46,7 +46,7 @@ const packageCategories = [
     packages: [
       {
         name: "Starter",
-        price: "$499",
+        price: "$349",
         features: [
           "Modern 5-page website",
           "Responsive design (mobile-friendly)",
@@ -57,7 +57,7 @@ const packageCategories = [
       },
       {
         name: "Business",
-        price: "$999",
+        price: "$699",
         features: [
           "Up to 10 pages",
           "Custom UI/UX design",
@@ -70,7 +70,7 @@ const packageCategories = [
       },
       {
         name: "E-Commerce",
-        price: "$1,499",
+        price: "$999",
         features: [
           "Full online store setup",
           "Payment gateway integration",
@@ -87,7 +87,7 @@ const packageCategories = [
     packages: [
       {
         name: "Basic App",
-        price: "$1,299",
+        price: "$899",
         features: [
           "Hybrid mobile app (React Native / Flutter)",
           "Up to 5 screens",
@@ -98,7 +98,7 @@ const packageCategories = [
       },
       {
         name: "Business App",
-        price: "$2,499",
+        price: "$1,799",
         features: [
           "iOS & Android build",
           "Custom UI design",
@@ -111,7 +111,7 @@ const packageCategories = [
       },
       {
         name: "Advanced / Enterprise",
-        price: "$3,999",
+        price: "$2,999",
         features: [
           "Fully custom app (Native / Cross-platform)",
           "Database & cloud integration",
@@ -128,13 +128,13 @@ const packageCategories = [
     packages: [
       {
         name: "Basic",
-        price: "$299/month",
+        price: "$199/month",
         features: ["5 design requests", "Logo design", "Social media graphics", "3 revisions per design"],
         cta: "Start Designing",
       },
       {
         name: "Premium",
-        price: "$599/month",
+        price: "$399/month",
         features: [
           "10 design requests",
           "Logo + branding",
@@ -160,17 +160,99 @@ const packageCategories = [
     ],
   },
   {
+    title: "Video Editing Packages",
+    packages: [
+      {
+        name: "Basic",
+        price: "$249/month",
+        features: [
+          "Up to 5 short videos (≤1 min each)",
+          "Basic cuts, transitions & color correction",
+          "1080p output",
+          "2 revisions per video",
+        ],
+        cta: "Start Editing",
+      },
+      {
+        name: "Pro",
+        price: "$499/month",
+        features: [
+          "Up to 10 short or 5 long-form videos",
+          "Advanced transitions & effects",
+          "Color grading + sound enhancement",
+          "Social media optimization",
+          "Unlimited revisions",
+        ],
+        cta: "Go Pro",
+        popular: true,
+      },
+      {
+        name: "Cinematic / Custom",
+        price: "Custom Quote",
+        features: [
+          "Cinematic video editing",
+          "Multi-cam & voiceover sync",
+          "Motion graphics & VFX",
+          "Dedicated editor",
+          "Priority delivery",
+        ],
+        cta: "Contact Us",
+      },
+    ],
+  },
+  {
+    title: "Photo Editing Packages",
+    packages: [
+      {
+        name: "Basic",
+        price: "$149/month",
+        features: [
+          "Up to 20 photos",
+          "Color correction & cropping",
+          "Lighting adjustments",
+          "2 revisions",
+        ],
+        cta: "Start Editing",
+      },
+      {
+        name: "Premium",
+        price: "$299/month",
+        features: [
+          "Up to 50 photos",
+          "Retouching & enhancements",
+          "Background cleanup / blur",
+          "Product or portrait focus",
+          "Unlimited revisions",
+        ],
+        cta: "Upgrade Plan",
+        popular: true,
+      },
+      {
+        name: "Commercial / Custom",
+        price: "Custom Quote",
+        features: [
+          "Studio-level photo editing",
+          "Full product catalog editing",
+          "Model retouching",
+          "Branding & color consistency",
+          "Dedicated editor",
+        ],
+        cta: "Contact Us",
+      },
+    ],
+  },
+  {
     title: "SEO Services",
     packages: [
       {
         name: "Basic",
-        price: "$499/month",
+        price: "$349/month",
         features: ["Keyword research", "On-page optimization", "Monthly reporting", "Local SEO"],
         cta: "Boost Rankings",
       },
       {
         name: "Premium",
-        price: "$899/month",
+        price: "$649/month",
         features: [
           "Advanced keyword research",
           "On + Off-page SEO",
@@ -200,13 +282,13 @@ const packageCategories = [
     packages: [
       {
         name: "Starter",
-        price: "$699/month",
+        price: "$499/month",
         features: ["Social media management", "Email marketing", "Basic PPC", "Monthly report"],
         cta: "Start Marketing",
       },
       {
         name: "Growth",
-        price: "$1,299/month",
+        price: "$899/month",
         features: [
           "Multi-platform ads",
           "Email automation",
@@ -242,24 +324,23 @@ export default function Packages() {
       <div className="relative z-10">
         <SEO
           title="Packages"
-          description="Explore Nexovate’s affordable software, website, and app development packages designed to help your business grow."
-          keywords="web development, mobile apps, SEO, branding, software packages"
+          description="Explore Nexovate’s affordable digital packages — from software and apps to video editing, branding, and SEO — all crafted for global clients."
+          keywords="web development, mobile apps, SEO, video editing, photo editing, branding, software packages"
         />
 
         <div className="text-gray-900 dark:text-white py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            {/* Header Section */}
+            {/* Header */}
             <div className="mx-auto max-w-2xl sm:text-center">
               <h2 className="text-3xl font-bold tracking-tight text-black dark:text-white sm:text-4xl">
-                Our Service Packages
+                Our Global Service Packages
               </h2>
               <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-                High-quality digital solutions at realistic prices. Choose what fits your vision — from websites to
-                apps, branding to SEO.
+                High-quality digital services at globally competitive rates — built to scale your business, brand, and online presence.
               </p>
             </div>
 
-            {/* Technologies Section */}
+            {/* Technologies */}
             <FadeInWhenVisible>
               <div className="mt-20 text-center">
                 <div className="inline-flex items-center justify-center mb-4">
@@ -267,7 +348,7 @@ export default function Packages() {
                   <h3 className="text-2xl font-semibold text-black dark:text-white">Technologies We Use</h3>
                 </div>
                 <p className="text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mb-6">
-                  We build websites and web applications using modern, scalable, and industry-leading technologies.
+                  We craft modern web and app solutions using powerful, scalable, and industry-leading tools.
                 </p>
                 <div className="flex flex-wrap justify-center gap-3 text-sm font-medium">
                   {[
@@ -295,7 +376,7 @@ export default function Packages() {
             </FadeInWhenVisible>
 
             {/* Packages Loop */}
-            {packageCategories.map((category, categoryIndex) => (
+            {packageCategories.map((category, i) => (
               <FadeInWhenVisible key={category.title}>
                 <div className="mt-24">
                   <h3 className="text-2xl font-bold tracking-tight text-black dark:text-white sm:text-3xl mb-12 text-center">
@@ -350,7 +431,7 @@ export default function Packages() {
               </FadeInWhenVisible>
             ))}
 
-            {/* Why Choose Section */}
+            {/* Why Choose */}
             <div className="mt-32">
               <h2 className="text-3xl font-bold tracking-tight text-black dark:text-white sm:text-4xl text-center mb-16">
                 Why Choose Nexovate?
@@ -359,15 +440,15 @@ export default function Packages() {
                 {[
                   {
                     title: "Expertise",
-                    text: "Our experienced developers, designers, and marketers deliver professional quality at budget-friendly rates.",
+                    text: "A global team of developers, editors, and marketers delivering excellence at affordable rates.",
                   },
                   {
                     title: "Customization",
-                    text: "Every project is uniquely tailored — from web apps to mobile experiences — for your business goals.",
+                    text: "We tailor every project to your business goals — from web apps to cinematic visuals.",
                   },
                   {
                     title: "Support",
-                    text: "Our post-launch support ensures your website or app keeps running smoothly — long after delivery.",
+                    text: "Reliable post-launch assistance to keep your digital assets optimized and updated.",
                   },
                 ].map((card, i) => (
                   <motion.div
