@@ -1,6 +1,6 @@
 import SEO from "../components/SEO"
 import { motion } from "framer-motion"
-import { CheckIcon } from "@heroicons/react/24/outline"
+import { CheckIcon, CodeBracketIcon } from "@heroicons/react/24/outline"
 import ParticleBackground from "../components/ParticleBackground"
 import { FadeInWhenVisible } from "../components/Animations"
 
@@ -248,6 +248,7 @@ export default function Packages() {
 
         <div className="text-gray-900 dark:text-white py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            {/* Header Section */}
             <div className="mx-auto max-w-2xl sm:text-center">
               <h2 className="text-3xl font-bold tracking-tight text-black dark:text-white sm:text-4xl">
                 Our Service Packages
@@ -258,6 +259,39 @@ export default function Packages() {
               </p>
             </div>
 
+            {/* Technologies Section */}
+            <FadeInWhenVisible>
+              <div className="mt-20 text-center">
+                <div className="inline-flex items-center justify-center mb-4">
+                  <CodeBracketIcon className="h-8 w-8 text-nexovate-blue-600 dark:text-blue-400 mr-2" />
+                  <h3 className="text-2xl font-semibold text-black dark:text-white">Technologies We Use</h3>
+                </div>
+                <p className="text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mb-6">
+                  We build websites and web applications using modern, scalable, and industry-leading technologies.
+                </p>
+                <div className="flex flex-wrap justify-center gap-3 text-sm font-medium">
+                  {[
+                    "HTML5",
+                    "CSS3",
+                    "JavaScript (ES6+)",
+                    "React.js",
+                    "Full-Stack MERN (MongoDB, Express, React, Node)",
+                    "Laravel (PHP)",
+                    "C# .NET (ASP.NET MVC / Core)",
+                  ].map((tech) => (
+                    <motion.span
+                      key={tech}
+                      whileHover={{ scale: 1.05 }}
+                      className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-black dark:text-white rounded-full shadow-sm"
+                    >
+                      {tech}
+                    </motion.span>
+                  ))}
+                </div>
+              </div>
+            </FadeInWhenVisible>
+
+            {/* Packages Loop */}
             {packageCategories.map((category, categoryIndex) => (
               <FadeInWhenVisible key={category.title}>
                 <div className="mt-24">
@@ -313,45 +347,37 @@ export default function Packages() {
               </FadeInWhenVisible>
             ))}
 
+            {/* Why Choose Section */}
             <div className="mt-32">
               <h2 className="text-3xl font-bold tracking-tight text-black dark:text-white sm:text-4xl text-center mb-16">
                 Why Choose Nexovate?
               </h2>
               <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"
-                >
-                  <h3 className="text-xl font-semibold mb-4 text-black dark:text-white">Expertise</h3>
-                  <p className="text-black dark:text-white">
-                    Our experienced developers, designers, and marketers deliver professional quality at budget-friendly
-                    rates.
-                  </p>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"
-                >
-                  <h3 className="text-xl font-semibold mb-4 text-black dark:text-white">Customization</h3>
-                  <p className="text-black dark:text-white">
-                    Every project is uniquely tailored — from web apps to mobile experiences — for your business goals.
-                  </p>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"
-                >
-                  <h3 className="text-xl font-semibold mb-4 text-black dark:text-white">Support</h3>
-                  <p className="text-black dark:text-white">
-                    Our post-launch support ensures your website or app keeps running smoothly — long after delivery.
-                  </p>
-                </motion.div>
+                {[
+                  {
+                    title: "Expertise",
+                    text: "Our experienced developers, designers, and marketers deliver professional quality at budget-friendly rates.",
+                  },
+                  {
+                    title: "Customization",
+                    text: "Every project is uniquely tailored — from web apps to mobile experiences — for your business goals.",
+                  },
+                  {
+                    title: "Support",
+                    text: "Our post-launch support ensures your website or app keeps running smoothly — long after delivery.",
+                  },
+                ].map((card, i) => (
+                  <motion.div
+                    key={card.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"
+                  >
+                    <h3 className="text-xl font-semibold mb-4 text-black dark:text-white">{card.title}</h3>
+                    <p className="text-black dark:text-white">{card.text}</p>
+                  </motion.div>
+                ))}
               </div>
             </div>
           </div>
