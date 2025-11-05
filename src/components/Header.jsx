@@ -1,8 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
-import { useState, useEffect, useContext } from "react";
-import { Bars3Icon, XMarkIcon, MoonIcon, SunIcon } from "@heroicons/react/24/outline";
+import { useState, useEffect } from "react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { motion, AnimatePresence } from "framer-motion";
-import { ThemeContext } from "../contexts/ThemeContext";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -10,35 +9,34 @@ const navigation = [
   { name: "Packages", href: "/packages" },
   { name: "Services", href: "/services" },
   { name: "Portfolios", href: "/portfolios" },
-  // { name: "Testimonials", href: "/testimonials" },
-  // { name: "Blog", href: "/blog" },
+  { name: "Testimonials", href: "/testimonials" },
+  { name: "Blog", href: "/blog" },
   { name: "Team", href: "/team" },
-  // { name: "Career", href: "/career" },
+  { name: "Career", href: "/career" },
   { name: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const { theme, toggleTheme } = useContext(ThemeContext);
 
   useEffect(() => {
     setMobileMenuOpen(false);
-  }, []);
+  }, [location]);
 
   return (
     <motion.header
-      initial={{ opacity: 0, y: -50 }}
+      initial={{ opacity: 0, y: -40 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.4 }}
       className="bg-nexovate-gradient shadow-md sticky top-0 z-50 backdrop-blur-sm"
     >
       <nav
-        className="mx-auto flex max-w-7xl items-center justify-between p-2 lg:px-6"
+        className="relative mx-auto flex max-w-7xl items-center justify-between p-2 lg:px-6"
         aria-label="Global"
       >
-        {/* Logo */}
-        <div className="flex lg:flex-1">
+        {/* Logo (Left) */}
+        <div className="flex flex-1 justify-start">
           <Link to="/" className="-m-1.5 p-1.5">
             <span className="sr-only">NexoVate Digital</span>
             <motion.div whileHover={{ scale: 1.05 }} className="relative flex items-center">
@@ -51,24 +49,8 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
-        <div className="flex lg:hidden">
-          <button
-            type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2 text-nexovate-blue-500 hover:bg-nexovate-gradient hover:text-white"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            <span className="sr-only">Open main menu</span>
-            {mobileMenuOpen ? (
-              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-            ) : (
-              <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-            )}
-          </button>
-        </div>
-
-        {/* Desktop Nav Links */}
-        <div className="hidden lg:flex lg:gap-x-8">
+        {/* Desktop Nav (Centered) */}
+        <div className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 gap-x-8">
           {navigation.map((item) => (
             <Link
               key={item.name}
@@ -86,16 +68,18 @@ export default function Header() {
           ))}
         </div>
 
-        {/* Theme Toggle */}
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+        {/* Mobile Menu Button (Right) */}
+        <div className="flex lg:hidden">
           <button
-            onClick={toggleTheme}
-            className="rounded-full p-1.5 bg-white text-nexovate-blue-800 hover:bg-nexovate-gradient hover:text-white"
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-nexovate-blue-700"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            {theme === "dark" ? (
-              <SunIcon className="h-5 w-5" />
+            <span className="sr-only">Open main menu</span>
+            {mobileMenuOpen ? (
+              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
             ) : (
-              <MoonIcon className="h-5 w-5" />
+              <Bars3Icon className="h-6 w-6" aria-hidden="true" />
             )}
           </button>
         </div>
@@ -126,15 +110,6 @@ export default function Header() {
                   {item.name}
                 </Link>
               ))}
-              <button
-                onClick={() => {
-                  toggleTheme();
-                  setMobileMenuOpen(false);
-                }}
-                className="block w-full text-left rounded-md px-3 py-2 text-base font-medium text-white hover:bg-nexovate-blue-700"
-              >
-                {theme === "dark" ? "Light Mode" : "Dark Mode"}
-              </button>
             </div>
           </motion.div>
         )}
