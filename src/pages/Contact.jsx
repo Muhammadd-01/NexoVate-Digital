@@ -15,7 +15,7 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Phone",
-    details: ["+92 315 1177817"],
+    details: ["+92 312 858773"], // Updated phone
   },
   {
     icon: Mail,
@@ -31,9 +31,8 @@ export default function Contact() {
     email: "",
     message: "",
   });
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // 🧠 Auto-fill form if redirected from Packages
+  // 🧠 Auto-fill message if redirected from Packages
   useEffect(() => {
     if (location.state && location.state.packageDetails) {
       const { name, price, category } = location.state.packageDetails;
@@ -44,7 +43,9 @@ export default function Contact() {
     }
   }, [location.state]);
 
-  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -53,17 +54,30 @@ export default function Contact() {
       const response = await fetch("https://formspree.io/f/xwplpald", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: formData.email, message: formData.message }),
+        body: JSON.stringify({
+          email: formData.email,
+          message: formData.message,
+        }),
       });
 
       if (response.ok) {
-        setIsSubmitted(true);
-        toast.success("Message sent successfully!");
+        toast.success("Message sent successfully!", {
+          style: {
+            background: "#0A2A43",
+            color: "#FDFBFB",
+            borderRadius: "8px",
+          },
+        });
         setFormData({ name: "", email: "", message: "" });
-        setTimeout(() => setIsSubmitted(false), 3000);
-      } else toast.error("Failed to send message. Please try again.");
-    } catch {
-      toast.error("Something went wrong. Try again later.");
+      } else {
+        toast.error("Failed to send message. Please try again.", {
+          style: { background: "#0A2A43", color: "#FDFBFB" },
+        });
+      }
+    } catch (error) {
+      toast.error("Something went wrong. Try again later.", {
+        style: { background: "#0A2A43", color: "#FDFBFB" },
+      });
     }
   };
 
@@ -81,7 +95,9 @@ export default function Contact() {
         <div className="text-gray-900 dark:text-white py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl">Contact Us</h2>
+              <h2 className="text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl">
+                Contact Us
+              </h2>
               <p className="mt-3 text-lg text-gray-600 dark:text-gray-300">
                 Let's build something amazing together!
               </p>
@@ -90,7 +106,9 @@ export default function Contact() {
             <div className="mx-auto mt-16 grid max-w-4xl grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-2">
               {/* Contact Info */}
               <div>
-                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">Contact Information</h3>
+                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
+                  Contact Information
+                </h3>
                 <dl className="mt-8 space-y-6">
                   {contactInfo.map((item, index) => (
                     <motion.div
@@ -104,7 +122,9 @@ export default function Contact() {
                         <item.icon className="h-7 w-7 text-blue-600 dark:text-blue-400" />
                       </dt>
                       <dd>
-                        <h4 className="text-lg font-medium text-gray-900 dark:text-white">{item.title}</h4>
+                        <h4 className="text-lg font-medium text-gray-900 dark:text-white">
+                          {item.title}
+                        </h4>
                         {item.details.map((detail, idx) => (
                           <p key={idx} className="text-gray-600 dark:text-gray-300">
                             {detail}
@@ -118,55 +138,52 @@ export default function Contact() {
 
               {/* Contact Form */}
               <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
-                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Send a Message</h3>
-
-                {isSubmitted && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="bg-blue-500 text-white px-4 py-2 rounded-md text-center shadow-md"
-                  >
-                    ✅ Message sent successfully!
-                  </motion.div>
-                )}
+                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+                  Send a Message
+                </h3>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Name</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                      Name
+                    </label>
                     <input
                       type="text"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full mt-1 p-3 rounded-md bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition"
+                      className="w-full mt-1 p-3 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition"
                       placeholder="Enter your name"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                      Email
+                    </label>
                     <input
                       type="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full mt-1 p-3 rounded-md bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition"
+                      className="w-full mt-1 p-3 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition"
                       placeholder="Enter your email"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Message</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                      Message
+                    </label>
                     <textarea
                       name="message"
                       rows={4}
                       value={formData.message}
                       onChange={handleChange}
                       required
-                      className="w-full mt-1 p-3 rounded-md bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition"
+                      className="w-full mt-1 p-3 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition"
                       placeholder="Write your message..."
                     />
                   </div>

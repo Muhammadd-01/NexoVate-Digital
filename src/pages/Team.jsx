@@ -39,7 +39,7 @@ const teamMembers = [
       "https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80",
     description:
       "Hashir designs user-focused experiences and clean visual systems. From wireframes to final product design, he ensures every app and website is intuitive, aesthetic, and engaging.",
-    portfolio: "https://example.com/hashir-portfolio",
+    portfolio: "https://hashir03042122258.github.io/newportfolio/",
   },
   {
     name: "Muhammad Umer",
