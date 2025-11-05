@@ -1,8 +1,23 @@
 import { Link } from "react-router-dom";
-import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaFacebook, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function Footer() {
+  const fullText = "Empowering businesses through innovative digital solutions.";
+  const [displayText, setDisplayText] = useState("");
+
+  useEffect(() => {
+    let index = 0;
+    const interval = setInterval(() => {
+      setDisplayText(fullText.slice(0, index + 1));
+      index++;
+      if (index === fullText.length) clearInterval(interval);
+    }, 50); // typing speed in ms
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <motion.footer
       initial={{ opacity: 0, y: 50 }}
@@ -23,7 +38,8 @@ export default function Footer() {
               />
             </Link>
             <p className="mt-3 text-sm text-gray-200/90">
-              Empowering businesses through innovative digital solutions.
+              {displayText}
+              <span className="blinking-cursor">|</span>
             </p>
           </div>
 
@@ -95,15 +111,19 @@ export default function Footer() {
             <ul className="mt-3 space-y-3">
               <li>
                 <a
-                  href="https://twitter.com"
+                  href="https://www.instagram.com/nexovate_digital/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center text-sm text-gray-200 hover:text-nexovate-blue-300 transition"
                 >
-                  <FaTwitter className="mr-2" /> Twitter
+                  <FaInstagram className="mr-2" /> Instagram
                 </a>
               </li>
               <li>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center text-sm text-gray-200 hover:text-nexovate-blue-300 transition"
                 >
                   <FaLinkedin className="mr-2" /> LinkedIn
@@ -111,10 +131,12 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://github.com"
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center text-sm text-gray-200 hover:text-nexovate-blue-300 transition"
                 >
-                  <FaGithub className="mr-2" /> GitHub
+                  <FaFacebook className="mr-2" /> Facebook
                 </a>
               </li>
             </ul>
@@ -124,11 +146,24 @@ export default function Footer() {
         {/* Divider */}
         <div className="mt-6 border-t border-white/20 pt-6 text-center">
           <p className="text-sm text-gray-300/90">
-            &copy; {new Date().getFullYear()} NexoVate Digital. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} NexoVate Digital. All rights reserved.
           </p>
         </div>
       </div>
+
+      {/* Custom blinking cursor */}
+      <style>{`
+        .blinking-cursor {
+          font-weight: 100;
+          font-size: 1em;
+          color: white;
+          animation: blink 1s infinite;
+        }
+        @keyframes blink {
+          0%, 50%, 100% { opacity: 1; }
+          25%, 75% { opacity: 0; }
+        }
+      `}</style>
     </motion.footer>
   );
 }
