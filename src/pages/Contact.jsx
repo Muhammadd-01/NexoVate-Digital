@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import SEO from "../components/SEO";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
@@ -24,6 +25,7 @@ const contactInfo = [
 ];
 
 export default function Contact() {
+  const location = useLocation();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -31,9 +33,18 @@ export default function Contact() {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  // 🧠 Auto-fill form if redirected from Packages
+  useEffect(() => {
+    if (location.state && location.state.packageDetails) {
+      const { name, price, category } = location.state.packageDetails;
+      setFormData((prev) => ({
+        ...prev,
+        message: `I’m interested in the ${name} package (${category}) priced at ${price}. Please contact me with more details.`,
+      }));
+    }
+  }, [location.state]);
+
+  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -41,28 +52,17 @@ export default function Contact() {
     try {
       const response = await fetch("https://formspree.io/f/xwplpald", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: formData.email,
-          message: formData.message,
-        }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: formData.email, message: formData.message }),
       });
 
       if (response.ok) {
         setIsSubmitted(true);
         toast.success("Message sent successfully!");
-
-        // Reset form fields
         setFormData({ name: "", email: "", message: "" });
-
-        // Hide message after 3 seconds
         setTimeout(() => setIsSubmitted(false), 3000);
-      } else {
-        toast.error("Failed to send message. Please try again.");
-      }
-    } catch (error) {
+      } else toast.error("Failed to send message. Please try again.");
+    } catch {
       toast.error("Something went wrong. Try again later.");
     }
   };
@@ -81,9 +81,7 @@ export default function Contact() {
         <div className="text-gray-900 dark:text-white py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl">
-                Contact Us
-              </h2>
+              <h2 className="text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl">Contact Us</h2>
               <p className="mt-3 text-lg text-gray-600 dark:text-gray-300">
                 Let's build something amazing together!
               </p>
@@ -92,9 +90,7 @@ export default function Contact() {
             <div className="mx-auto mt-16 grid max-w-4xl grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-2">
               {/* Contact Info */}
               <div>
-                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
-                  Contact Information
-                </h3>
+                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">Contact Information</h3>
                 <dl className="mt-8 space-y-6">
                   {contactInfo.map((item, index) => (
                     <motion.div
@@ -108,9 +104,7 @@ export default function Contact() {
                         <item.icon className="h-7 w-7 text-blue-600 dark:text-blue-400" />
                       </dt>
                       <dd>
-                        <h4 className="text-lg font-medium text-gray-900 dark:text-white">
-                          {item.title}
-                        </h4>
+                        <h4 className="text-lg font-medium text-gray-900 dark:text-white">{item.title}</h4>
                         {item.details.map((detail, idx) => (
                           <p key={idx} className="text-gray-600 dark:text-gray-300">
                             {detail}
@@ -124,18 +118,14 @@ export default function Contact() {
 
               {/* Contact Form */}
               <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
-                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
-                  Send a Message
-                </h3>
+                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Send a Message</h3>
 
-                {/* Success Message */}
                 {isSubmitted && (
                   <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.5 }}
-                    className="bg-blue-500 text-white px-4 py-2 rounded-md text-center shadow-md hover:blur-sm hover:opacity-0 transition-opacity duration-1000"
+                    className="bg-blue-500 text-white px-4 py-2 rounded-md text-center shadow-md"
                   >
                     ✅ Message sent successfully!
                   </motion.div>
@@ -143,46 +133,40 @@ export default function Contact() {
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                      Name
-                    </label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Name</label>
                     <input
                       type="text"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full mt-1 p-3 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition"
+                      className="w-full mt-1 p-3 rounded-md bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition"
                       placeholder="Enter your name"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                      Email
-                    </label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
                     <input
                       type="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full mt-1 p-3 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition"
+                      className="w-full mt-1 p-3 rounded-md bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition"
                       placeholder="Enter your email"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                      Message
-                    </label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Message</label>
                     <textarea
                       name="message"
                       rows={4}
                       value={formData.message}
                       onChange={handleChange}
                       required
-                      className="w-full mt-1 p-3 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition"
+                      className="w-full mt-1 p-3 rounded-md bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition"
                       placeholder="Write your message..."
                     />
                   </div>

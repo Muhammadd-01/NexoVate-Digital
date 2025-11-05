@@ -1,8 +1,9 @@
-import SEO from "../components/SEO"
-import { motion } from "framer-motion"
-import { CheckIcon, CodeBracketIcon } from "@heroicons/react/24/outline"
-import ParticleBackground from "../components/ParticleBackground"
-import { FadeInWhenVisible } from "../components/Animations"
+import SEO from "../components/SEO";
+import { motion } from "framer-motion";
+import { CheckIcon, CodeBracketIcon } from "@heroicons/react/24/outline";
+import ParticleBackground from "../components/ParticleBackground";
+import { FadeInWhenVisible } from "../components/Animations";
+import { useNavigate } from "react-router-dom";
 
 const packageCategories = [
   {
@@ -82,6 +83,7 @@ const packageCategories = [
       },
     ],
   },
+    
   {
     title: "Mobile App Packages (iOS & Android)",
     packages: [
@@ -312,9 +314,22 @@ const packageCategories = [
       },
     ],
   },
-]
+];
 
 export default function Packages() {
+  const navigate = useNavigate();
+
+  const handleContactClick = (pkg, category) => {
+    const packageDetails = {
+      name: pkg.name,
+      price: pkg.price,
+      category: category.title,
+    };
+
+    // Send to contact page with package details
+    navigate("/contact", { state: { packageDetails } });
+  };
+
   return (
     <div className="relative min-h-screen">
       <div className="absolute inset-0">
@@ -350,28 +365,6 @@ export default function Packages() {
                 <p className="text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mb-6">
                   We craft modern web and app solutions using powerful, scalable, and industry-leading tools.
                 </p>
-                <div className="flex flex-wrap justify-center gap-3 text-sm font-medium">
-                  {[
-                    "HTML5",
-                    "CSS3",
-                    "JavaScript (ES6+)",
-                    "TypeScript",
-                    "React.js",
-                    "Next.js",
-                    "Angular",
-                    "Full-Stack MERN (MongoDB, Express, React, Node)",
-                    "Laravel (PHP)",
-                    "C# .NET (ASP.NET MVC / Core)",
-                  ].map((tech) => (
-                    <motion.span
-                      key={tech}
-                      whileHover={{ scale: 1.05 }}
-                      className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-black dark:text-white rounded-full shadow-sm"
-                    >
-                      {tech}
-                    </motion.span>
-                  ))}
-                </div>
               </div>
             </FadeInWhenVisible>
 
@@ -412,10 +405,10 @@ export default function Packages() {
                             ))}
                           </ul>
                         </div>
-                        <motion.a
+                        <motion.button
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
-                          href="/contact"
+                          onClick={() => handleContactClick(pkg, category)}
                           className={`mt-8 block w-full rounded-md px-3.5 py-2 text-center text-sm font-semibold leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${
                             pkg.popular
                               ? "bg-nexovate-blue-600 text-white hover:bg-nexovate-blue-500 focus-visible:outline-nexovate-blue-600"
@@ -423,50 +416,16 @@ export default function Packages() {
                           } dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600`}
                         >
                           {pkg.cta}
-                        </motion.a>
+                        </motion.button>
                       </motion.div>
                     ))}
                   </div>
                 </div>
               </FadeInWhenVisible>
             ))}
-
-            {/* Why Choose */}
-            <div className="mt-32">
-              <h2 className="text-3xl font-bold tracking-tight text-black dark:text-white sm:text-4xl text-center mb-16">
-                Why Choose Nexovate?
-              </h2>
-              <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                {[
-                  {
-                    title: "Expertise",
-                    text: "A global team of developers, editors, and marketers delivering excellence at affordable rates.",
-                  },
-                  {
-                    title: "Customization",
-                    text: "We tailor every project to your business goals — from web apps to cinematic visuals.",
-                  },
-                  {
-                    title: "Support",
-                    text: "Reliable post-launch assistance to keep your digital assets optimized and updated.",
-                  },
-                ].map((card, i) => (
-                  <motion.div
-                    key={card.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: i * 0.1 }}
-                    className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"
-                  >
-                    <h3 className="text-xl font-semibold mb-4 text-black dark:text-white">{card.title}</h3>
-                    <p className="text-black dark:text-white">{card.text}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
