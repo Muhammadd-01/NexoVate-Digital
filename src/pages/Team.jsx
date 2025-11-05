@@ -2,6 +2,8 @@ import SEO from "../components/SEO"
 import { motion } from "framer-motion"
 import ParticleBackground from "../components/ParticleBackground"
 
+
+
 const teamMembers = [
   {
     name: "Muhammad Affan",
@@ -24,8 +26,8 @@ const teamMembers = [
   {
     name: "Himesh Dua",
     role: "Backend Developer | Database & API Engineer",
-    image:
-      "src/public/assets/Team-Member-images/1760013021624.jpg",
+    // ✅ Corrected Path (for live + local)
+    image: "/assets/Team-Member-images/1760013021624.jpg",
     description:
       "Himesh builds reliable, secure, and scalable backend systems using Node.js, Laravel, and .NET Core. He manages APIs, databases, and integrations that power every digital solution.",
     portfolio: "https://himeshdua.vercel.app/",
