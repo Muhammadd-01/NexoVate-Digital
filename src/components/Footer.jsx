@@ -131,7 +131,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://www.facebook.com/"
+                  href="https://www.facebook.com/profile.php?id=61577364006295"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center text-sm text-gray-200 hover:text-nexovate-blue-300 transition"
