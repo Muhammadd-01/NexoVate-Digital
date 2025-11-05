@@ -25,10 +25,10 @@ const teamMembers = [
     name: "Himesh Dua",
     role: "Backend Developer | Database & API Engineer",
     image:
-      "https://images.unsplash.com/photo-1502767089025-6572583495b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80",
+      "src/assets/Team-Member-images/1760013021624.jpg",
     description:
       "Himesh builds reliable, secure, and scalable backend systems using Node.js, Laravel, and .NET Core. He manages APIs, databases, and integrations that power every digital solution.",
-    portfolio: "https://example.com/himesh-portfolio",
+    portfolio: "https://himeshdua.vercel.app/",
   },
   {
     name: "Hashir",
