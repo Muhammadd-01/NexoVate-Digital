@@ -27,7 +27,7 @@ const teamMembers = [
     name: "Himesh Dua",
     role: "Backend Developer | Database & API Engineer",
     // ✅ Corrected Path (for live + local)
-    image: "/assets/Team-Member-images/1760013021624.jpg",
+    image: "/assets/Team-Member-images/HimeshPic.jpg",
     description:
       "Himesh builds reliable, secure, and scalable backend systems using Node.js, Laravel, and .NET Core. He manages APIs, databases, and integrations that power every digital solution.",
     portfolio: "https://himeshdua.vercel.app/",
@@ -36,7 +36,7 @@ const teamMembers = [
     name: "Hashir",
     role: "UI/UX Designer | Product Experience Developer",
     image:
-      "https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80",
+      "/assets/Team-Member-images/HashirPic.png",
     description:
       "Hashir designs user-focused experiences and clean visual systems. From wireframes to final product design, he ensures every app and website is intuitive, aesthetic, and engaging.",
     portfolio: "https://hashir03042122258.github.io/newportfolio/",
