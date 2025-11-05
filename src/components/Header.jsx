@@ -42,7 +42,7 @@ export default function Header() {
             <motion.div whileHover={{ scale: 1.05 }} className="relative flex items-center">
               <img
                 className="h-8 w-auto sm:h-10 md:h-12 lg:h-14 rounded-xl shadow-md"
-                src="src/assets/nexovate-logo.png"
+                src="/assets/nexovate-logo.png"
                 alt="NexoVate Digital"
               />
             </motion.div>
