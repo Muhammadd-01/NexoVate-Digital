@@ -11,13 +11,13 @@ const packageCategories = [
     packages: [
       {
         name: "Basic",
-        price: "$999",
+        price: "$699",
         features: ["Simple web application", "Up to 5 pages", "Basic functionality", "1 month of support"],
         cta: "Get Started",
       },
       {
         name: "Premium",
-        price: "$2,499",
+        price: "$1,699",
         features: [
           "Advanced web application",
           "Up to 15 pages",
@@ -47,7 +47,7 @@ const packageCategories = [
     packages: [
       {
         name: "Starter",
-        price: "$349",
+        price: "$249",
         features: [
           "Modern 5-page website",
           "Responsive design (mobile-friendly)",
@@ -58,7 +58,7 @@ const packageCategories = [
       },
       {
         name: "Business",
-        price: "$699",
+        price: "$499",
         features: [
           "Up to 10 pages",
           "Custom UI/UX design",
@@ -71,7 +71,7 @@ const packageCategories = [
       },
       {
         name: "E-Commerce",
-        price: "$999",
+        price: "$799",
         features: [
           "Full online store setup",
           "Payment gateway integration",
@@ -83,13 +83,12 @@ const packageCategories = [
       },
     ],
   },
-    
   {
     title: "Mobile App Packages (iOS & Android)",
     packages: [
       {
         name: "Basic App",
-        price: "$899",
+        price: "$699",
         features: [
           "Hybrid mobile app (React Native / Flutter)",
           "Up to 5 screens",
@@ -100,7 +99,7 @@ const packageCategories = [
       },
       {
         name: "Business App",
-        price: "$1,799",
+        price: "$1,299",
         features: [
           "iOS & Android build",
           "Custom UI design",
@@ -113,7 +112,7 @@ const packageCategories = [
       },
       {
         name: "Advanced / Enterprise",
-        price: "$2,999",
+        price: "$2,199",
         features: [
           "Fully custom app (Native / Cross-platform)",
           "Database & cloud integration",
@@ -130,13 +129,13 @@ const packageCategories = [
     packages: [
       {
         name: "Basic",
-        price: "$199/month",
+        price: "$149/month",
         features: ["5 design requests", "Logo design", "Social media graphics", "3 revisions per design"],
         cta: "Start Designing",
       },
       {
         name: "Premium",
-        price: "$399/month",
+        price: "$299/month",
         features: [
           "10 design requests",
           "Logo + branding",
@@ -162,11 +161,50 @@ const packageCategories = [
     ],
   },
   {
+    title: "Vector Design",
+    packages: [
+      {
+        name: "Basic",
+        price: "$99",
+        features: [
+          "1 detailed vector illustration",
+          "SVG / AI / PNG formats",
+          "Commercial license",
+          "1 revision included",
+        ],
+        cta: "Start Now",
+      },
+      {
+        name: "Professional",
+        price: "$199",
+        features: [
+          "3 high-quality vector artworks",
+          "Brand-based design style",
+          "Full color palette",
+          "Unlimited revisions",
+        ],
+        cta: "Get Professional",
+        popular: true,
+      },
+      {
+        name: "Custom / Bulk",
+        price: "Custom Quote",
+        features: [
+          "Full brand vector set",
+          "Complex illustrations / Mascots",
+          "3D vector style (optional)",
+          "Dedicated designer support",
+        ],
+        cta: "Contact Us",
+      },
+    ],
+  },
+  {
     title: "Video Editing Packages",
     packages: [
       {
         name: "Basic",
-        price: "$249/month",
+        price: "$199/month",
         features: [
           "Up to 5 short videos (≤1 min each)",
           "Basic cuts, transitions & color correction",
@@ -177,7 +215,7 @@ const packageCategories = [
       },
       {
         name: "Pro",
-        price: "$499/month",
+        price: "$399/month",
         features: [
           "Up to 10 short or 5 long-form videos",
           "Advanced transitions & effects",
@@ -207,7 +245,7 @@ const packageCategories = [
     packages: [
       {
         name: "Basic",
-        price: "$149/month",
+        price: "$99/month",
         features: [
           "Up to 20 photos",
           "Color correction & cropping",
@@ -218,7 +256,7 @@ const packageCategories = [
       },
       {
         name: "Premium",
-        price: "$299/month",
+        price: "$199/month",
         features: [
           "Up to 50 photos",
           "Retouching & enhancements",
@@ -248,13 +286,13 @@ const packageCategories = [
     packages: [
       {
         name: "Basic",
-        price: "$349/month",
+        price: "$249/month",
         features: ["Keyword research", "On-page optimization", "Monthly reporting", "Local SEO"],
         cta: "Boost Rankings",
       },
       {
         name: "Premium",
-        price: "$649/month",
+        price: "$499/month",
         features: [
           "Advanced keyword research",
           "On + Off-page SEO",
@@ -284,13 +322,13 @@ const packageCategories = [
     packages: [
       {
         name: "Starter",
-        price: "$499/month",
+        price: "$349/month",
         features: ["Social media management", "Email marketing", "Basic PPC", "Monthly report"],
         cta: "Start Marketing",
       },
       {
         name: "Growth",
-        price: "$899/month",
+        price: "$699/month",
         features: [
           "Multi-platform ads",
           "Email automation",
@@ -325,8 +363,6 @@ export default function Packages() {
       price: pkg.price,
       category: category.title,
     };
-
-    // Send to contact page with package details
     navigate("/contact", { state: { packageDetails } });
   };
 
@@ -339,8 +375,8 @@ export default function Packages() {
       <div className="relative z-10">
         <SEO
           title="Packages"
-          description="Explore Nexovate’s affordable digital packages — from software and apps to video editing, branding, and SEO — all crafted for global clients."
-          keywords="web development, mobile apps, SEO, video editing, photo editing, branding, software packages"
+          description="Explore Nexovate’s affordable digital packages — from software and apps to vector design, video editing, branding, and SEO — all crafted below global market prices."
+          keywords="vector design, web development, mobile apps, SEO, video editing, photo editing, branding, software packages"
         />
 
         <div className="text-gray-900 dark:text-white py-24 sm:py-32">
@@ -348,10 +384,10 @@ export default function Packages() {
             {/* Header */}
             <div className="mx-auto max-w-2xl sm:text-center">
               <h2 className="text-3xl font-bold tracking-tight text-black dark:text-white sm:text-4xl">
-                Our Global Service Packages
+                Our Affordable Service Packages
               </h2>
               <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-                High-quality digital services at globally competitive rates — built to scale your business, brand, and online presence.
+                We offer professional services below global market prices — ensuring premium quality and real-world scalability for every business.
               </p>
             </div>
 
@@ -363,7 +399,7 @@ export default function Packages() {
                   <h3 className="text-2xl font-semibold text-black dark:text-white">Technologies We Use</h3>
                 </div>
                 <p className="text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mb-6">
-                  We craft modern web and app solutions using powerful, scalable, and industry-leading tools.
+                  Our team builds using React, Angular, Laravel, .NET, Flutter, Tailwind, and modern cloud tools to deliver world-class digital experiences.
                 </p>
               </div>
             </FadeInWhenVisible>
