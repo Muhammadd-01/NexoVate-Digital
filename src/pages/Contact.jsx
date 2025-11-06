@@ -15,12 +15,20 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Phone",
-    details: ["+92 312 858773"], // Updated phone
+    details: ["+92 312 858773"],
   },
   {
     icon: Mail,
     title: "Email",
-    details: ["contactnexovate@gmail.com"],
+    details: [
+      <a
+        key="email"
+        href="mailto:contactnexovate@gmail.com"
+        className="text-blue-500 hover:underline"
+      >
+        contactnexovate@gmail.com
+      </a>,
+    ],
   },
 ];
 
@@ -47,8 +55,20 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const isValidEmail = (email) => {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!isValidEmail(formData.email)) {
+      toast.error("Please enter a valid email address!", {
+        style: { background: "#0A2A43", color: "#FDFBFB" },
+      });
+      return;
+    }
 
     try {
       const response = await fetch("https://formspree.io/f/xwplpald", {
@@ -86,14 +106,17 @@ export default function Contact() {
       <div className="absolute inset-0">
         <ParticleBackground />
       </div>
+
       <div className="relative z-10">
         <SEO
           title="Get in Touch"
           description="Contact NexoVate Digital for innovative digital solutions and collaborations"
           keywords="contact, digital solutions, collaboration, get in touch"
         />
+
         <div className="text-gray-900 dark:text-white py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            {/* Header */}
             <div className="mx-auto max-w-2xl text-center">
               <h2 className="text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl">
                 Contact Us
@@ -103,6 +126,7 @@ export default function Contact() {
               </p>
             </div>
 
+            {/* Grid */}
             <div className="mx-auto mt-16 grid max-w-4xl grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-2">
               {/* Contact Info */}
               <div>
@@ -126,7 +150,10 @@ export default function Contact() {
                           {item.title}
                         </h4>
                         {item.details.map((detail, idx) => (
-                          <p key={idx} className="text-gray-600 dark:text-gray-300">
+                          <p
+                            key={idx}
+                            className="text-gray-600 dark:text-gray-300"
+                          >
                             {detail}
                           </p>
                         ))}
@@ -137,12 +164,17 @@ export default function Contact() {
               </div>
 
               {/* Contact Form */}
-              <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+              >
                 <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
                   Send a Message
                 </h3>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Name */}
                   <div>
                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                       Name
@@ -158,6 +190,7 @@ export default function Contact() {
                     />
                   </div>
 
+                  {/* Email */}
                   <div>
                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                       Email
@@ -168,11 +201,13 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       required
+                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                       className="w-full mt-1 p-3 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition"
                       placeholder="Enter your email"
                     />
                   </div>
 
+                  {/* Message */}
                   <div>
                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                       Message
@@ -188,6 +223,7 @@ export default function Contact() {
                     />
                   </div>
 
+                  {/* Button */}
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
