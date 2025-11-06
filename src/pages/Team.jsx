@@ -38,11 +38,26 @@ const teamMembers = [
   {
     name: "Muhammad Umer",
     role: "SEO & Digital Marketing Strategist",
-    image:
-      "/assets/Team-Member-images/UmerPic.png",
+    image: "/assets/Team-Member-images/UmerPic.png",
     description:
       "Umer handles SEO, digital marketing, and social campaigns for all NexoVate.Co clients. His strategies boost brand visibility, website performance, and global online reach.",
     portfolio: "https://example.com/umer-portfolio",
+  },
+  {
+    name: "Bilal Khan",
+    role: "Vector Designer | Creative Visual Artist",
+    image: "/assets/Team-Member-images/BilalPic.png",
+    description:
+      "Bilal specializes in vector graphics and creative design. He transforms concepts into powerful visuals that define NexoVate’s unique digital identity across projects.",
+    portfolio: "https://example.com/bilal-portfolio",
+  },
+  {
+    name: "Shehzad",
+    role: "Graphic Designer & Social Media Marketer",
+    image: "/assets/Team-Member-images/ShehzadPic.png",
+    description:
+      "Shehzad brings brands to life through impactful graphic design and engaging social media content. His marketing insights help businesses grow their online presence effectively.",
+    portfolio: "https://example.com/shehzad-portfolio",
   },
 ];
 
@@ -51,7 +66,7 @@ export default function Team() {
     <>
       <SEO
         title="Our Team"
-        description="Meet the 5 core members behind NexoVate.Co — experts managing all our services from design to development, AI, and marketing."
+        description="Meet the 7 core members behind NexoVate.Co — experts managing all our services from design to development, AI, and marketing."
         keywords="team, developers, designers, backend, frontend, marketing, SEO, NexoVate"
       />
       <div className="relative min-h-screen">
@@ -81,13 +96,18 @@ export default function Team() {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     className="flex flex-col items-center text-center"
                   >
-                    <div className="w-52 h-52 mb-4 rounded-full border-2 border-nexovate-blue-500 shadow-lg overflow-hidden flex items-center justify-center bg-gray-100 dark:bg-gray-800">
+                    {/* Face-centered circle */}
+                    <div className="w-56 h-56 mb-5 rounded-full border-2 border-nexovate-blue-500 shadow-lg overflow-hidden flex items-center justify-center bg-gray-100 dark:bg-gray-800">
                       <img
-                        className="w-full h-full object-cover object-[center_40%]"
+                        className="w-full h-full object-cover object-center scale-110"
+                        style={{
+                          objectPosition: "center 30%", // centers face automatically
+                        }}
                         src={member.image || "/placeholder.svg"}
                         alt={member.name}
                       />
                     </div>
+
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{member.name}</h3>
                     <p className="text-sm text-nexovate-blue-600 dark:text-nexovate-blue-400">{member.role}</p>
                     <p className="mt-4 text-sm text-gray-600 dark:text-gray-300">{member.description}</p>
