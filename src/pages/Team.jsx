@@ -39,7 +39,7 @@ const teamMembers = [
     name: "Muhammad Umer",
     role: "SEO & Digital Marketing Strategist",
     image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80",
+      "/assets/Team-Member-images/UmerPic.png",
     description:
       "Umer handles SEO, digital marketing, and social campaigns for all NexoVate.Co clients. His strategies boost brand visibility, website performance, and global online reach.",
     portfolio: "https://example.com/umer-portfolio",
