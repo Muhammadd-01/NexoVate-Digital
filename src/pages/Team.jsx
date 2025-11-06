@@ -12,7 +12,7 @@ const teamMembers = [
     portfolio: "https://affann-portfolio.vercel.app/",
   },
   {
-    name: "Haffiz Mohsin Ali",
+    name: "Hafiz Mohsin Ali",
     role: "Frontend Developer | Web Development Specialist",
     image: "/assets/Team-Member-images/MohsinPic.png",
     description:
