@@ -57,7 +57,7 @@ const teamMembers = [
     image: "/assets/Team-Member-images/ShehzadPic.jpeg",
     description:
       "Shehzad brings brands to life through impactful graphic design and engaging social media content. His marketing insights help businesses grow their online presence effectively.",
-    portfolio: "https://example.com/shehzad-portfolio",
+    portfolio: "https://shehzad-portfolio-tau.vercel.app/",
   },
   {
     name: "Muhammad Yasir",
