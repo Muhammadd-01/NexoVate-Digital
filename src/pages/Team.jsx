@@ -52,7 +52,7 @@ const teamMembers = [
     portfolio: "https://example.com/bilal-portfolio",
   },
   {
-    name: "Shehzad",
+    name: "Shehzad bin Rehman",
     role: "Graphic Designer & Social Media Marketer",
     image: "/assets/Team-Member-images/ShehzadPic.jpeg",
     description:
