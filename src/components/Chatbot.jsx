@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { FaComments, FaTimes } from "react-icons/fa"
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaComments, FaTimes } from "react-icons/fa";
 
 const Chatbot = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const [messages, setMessages] = useState([])
-  const [input, setInput] = useState("")
-  const [isTyping, setIsTyping] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [messages, setMessages] = useState([]);
+  const [input, setInput] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
 
   // 🔹 NexoVate info
   const siteInfo = {
@@ -14,7 +14,7 @@ const Chatbot = () => {
     phone: "+92 345 6789101",
     address: "Lahore, Pakistan",
     website: "https://nexovate.vercel.app",
-  }
+  };
 
   // 🔹 Predefined responses
   const botResponses = {
@@ -53,60 +53,68 @@ const Chatbot = () => {
       • Website: <a href="${siteInfo.website}" target="_blank" class="text-blue-600 underline">${siteInfo.website}</a>`,
     ],
 
-    thanks: ["You're welcome! 😊", "Happy to help! Let me know if you need anything else 💬"],
+    thanks: [
+      "You're welcome! 😊",
+      "Happy to help! Let me know if you need anything else 💬",
+    ],
 
     default: [
       "Hmm, I didn’t quite get that 🤔. Try asking about our *services*, *team*, *packages*, or *contact*.",
       "I'm still learning! Please ask something like 'Tell me about your services' or 'How can I contact you?'",
     ],
-  }
+  };
 
   // 🔹 Bot logic
   const getBotResponse = (message) => {
-    const lower = message.toLowerCase()
+    const lower = message.toLowerCase();
 
     if (lower.includes("hello") || lower.includes("hi") || lower.includes("hey")) {
-      return botResponses.greeting[Math.floor(Math.random() * botResponses.greeting.length)]
+      return botResponses.greeting[Math.floor(Math.random() * botResponses.greeting.length)];
     } else if (lower.includes("team")) {
-      return botResponses.team[Math.floor(Math.random() * botResponses.team.length)]
+      return botResponses.team[Math.floor(Math.random() * botResponses.team.length)];
     } else if (lower.includes("service")) {
-      return botResponses.services[Math.floor(Math.random() * botResponses.services.length)]
+      return botResponses.services[Math.floor(Math.random() * botResponses.services.length)];
     } else if (lower.includes("package") || lower.includes("plan")) {
-      return botResponses.packages[Math.floor(Math.random() * botResponses.packages.length)]
+      return botResponses.packages[Math.floor(Math.random() * botResponses.packages.length)];
     } else if (lower.includes("contact") || lower.includes("email") || lower.includes("phone")) {
-      return botResponses.contact[Math.floor(Math.random() * botResponses.contact.length)]
+      return botResponses.contact[Math.floor(Math.random() * botResponses.contact.length)];
     } else if (lower.includes("thanks") || lower.includes("thank you")) {
-      return botResponses.thanks[Math.floor(Math.random() * botResponses.thanks.length)]
+      return botResponses.thanks[Math.floor(Math.random() * botResponses.thanks.length)];
     } else {
-      return botResponses.default[Math.floor(Math.random() * botResponses.default.length)]
+      return botResponses.default[Math.floor(Math.random() * botResponses.default.length)];
     }
-  }
+  };
 
   // 🔹 Handle message send
   const handleSend = () => {
-    if (input.trim() === "") return
+    if (input.trim() === "") return;
 
-    setMessages([...messages, { text: input, sender: "user" }])
-    setInput("")
-    setIsTyping(true)
+    setMessages([...messages, { text: input, sender: "user" }]);
+    setInput("");
+    setIsTyping(true);
 
     setTimeout(() => {
-      const botResponse = getBotResponse(input)
-      setMessages((prev) => [...prev, { text: botResponse, sender: "bot" }])
-      setIsTyping(false)
-    }, 1000)
-  }
+      const botResponse = getBotResponse(input);
+      setMessages((prev) => [...prev, { text: botResponse, sender: "bot" }]);
+      setIsTyping(false);
+    }, 1000);
+  };
+
+  // 🔹 Clear conversation
+  const handleClear = () => {
+    setMessages([]);
+  };
 
   // 🔹 Initial greeting
   useEffect(() => {
     if (isOpen && messages.length === 0) {
-      setIsTyping(true)
+      setIsTyping(true);
       setTimeout(() => {
-        setMessages([{ text: botResponses.greeting[0], sender: "bot" }])
-        setIsTyping(false)
-      }, 1000)
+        setMessages([{ text: botResponses.greeting[0], sender: "bot" }]);
+        setIsTyping(false);
+      }, 1000);
     }
-  }, [isOpen])
+  }, [isOpen]);
 
   return (
     <div className="relative">
@@ -127,10 +135,12 @@ const Chatbot = () => {
             exit={{ opacity: 0, y: 20 }}
             className="absolute bottom-16 right-0 bg-white text-black rounded-lg shadow-xl w-80 overflow-hidden"
           >
+            {/* Header */}
             <div className="bg-nexovate-blue-600 text-white p-4 flex justify-between items-center">
               <h3 className="font-bold">Chat with us</h3>
             </div>
 
+            {/* Messages */}
             <div className="h-80 overflow-y-auto p-4 space-y-2 text-black">
               {messages.map((message, index) => (
                 <div
@@ -147,13 +157,16 @@ const Chatbot = () => {
               ))}
               {isTyping && (
                 <div className="text-left text-black">
-                  <span className="inline-block p-2 rounded-lg bg-gray-200">Typing...</span>
+                  <span className="inline-block p-2 rounded-lg bg-gray-200">
+                    Typing...
+                  </span>
                 </div>
               )}
             </div>
 
+            {/* Input & Clear */}
             <div className="p-4 border-t text-black">
-              <div className="flex">
+              <div className="flex mb-2">
                 <input
                   type="text"
                   value={input}
@@ -169,12 +182,20 @@ const Chatbot = () => {
                   Send
                 </button>
               </div>
+
+              {/* Clear Chat Button */}
+              <button
+                onClick={handleClear}
+                className="w-full bg-nexovate-blue-600 hover:bg-nexovate-blue-500 text-white py-2 rounded-lg transition-all duration-300 font-medium"
+              >
+                Clear Conversation 🧹
+              </button>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
     </div>
-  )
-}
+  );
+};
 
-export default Chatbot
+export default Chatbot;
