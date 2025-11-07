@@ -59,6 +59,14 @@ const teamMembers = [
       "Shehzad brings brands to life through impactful graphic design and engaging social media content. His marketing insights help businesses grow their online presence effectively.",
     portfolio: "https://example.com/shehzad-portfolio",
   },
+  {
+    name: "Muhammad Yasir",
+    role: "Photo & Video Editor | Visual Storyteller",
+    image: "/assets/Team-Member-images/YasirPic.jpeg",
+    description:
+      "Yasir transforms raw visuals into cinematic art. From promotional videos to creative edits, he enhances every NexoVate.Co project with professional-grade photo and video editing.",
+    portfolio: "https://example.com/yasir-portfolio",
+  },
 ];
 
 export default function Team() {
@@ -66,7 +74,7 @@ export default function Team() {
     <>
       <SEO
         title="Our Team"
-        description="Meet the 7 core members behind NexoVate.Co — experts managing all our services from design to development, AI, and marketing."
+        description="Meet the 8 core members behind NexoVate.Co — experts managing all our services from design to development, AI, and marketing."
         keywords="team, developers, designers, backend, frontend, marketing, SEO, NexoVate"
       />
 
@@ -100,16 +108,16 @@ export default function Team() {
                   >
                     {/* Circular Image with Moving Light Border */}
                     <div className="relative w-56 h-56 mb-5 rounded-full flex items-center justify-center overflow-hidden bg-gray-100 dark:bg-gray-800">
-                      {/* Border light animation */}
-                      <div className="absolute inset-0 rounded-full border-[3px] border-transparent animate-spin-slow bg-gradient-to-tr from-transparent via-nexovate-blue-400 to-transparent"></div>
+                      {/* Rotating Bright Border */}
+                      <div className="absolute inset-0 rounded-full border-[3px] border-transparent animate-spin-slow bg-gradient-to-tr from-transparent via-blue-400 to-transparent blur-sm opacity-80"></div>
 
-                      {/* Inner mask circle to hide overflow */}
+                      {/* Inner mask circle */}
                       <div className="absolute inset-[3px] rounded-full bg-gray-100 dark:bg-gray-800 overflow-hidden flex items-center justify-center">
                         <motion.img
                           src={member.image || "/placeholder.svg"}
                           alt={member.name}
                           className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
-                          style={{ objectPosition: "center 28%" }}
+                          style={{ objectPosition: "center 30%" }}
                         />
                       </div>
                     </div>
@@ -155,7 +163,7 @@ export default function Team() {
           }
         }
         .animate-spin-slow {
-          animation: spin-slow 3s linear infinite;
+          animation: spin-slow 4s linear infinite;
         }
       `}</style>
     </>
