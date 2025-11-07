@@ -69,6 +69,7 @@ export default function Team() {
         description="Meet the 7 core members behind NexoVate.Co — experts managing all our services from design to development, AI, and marketing."
         keywords="team, developers, designers, backend, frontend, marketing, SEO, NexoVate"
       />
+
       <div className="relative min-h-screen">
         <div className="absolute inset-0">
           <ParticleBackground />
@@ -94,23 +95,34 @@ export default function Team() {
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="flex flex-col items-center text-center"
+                    whileHover={{ scale: 1.05 }}
+                    className="flex flex-col items-center text-center group cursor-pointer"
                   >
-                    {/* Face-centered circle */}
-                    <div className="w-56 h-56 mb-5 rounded-full border-2 border-nexovate-blue-500 shadow-lg overflow-hidden flex items-center justify-center bg-gray-100 dark:bg-gray-800">
-                      <img
-                        className="w-full h-full object-cover object-center scale-110"
-                        style={{
-                          objectPosition: "center 30%", // centers face automatically
-                        }}
-                        src={member.image || "/placeholder.svg"}
-                        alt={member.name}
-                      />
+                    {/* Circular Image with Moving Light Border */}
+                    <div className="relative w-56 h-56 mb-5 rounded-full flex items-center justify-center overflow-hidden bg-gray-100 dark:bg-gray-800">
+                      {/* Border light animation */}
+                      <div className="absolute inset-0 rounded-full border-[3px] border-transparent animate-spin-slow bg-gradient-to-tr from-transparent via-nexovate-blue-400 to-transparent"></div>
+
+                      {/* Inner mask circle to hide overflow */}
+                      <div className="absolute inset-[3px] rounded-full bg-gray-100 dark:bg-gray-800 overflow-hidden flex items-center justify-center">
+                        <motion.img
+                          src={member.image || "/placeholder.svg"}
+                          alt={member.name}
+                          className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
+                          style={{ objectPosition: "center 28%" }}
+                        />
+                      </div>
                     </div>
 
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{member.name}</h3>
-                    <p className="text-sm text-nexovate-blue-600 dark:text-nexovate-blue-400">{member.role}</p>
-                    <p className="mt-4 text-sm text-gray-600 dark:text-gray-300">{member.description}</p>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                      {member.name}
+                    </h3>
+                    <p className="text-sm text-nexovate-blue-600 dark:text-nexovate-blue-400">
+                      {member.role}
+                    </p>
+                    <p className="mt-4 text-sm text-gray-600 dark:text-gray-300">
+                      {member.description}
+                    </p>
 
                     <motion.a
                       href={member.portfolio}
@@ -131,6 +143,21 @@ export default function Team() {
           </div>
         </div>
       </div>
+
+      {/* Custom Animation CSS */}
+      <style jsx>{`
+        @keyframes spin-slow {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+        .animate-spin-slow {
+          animation: spin-slow 3s linear infinite;
+        }
+      `}</style>
     </>
   );
 }
