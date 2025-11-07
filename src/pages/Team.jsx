@@ -54,7 +54,7 @@ const teamMembers = [
   {
     name: "Shehzad",
     role: "Graphic Designer & Social Media Marketer",
-    image: "/assets/Team-Member-images/ShehzadPic.png",
+    image: "/assets/Team-Member-images/ShehzadPic.jpeg",
     description:
       "Shehzad brings brands to life through impactful graphic design and engaging social media content. His marketing insights help businesses grow their online presence effectively.",
     portfolio: "https://example.com/shehzad-portfolio",
