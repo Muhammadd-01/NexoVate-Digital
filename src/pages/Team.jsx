@@ -62,7 +62,7 @@ const teamMembers = [
   {
     name: "Muhammad Yasir",
     role: "Photo & Video Editor | Visual Storyteller",
-    image: "/assets/Team-Member-images/YasirPic.jpeg",
+    image: "/assets/Team-Member-images/YasirPic.png",
     description:
       "Yasir transforms raw visuals into cinematic art. From promotional videos to creative edits, he enhances every NexoVate.Co project with professional-grade photo and video editing.",
     portfolio: "https://example.com/yasir-portfolio",
