@@ -110,6 +110,7 @@ const Chatbot = () => {
 
   return (
     <div className="relative">
+      {/* Toggle Button */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
         className="bg-nexovate-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-nexovate-blue-500 transition-colors duration-300 flex items-center justify-center"
@@ -119,6 +120,7 @@ const Chatbot = () => {
         {isOpen ? <FaTimes className="text-2xl" /> : <FaComments className="text-2xl" />}
       </motion.button>
 
+      {/* Chat Window */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -154,8 +156,9 @@ const Chatbot = () => {
               )}
             </div>
 
-            {/* Input & Clear */}
+            {/* Input + Clear Button */}
             <div className="p-4 border-t">
+              {/* Input & Send */}
               <div className="flex mb-2">
                 <input
                   type="text"
@@ -173,7 +176,7 @@ const Chatbot = () => {
                 </button>
               </div>
 
-              {/* Clear Chat Button */}
+              {/* Clear Conversation */}
               <button
                 onClick={handleClear}
                 className="w-full bg-nexovate-blue-600 hover:bg-nexovate-blue-500 text-white py-2 rounded-lg transition-all duration-300 font-medium"
