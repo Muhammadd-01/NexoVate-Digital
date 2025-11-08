@@ -39,9 +39,9 @@ export default function Header() {
         <div className="flex flex-1 justify-start">
           <Link to="/" className="-m-1.5 p-1.5">
             <span className="sr-only">NexoVate Digital</span>
-            <motion.div whileHover={{ scale: 1.05 }} className="relative flex items-center">
+            <motion.div whileHover={{ scale: 1.08 }} className="relative flex items-center">
               <img
-                className="h-8 w-auto sm:h-10 md:h-12 lg:h-14 rounded-xl shadow-md"
+                className="h-12 sm:h-14 md:h-16 lg:h-20 w-auto rounded-2xl shadow-lg"
                 src="/assets/nexovate-logo.jpg"
                 alt="NexoVate Digital"
               />
