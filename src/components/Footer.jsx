@@ -32,7 +32,7 @@ export default function Footer() {
               <motion.img
                 whileHover={{ scale: 1.05 }}
                 className="h-12 sm:h-14 md:h-16 lg:h-20 w-auto rounded-2xl shadow-lg"
-                src="/assets/nexovate-logo.jpg"
+                src="/assets/website-logo.png"
                 alt="NexoVate Digital"
               />
             </Link>
