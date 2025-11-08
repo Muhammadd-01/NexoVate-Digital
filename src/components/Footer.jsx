@@ -13,8 +13,7 @@ export default function Footer() {
       setDisplayText(fullText.slice(0, index + 1));
       index++;
       if (index === fullText.length) clearInterval(interval);
-    }, 50); // typing speed in ms
-
+    }, 50);
     return () => clearInterval(interval);
   }, []);
 
@@ -32,7 +31,7 @@ export default function Footer() {
             <Link to="/">
               <motion.img
                 whileHover={{ scale: 1.05 }}
-                className="h-14 w-auto rounded-xl shadow-md"
+                className="h-12 sm:h-14 md:h-16 lg:h-20 w-auto rounded-2xl shadow-lg"
                 src="/assets/nexovate-logo.jpg"
                 alt="NexoVate Digital"
               />
@@ -48,26 +47,17 @@ export default function Footer() {
             <h3 className="text-sm font-semibold text-white">Company</h3>
             <ul className="mt-3 space-y-3">
               <li>
-                <Link
-                  to="/about"
-                  className="text-sm text-gray-200 hover:text-nexovate-blue-300 transition"
-                >
+                <Link to="/about" className="text-sm text-gray-200 hover:text-nexovate-blue-300 transition">
                   About
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/packages"
-                  className="text-sm text-gray-200 hover:text-nexovate-blue-300 transition"
-                >
+                <Link to="/packages" className="text-sm text-gray-200 hover:text-nexovate-blue-300 transition">
                   Packages
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/contact"
-                  className="text-sm text-gray-200 hover:text-nexovate-blue-300 transition"
-                >
+                <Link to="/contact" className="text-sm text-gray-200 hover:text-nexovate-blue-300 transition">
                   Contact
                 </Link>
               </li>
@@ -79,26 +69,17 @@ export default function Footer() {
             <h3 className="text-sm font-semibold text-white">Services</h3>
             <ul className="mt-3 space-y-3">
               <li>
-                <Link
-                  to="/services"
-                  className="text-sm text-gray-200 hover:text-nexovate-blue-300 transition"
-                >
+                <Link to="/services" className="text-sm text-gray-200 hover:text-nexovate-blue-300 transition">
                   Web Development
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/services"
-                  className="text-sm text-gray-200 hover:text-nexovate-blue-300 transition"
-                >
+                <Link to="/services" className="text-sm text-gray-200 hover:text-nexovate-blue-300 transition">
                   Mobile Apps
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/services"
-                  className="text-sm text-gray-200 hover:text-nexovate-blue-300 transition"
-                >
+                <Link to="/services" className="text-sm text-gray-200 hover:text-nexovate-blue-300 transition">
                   Cloud Solutions
                 </Link>
               </li>
@@ -151,7 +132,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Custom blinking cursor */}
+      {/* Blinking Cursor Animation */}
       <style>{`
         .blinking-cursor {
           font-weight: 100;
