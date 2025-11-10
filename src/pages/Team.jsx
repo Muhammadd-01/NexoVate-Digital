@@ -69,6 +69,7 @@ const teamMembers = [
   },
 ];
 
+
 export default function Team() {
   return (
     <>
