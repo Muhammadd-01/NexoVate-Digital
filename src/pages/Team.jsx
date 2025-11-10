@@ -49,7 +49,7 @@ const teamMembers = [
     image: "/assets/Team-Member-images/BilalPic.png",
     description:
       "Bilal specializes in vector graphics and creative design. He transforms concepts into powerful visuals that define NexoVate’s unique digital identity across projects.",
-    portfolio: "https://example.com/bilal-portfolio",
+    portfolio: "https://bilal-portfolio-gules.vercel.app/",
   },
   {
     name: "Shehzad bin Rehman",
