@@ -10,6 +10,7 @@ import {
   MagnifyingGlassIcon,
   GlobeAltIcon,
   SparklesIcon,
+  ShoppingBagIcon,
 } from "@heroicons/react/24/outline";
 import ParticleBackground from "../components/ParticleBackground";
 
@@ -73,6 +74,12 @@ const services = [
     description:
       "Updates, security patches, and performance optimization to keep your site running smoothly.",
     icon: WrenchScrewdriverIcon,
+  },
+    {
+    name: "Shopify Store Development",
+    description:
+      "We build premium, high-converting Shopify stores — custom themes, product setup, payment integrations, Shopify apps, and full store automation.",
+    icon: ShoppingBagIcon,
   },
 ];
 
