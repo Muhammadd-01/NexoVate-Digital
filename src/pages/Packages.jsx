@@ -391,18 +391,6 @@ export default function Packages() {
               </p>
             </div>
 
-            {/* Technologies */}
-            <FadeInWhenVisible>
-              <div className="mt-20 text-center">
-                <div className="inline-flex items-center justify-center mb-4">
-                  <CodeBracketIcon className="h-8 w-8 text-nexovate-blue-600 dark:text-blue-400 mr-2" />
-                  <h3 className="text-2xl font-semibold text-black dark:text-white">Technologies We Use</h3>
-                </div>
-                <p className="text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mb-6">
-                  Our team builds using React, Angular, Laravel, .NET, Flutter, Tailwind, and modern cloud tools to deliver world-class digital experiences.
-                </p>
-              </div>
-            </FadeInWhenVisible>
 
             {/* Packages Loop */}
             {packageCategories.map((category, i) => (
