@@ -83,6 +83,56 @@ const packageCategories = [
       },
     ],
   },
+ {
+    title: "WordPress Development",
+    packages: [
+      {
+        name: "Basic WP Site",
+        price: "$149",
+        features: ["5-page WordPress site", "Free premium theme", "Basic SEO", "1 month support"],
+        cta: "Start Now",
+      },
+      {
+        name: "Business WP",
+        price: "$299",
+        features: ["10 pages", "Custom UI", "Speed optimization", "Security setup", "3 months support"],
+        cta: "Upgrade",
+        popular: true,
+      },
+      {
+        name: "WP E-Commerce",
+        price: "$449",
+        features: ["WooCommerce setup", "Payment integration", "Product upload", "Inventory system"],
+        cta: "Build Store",
+      },
+    ],
+  },
+
+  // ⭐⭐⭐ NEW CATEGORY — SHOPIFY ⭐⭐⭐
+  {
+    title: "Shopify Store Development",
+    packages: [
+      {
+        name: "Basic Store",
+        price: "$199",
+        features: ["Shopify theme setup", "Home + 3 inner pages", "Basic SEO", "Payment setup"],
+        cta: "Start Store",
+      },
+      {
+        name: "Professional Store",
+        price: "$349",
+        features: ["Custom UI sections", "Product pages", "Apps integration", "3 months support"],
+        cta: "Go Pro",
+        popular: true,
+      },
+      {
+        name: "Advanced Shopify",
+        price: "$499",
+        features: ["Full custom Shopify store", "Automation", "Inventory & shipping", "Premium support"],
+        cta: "Build Premium Store",
+      },
+    ],
+  },
   {
     title: "Mobile App Packages (iOS & Android)",
     packages: [
