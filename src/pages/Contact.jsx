@@ -21,10 +21,11 @@ const contactInfo = [
     icon: Mail,
     title: "Email",
     details: [
-      <a
+      <a  
         key="email"
         href="mailto:contactnexovate@gmail.com"
-        className="text-blue-500 hover:underline"
+         className="text-gray-600 dark:text-gray-300 hover:text-blue-500 hover:underline"
+        style={{textDecoration: "none"}}
       >
         contactnexovate@gmail.com
       </a>,
