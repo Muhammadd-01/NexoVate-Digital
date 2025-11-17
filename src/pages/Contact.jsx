@@ -33,6 +33,8 @@ const contactInfo = [
   },
 ];
 
+
+
 export default function Contact() {
   const location = useLocation();
   const [formData, setFormData] = useState({
