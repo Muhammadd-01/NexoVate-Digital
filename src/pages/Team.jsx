@@ -17,7 +17,7 @@ const teamMembers = [
     image: "/assets/Team-Member-images/MohsinPic.png",
     description:
       "Mohsin brings designs to life with React, Angular, and TailwindCSS. He ensures smooth, fast, and responsive UI across all devices and manages frontend architecture for client projects.",
-    portfolio: "https://example.com/mohsinali-portfolio",
+    portfolio: "https://portfolio-pi-seven-52.vercel.app/",
   },
   {
     name: "Himesh Dua",
