@@ -8,8 +8,8 @@ const About = () => {
     <>
       <SEO
         title="About Us"
-        description="Learn more about NexoVate Digital and our mission to empower businesses with innovative AI, IoT, and cloud solutions"
-        keywords="about us, digital innovation, AI solutions, IoT integration, cloud technologies, digital transformation"
+        description="Discover how NexoVate Digital empowers businesses with full-stack development, mobile apps, design, SEO, and digital marketing — all at global-quality standards."
+        keywords="about us, web development, software development, mobile apps, UI/UX, SEO, video editing, photo editing, digital marketing"
       />
       <div className="relative min-h-screen">
         <div className="absolute inset-0">
@@ -25,6 +25,7 @@ const About = () => {
             >
               About NexoVate Digital
             </motion.h1>
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -34,52 +35,60 @@ const About = () => {
               <div>
                 <h2 className="text-2xl font-semibold mb-4">Our Story</h2>
                 <p className="mb-4">
-                  Founded in 2020, NexoVate Digital emerged from a vision to revolutionize businesses through cutting-edge digital solutions. Our journey began with a team of tech enthusiasts who saw the transformative potential of AI, IoT, and cloud technologies.
+                  NexoVate Digital started with a simple idea: to provide businesses with high-quality digital solutions at affordable rates. The concept was born in late 2024, and since January 2025, we've been turning that vision into reality. 
                 </p>
                 <p className="mb-4">
-                  Today, we've evolved into a dynamic innovation hub, serving clients across various industries. Our commitment to pushing the boundaries of technology and delivering measurable results has been the cornerstone of our success.
+                  Today, we deliver a wide range of services including full-stack web development, mobile apps, graphic and vector design, UI/UX, video and photo editing, SEO, and digital marketing. Our goal is to combine creativity, technology, and efficiency to help businesses grow and stand out online.
                 </p>
+
                 <h2 className="text-2xl font-semibold mb-4">Our Expertise</h2>
                 <ul className="list-disc pl-5 mb-4">
-                  <li>Artificial Intelligence & Machine Learning</li>
-                  <li>Internet of Things (IoT) Integration</li>
-                  <li>Cloud Solutions & Architecture</li>
-                  <li>Custom Software Development</li>
-                  <li>Data Analytics & Visualization</li>
-                  <li>Digital Transformation Strategies</li>
+                  <li>Custom Software & Full-Stack Web Development</li>
+                  <li>Mobile App Development for iOS & Android</li>
+                  <li>Graphic Design, Vector Illustrations & Branding</li>
+                  <li>UI/UX Design & Interface Optimization</li>
+                  <li>Video & Photo Editing Services</li>
+                  <li>SEO, Digital Marketing & Online Growth Strategies</li>
+                  <li>Shopify & E-Commerce Store Development</li>
                 </ul>
               </div>
+
               <div>
                 <h2 className="text-2xl font-semibold mb-4">Our Approach</h2>
                 <p className="mb-4">
-                  At NexoVate Digital, we believe in a forward-thinking, collaborative approach. We work closely with our clients to understand their unique challenges and envision future possibilities. This allows us to deliver innovative solutions that not only solve current problems but also pave the way for future growth and innovation.
+                  We believe in understanding our clients’ unique challenges first. By combining strategy, technology, and design, we create solutions that solve real problems while enhancing brand identity and online presence. Every project is treated with care, ensuring functionality, aesthetics, and scalability.
                 </p>
+
                 <h2 className="text-2xl font-semibold mb-4">Our Values</h2>
                 <ul className="list-disc pl-5 mb-4">
-                  <li>Innovation: We constantly push the boundaries of what's possible in digital technology.</li>
-                  <li>Integrity: We uphold the highest standards of ethical conduct in all our dealings.</li>
-                  <li>Excellence: We strive for excellence in every solution we deliver.</li>
-                  <li>Collaboration: We believe in the power of teamwork and partnership with our clients.</li>
+                  <li>Innovation: Pushing creative and technical boundaries to achieve better results.</li>
+                  <li>Integrity: Transparent communication and ethical practices in every project.</li>
+                  <li>Excellence: Delivering high-quality solutions that meet and exceed expectations.</li>
+                  <li>Collaboration: Building lasting partnerships with clients through teamwork.</li>
                 </ul>
+
                 <h2 className="text-2xl font-semibold mb-4">Our Impact</h2>
                 <p className="mb-4">
-                  Since our inception, we've helped numerous businesses undergo digital transformations, optimize their operations, and achieve unprecedented growth. Our success stories span various sectors, from healthcare and finance to manufacturing and retail, showcasing the versatility and effectiveness of our innovative solutions.
+                  We’ve helped businesses streamline operations, improve digital presence, and achieve measurable growth. From startups to established enterprises, our solutions are designed to scale and adapt to each client’s needs.
                 </p>
               </div>
             </motion.div>
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
               className="mt-12 text-center"
             >
-              <h2 className="text-2xl font-semibold mb-4">Ready to innovate with us?</h2>
-              <p className="mb-4">Let's explore how our cutting-edge solutions can transform your business and drive growth.</p>
+              <h2 className="text-2xl font-semibold mb-4">Partner with Us</h2>
+              <p className="mb-4">
+                Whether you need a complete website, a mobile app, or a full digital marketing plan, NexoVate Digital delivers practical, high-quality solutions tailored to your business goals.
+              </p>
               <Link
-                to="/contact"
-                className="inline-block rounded-md bg-nexovate-purple-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-nexovate-purple-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-nexovate-purple-600"
+                to="/packages"
+                className="inline-block rounded-md bg-nexovate-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-nexovate-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-nexovate-blue-600"
               >
-                Start Your Digital Journey
+                Start Your Project
               </Link>
             </motion.div>
           </div>
@@ -89,4 +98,4 @@ const About = () => {
   )
 }
 
-export default About
+export default About;
