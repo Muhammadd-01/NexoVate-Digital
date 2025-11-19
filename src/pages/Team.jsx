@@ -59,14 +59,14 @@ const teamMembers = [
       "Shehzad brings brands to life through impactful graphic design and engaging social media content. His marketing insights help businesses grow their online presence effectively.",
     portfolio: "https://shehzad-portfolio-tau.vercel.app/",
   },
-  {
-    name: "Muhammad Yasir",
-    role: "Photo & Video Editor | Visual Storyteller",
-    image: "/assets/Team-Member-images/YasirPic.png",
-    description:
-      "Yasir transforms raw visuals into cinematic art. From promotional videos to creative edits, he enhances every NexoVate.Co project with professional-grade photo and video editing.",
-    portfolio: "https://example.com/yasir-portfolio",
-  },
+  // {
+  //   name: "Muhammad Yasir",
+  //   role: "Photo & Video Editor | Visual Storyteller",
+  //   image: "/assets/Team-Member-images/YasirPic.png",
+  //   description:
+  //     "Yasir transforms raw visuals into cinematic art. From promotional videos to creative edits, he enhances every NexoVate.Co project with professional-grade photo and video editing.",
+  //   portfolio: "https://example.com/yasir-portfolio",
+  // },
 ];
 
 
