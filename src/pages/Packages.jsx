@@ -1,6 +1,6 @@
 import SEO from "../components/SEO";
 import { motion } from "framer-motion";
-import { CheckIcon, CodeBracketIcon } from "@heroicons/react/24/outline";
+import { CheckIcon } from "@heroicons/react/24/outline";
 import ParticleBackground from "../components/ParticleBackground";
 import { FadeInWhenVisible } from "../components/Animations";
 import { useNavigate } from "react-router-dom";
@@ -11,19 +11,19 @@ const packageCategories = [
     packages: [
       {
         name: "Basic",
-        price: "$699",
-        features: ["Simple web application", "Up to 5 pages", "Basic functionality", "1 month of support"],
+        price: "$499",
+        features: ["Simple web application", "Up to 5 pages", "Basic functionality", "1 month support"],
         cta: "Get Started",
       },
       {
         name: "Premium",
-        price: "$1,699",
+        price: "$1,199",
         features: [
           "Advanced web application",
-          "Up to 15 pages",
-          "Complex functionality",
+          "Up to 12 pages",
           "Database integration",
-          "3 months of support",
+          "Custom functionality",
+          "3 months support",
         ],
         cta: "Go Premium",
         popular: true,
@@ -33,10 +33,10 @@ const packageCategories = [
         price: "Custom Quote",
         features: [
           "Tailored enterprise solution",
-          "Unlimited pages",
-          "Advanced features",
+          "Unlimited pages & features",
           "API integrations",
-          "6 months of support",
+          "Advanced backend & security",
+          "6 months premium support",
         ],
         cta: "Contact Us",
       },
@@ -47,43 +47,26 @@ const packageCategories = [
     packages: [
       {
         name: "Starter",
-        price: "$249",
-        features: [
-          "Modern 5-page website",
-          "Responsive design (mobile-friendly)",
-          "Basic SEO setup",
-          "1 month of support",
-        ],
+        price: "$199",
+        features: ["5-page responsive website", "Basic SEO", "Contact form", "1 month support"],
         cta: "Get Started",
       },
       {
         name: "Business",
-        price: "$499",
-        features: [
-          "Up to 10 pages",
-          "Custom UI/UX design",
-          "Speed optimization",
-          "Basic content upload",
-          "3 months of support",
-        ],
+        price: "$399",
+        features: ["Up to 10 pages", "Custom UI/UX design", "Speed optimization", "3 months support"],
         cta: "Upgrade Plan",
         popular: true,
       },
       {
         name: "E-Commerce",
-        price: "$799",
-        features: [
-          "Full online store setup",
-          "Payment gateway integration",
-          "Product management panel",
-          "Inventory & order tracking",
-          "6 months of support",
-        ],
+        price: "$699",
+        features: ["Online store setup", "Payment gateway integration", "Product & order management", "6 months support"],
         cta: "Launch Store",
       },
     ],
   },
- {
+  {
     title: "WordPress Development",
     packages: [
       {
@@ -102,33 +85,31 @@ const packageCategories = [
       {
         name: "WP E-Commerce",
         price: "$449",
-        features: ["WooCommerce setup", "Payment integration", "Product upload", "Inventory system"],
+        features: ["WooCommerce setup", "Payment integration", "Product upload & inventory system"],
         cta: "Build Store",
       },
     ],
   },
-
-  // ⭐⭐⭐ NEW CATEGORY — SHOPIFY ⭐⭐⭐
   {
     title: "Shopify Store Development",
     packages: [
       {
         name: "Basic Store",
         price: "$199",
-        features: ["Shopify theme setup", "Home + 3 inner pages", "Basic SEO", "Payment setup"],
+        features: ["Theme setup", "Home + 3 inner pages", "Basic SEO", "Payment setup"],
         cta: "Start Store",
       },
       {
         name: "Professional Store",
         price: "$349",
-        features: ["Custom UI sections", "Product pages", "Apps integration", "3 months support"],
+        features: ["Custom UI sections", "Product pages", "App integrations", "3 months support"],
         cta: "Go Pro",
         popular: true,
       },
       {
         name: "Advanced Shopify",
         price: "$499",
-        features: ["Full custom Shopify store", "Automation", "Inventory & shipping", "Premium support"],
+        features: ["Full custom Shopify store", "Automation setup", "Inventory & shipping", "Premium support"],
         cta: "Build Premium Store",
       },
     ],
@@ -138,38 +119,21 @@ const packageCategories = [
     packages: [
       {
         name: "Basic App",
-        price: "$699",
-        features: [
-          "Hybrid mobile app (React Native / Flutter)",
-          "Up to 5 screens",
-          "Basic backend setup",
-          "1 month of support",
-        ],
+        price: "$499",
+        features: ["Hybrid app (React Native / Flutter)", "Up to 5 screens", "Basic backend setup", "1 month support"],
         cta: "Get Started",
       },
       {
         name: "Business App",
-        price: "$1,299",
-        features: [
-          "iOS & Android build",
-          "Custom UI design",
-          "Firebase / API integration",
-          "Push notifications",
-          "3 months of support",
-        ],
+        price: "$999",
+        features: ["iOS & Android build", "Custom UI", "Firebase / API integration", "Push notifications", "3 months support"],
         cta: "Build My App",
         popular: true,
       },
       {
         name: "Advanced / Enterprise",
-        price: "$2,199",
-        features: [
-          "Fully custom app (Native / Cross-platform)",
-          "Database & cloud integration",
-          "Admin panel & analytics",
-          "User authentication & roles",
-          "6 months of premium support",
-        ],
+        price: "$1,899",
+        features: ["Fully custom app", "Database & cloud integration", "Admin panel & analytics", "User roles & authentication", "6 months premium support"],
         cta: "Get a Quote",
       },
     ],
@@ -179,33 +143,21 @@ const packageCategories = [
     packages: [
       {
         name: "Basic",
-        price: "$149/month",
-        features: ["5 design requests", "Logo design", "Social media graphics", "3 revisions per design"],
+        price: "$99/month",
+        features: ["5 design requests", "Logo & social media graphics", "3 revisions per design"],
         cta: "Start Designing",
       },
       {
         name: "Premium",
-        price: "$299/month",
-        features: [
-          "10 design requests",
-          "Logo + branding",
-          "Social media graphics",
-          "Marketing materials",
-          "Unlimited revisions",
-        ],
+        price: "$199/month",
+        features: ["10 design requests", "Logo + branding", "Marketing materials", "Unlimited revisions"],
         cta: "Enhance Your Brand",
         popular: true,
       },
       {
         name: "Custom",
         price: "Custom Quote",
-        features: [
-          "Unlimited design requests",
-          "Full brand identity suite",
-          "Print & digital designs",
-          "Dedicated designer",
-          "24/7 support",
-        ],
+        features: ["Unlimited requests", "Full brand identity", "Print & digital designs", "Dedicated designer support"],
         cta: "Contact Us",
       },
     ],
@@ -215,36 +167,21 @@ const packageCategories = [
     packages: [
       {
         name: "Basic",
-        price: "$99",
-        features: [
-          "1 detailed vector illustration",
-          "SVG / AI / PNG formats",
-          "Commercial license",
-          "1 revision included",
-        ],
+        price: "$79",
+        features: ["1 vector illustration", "SVG / AI / PNG formats", "1 revision included"],
         cta: "Start Now",
       },
       {
         name: "Professional",
-        price: "$199",
-        features: [
-          "3 high-quality vector artworks",
-          "Brand-based design style",
-          "Full color palette",
-          "Unlimited revisions",
-        ],
+        price: "$149",
+        features: ["3 vector artworks", "Full color palette", "Brand-based style", "Unlimited revisions"],
         cta: "Get Professional",
         popular: true,
       },
       {
         name: "Custom / Bulk",
         price: "Custom Quote",
-        features: [
-          "Full brand vector set",
-          "Complex illustrations / Mascots",
-          "3D vector style (optional)",
-          "Dedicated designer support",
-        ],
+        features: ["Full brand vector set", "Complex illustrations", "3D vector optional", "Dedicated designer support"],
         cta: "Contact Us",
       },
     ],
@@ -254,38 +191,21 @@ const packageCategories = [
     packages: [
       {
         name: "Basic",
-        price: "$199/month",
-        features: [
-          "Up to 5 short videos (≤1 min each)",
-          "Basic cuts, transitions & color correction",
-          "1080p output",
-          "2 revisions per video",
-        ],
+        price: "$149/month",
+        features: ["Up to 5 short videos (≤1 min)", "Basic cuts & color correction", "2 revisions", "1080p output"],
         cta: "Start Editing",
       },
       {
         name: "Pro",
-        price: "$399/month",
-        features: [
-          "Up to 10 short or 5 long-form videos",
-          "Advanced transitions & effects",
-          "Color grading + sound enhancement",
-          "Social media optimization",
-          "Unlimited revisions",
-        ],
+        price: "$299/month",
+        features: ["Up to 10 short or 5 long videos", "Advanced effects & color grading", "Social media optimized", "Unlimited revisions"],
         cta: "Go Pro",
         popular: true,
       },
       {
         name: "Cinematic / Custom",
         price: "Custom Quote",
-        features: [
-          "Cinematic video editing",
-          "Multi-cam & voiceover sync",
-          "Motion graphics & VFX",
-          "Dedicated editor",
-          "Priority delivery",
-        ],
+        features: ["Cinematic editing", "Motion graphics & VFX", "Multi-cam & voiceover sync", "Dedicated editor"],
         cta: "Contact Us",
       },
     ],
@@ -295,38 +215,21 @@ const packageCategories = [
     packages: [
       {
         name: "Basic",
-        price: "$99/month",
-        features: [
-          "Up to 20 photos",
-          "Color correction & cropping",
-          "Lighting adjustments",
-          "2 revisions",
-        ],
+        price: "$79/month",
+        features: ["Up to 20 photos", "Color correction & cropping", "2 revisions"],
         cta: "Start Editing",
       },
       {
         name: "Premium",
-        price: "$199/month",
-        features: [
-          "Up to 50 photos",
-          "Retouching & enhancements",
-          "Background cleanup / blur",
-          "Product or portrait focus",
-          "Unlimited revisions",
-        ],
+        price: "$149/month",
+        features: ["Up to 50 photos", "Retouching & enhancements", "Background cleanup", "Unlimited revisions"],
         cta: "Upgrade Plan",
         popular: true,
       },
       {
         name: "Commercial / Custom",
         price: "Custom Quote",
-        features: [
-          "Studio-level photo editing",
-          "Full product catalog editing",
-          "Model retouching",
-          "Branding & color consistency",
-          "Dedicated editor",
-        ],
+        features: ["Full catalog editing", "Model retouching", "Brand consistency", "Dedicated editor"],
         cta: "Contact Us",
       },
     ],
@@ -336,33 +239,21 @@ const packageCategories = [
     packages: [
       {
         name: "Basic",
-        price: "$249/month",
+        price: "$149/month",
         features: ["Keyword research", "On-page optimization", "Monthly reporting", "Local SEO"],
         cta: "Boost Rankings",
       },
       {
         name: "Premium",
-        price: "$499/month",
-        features: [
-          "Advanced keyword research",
-          "On + Off-page SEO",
-          "Content strategy",
-          "Backlink building",
-          "Weekly reporting",
-        ],
+        price: "$299/month",
+        features: ["Advanced keyword research", "On+Off-page SEO", "Content strategy", "Backlink building", "Weekly reports"],
         cta: "Dominate Search",
         popular: true,
       },
       {
         name: "Enterprise",
         price: "Custom Quote",
-        features: [
-          "International SEO",
-          "Advanced analytics",
-          "Competitor analysis",
-          "Dedicated SEO team",
-          "Ongoing optimization",
-        ],
+        features: ["International SEO", "Advanced analytics", "Competitor analysis", "Dedicated SEO team"],
         cta: "Contact Us",
       },
     ],
@@ -372,32 +263,21 @@ const packageCategories = [
     packages: [
       {
         name: "Starter",
-        price: "$349/month",
+        price: "$199/month",
         features: ["Social media management", "Email marketing", "Basic PPC", "Monthly report"],
         cta: "Start Marketing",
       },
       {
         name: "Growth",
-        price: "$699/month",
-        features: [
-          "Multi-platform ads",
-          "Email automation",
-          "Influencer outreach",
-          "Content creation",
-          "Weekly insights",
-        ],
+        price: "$399/month",
+        features: ["Multi-platform ads", "Email automation", "Influencer outreach", "Content creation", "Weekly insights"],
         cta: "Grow Your Reach",
         popular: true,
       },
       {
         name: "Pro / Custom",
         price: "Custom Quote",
-        features: [
-          "Full-service marketing strategy",
-          "Conversion rate optimization",
-          "Analytics dashboard",
-          "Dedicated marketing expert",
-        ],
+        features: ["Full-service marketing", "Conversion optimization", "Analytics dashboard", "Dedicated expert"],
         cta: "Contact Us",
       },
     ],
@@ -425,7 +305,7 @@ export default function Packages() {
       <div className="relative z-10">
         <SEO
           title="Packages"
-          description="Explore Nexovate’s affordable digital packages — from software and apps to vector design, video editing, branding, and SEO — all crafted below global market prices."
+          description="Explore Nexovate’s mid-range affordable packages — from software and apps to vector design, video editing, branding, and SEO — all realistic and achievable globally."
           keywords="vector design, web development, mobile apps, SEO, video editing, photo editing, branding, software packages"
         />
 
@@ -437,13 +317,12 @@ export default function Packages() {
                 Our Affordable Service Packages
               </h2>
               <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-                We offer professional services below global market prices — ensuring premium quality and real-world scalability for every business.
+                We provide premium services at mid-range prices — realistic, high-quality, and globally accessible.
               </p>
             </div>
 
-
             {/* Packages Loop */}
-            {packageCategories.map((category, i) => (
+            {packageCategories.map((category) => (
               <FadeInWhenVisible key={category.title}>
                 <div className="mt-24">
                   <h3 className="text-2xl font-bold tracking-tight text-black dark:text-white sm:text-3xl mb-12 text-center">
