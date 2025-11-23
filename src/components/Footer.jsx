@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { FaFacebook, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaLinkedin, FaInstagram, } from "react-icons/fa";
+import { SiX } from "react-icons/si"; 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -108,6 +109,16 @@ export default function Footer() {
                   className="flex items-center text-sm text-gray-200 hover:text-nexovate-blue-300 transition"
                 >
                   <FaLinkedin className="mr-2" /> LinkedIn
+                </a>
+              </li>
+                <li>
+                <a
+                  href="https://x.com/NexovateDigital"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center text-sm text-gray-200 hover:text-nexovate-blue-300 transition"
+                >
+                  < SiX className="mr-2" /> LinkedIn
                 </a>
               </li>
               <li>
