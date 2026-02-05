@@ -1,8 +1,17 @@
 import SEO from "../components/SEO";
 import { motion } from "framer-motion";
-import { CheckIcon } from "@heroicons/react/24/outline";
+import { CheckIcon, SparklesIcon } from "@heroicons/react/24/outline";
 import ParticleBackground from "../components/ParticleBackground";
-import { FadeInWhenVisible } from "../components/Animations";
+import TiltCard from "../components/TiltCard";
+import {
+  FadeInWhenVisible,
+  StaggerContainer,
+  StaggerItem,
+  GradientText,
+  MagneticButton,
+  SpotlightCard,
+  FloatingElement
+} from "../components/Animations";
 import { useNavigate } from "react-router-dom";
 
 const packageCategories = [
@@ -305,74 +314,126 @@ export default function Packages() {
       <div className="relative z-10">
         <SEO
           title="Packages"
-          description="Explore Nexovate’s mid-range affordable packages — from software and apps to vector design, video editing, branding, and SEO — all realistic and achievable globally."
+          description="Explore Nexovate's mid-range affordable packages — from software and apps to vector design, video editing, branding, and SEO — all realistic and achievable globally."
           keywords="vector design, web development, mobile apps, SEO, video editing, photo editing, branding, software packages"
         />
 
-        <div className="text-gray-900 dark:text-white py-24 sm:py-32">
+        <div className="py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             {/* Header */}
-            <div className="mx-auto max-w-2xl sm:text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-black dark:text-white sm:text-4xl">
-                Our Affordable Service Packages
-              </h2>
-              <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-                We provide premium services at mid-range prices — realistic, high-quality, and globally accessible.
-              </p>
-            </div>
+            <FadeInWhenVisible>
+              <div className="mx-auto max-w-2xl text-center">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5 }}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-purple/10 border border-accent-purple/20 mb-6"
+                >
+                  <span className="w-2 h-2 rounded-full bg-accent-purple animate-pulse" />
+                  <span className="text-sm text-accent-purple font-medium">Pricing Plans</span>
+                </motion.div>
+
+                <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl mb-6">
+                  <GradientText>Our Affordable Service Packages</GradientText>
+                </h1>
+                <p className="text-lg leading-8 text-gray-400">
+                  We provide premium services at mid-range prices — realistic, high-quality, and globally accessible.
+                </p>
+              </div>
+            </FadeInWhenVisible>
 
             {/* Packages Loop */}
-            {packageCategories.map((category) => (
-              <FadeInWhenVisible key={category.title}>
+            {packageCategories.map((category, categoryIndex) => (
+              <FadeInWhenVisible key={category.title} delay={categoryIndex * 0.05}>
                 <div className="mt-24">
-                  <h3 className="text-2xl font-bold tracking-tight text-black dark:text-white sm:text-3xl mb-12 text-center">
-                    {category.title}
-                  </h3>
-                  <div className="mx-auto grid max-w-lg gap-8 grid-cols-1 items-center lg:max-w-none lg:grid-cols-3">
-                    {category.packages.map((pkg, index) => (
-                      <motion.div
-                        key={`${category.title}-${pkg.name}`}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className={`flex flex-col justify-between rounded-3xl bg-white dark:bg-gray-800 p-8 shadow-xl ring-1 ring-gray-900/10 dark:ring-gray-100/10 sm:p-10 ${
-                          pkg.popular ? "relative z-10 scale-105" : ""
-                        }`}
-                      >
-                        {pkg.popular && (
-                          <div className="absolute -top-4 right-8 rounded-full bg-nexovate-blue-600 px-4 py-1 text-xs font-semibold text-white">
-                            Popular
-                          </div>
-                        )}
-                        <div>
-                          <h3 className="text-2xl font-bold tracking-tight text-black dark:text-white">{pkg.name}</h3>
-                          <div className="mt-4 flex items-baseline text-5xl font-bold tracking-tight text-black dark:text-white">
-                            {pkg.price}
-                          </div>
-                          <ul role="list" className="mt-8 space-y-3 text-sm leading-6 text-black dark:text-white">
-                            {pkg.features.map((feature) => (
-                              <li key={feature} className="flex gap-x-3">
-                                <CheckIcon className="h-6 w-5 flex-none text-nexovate-blue-600" aria-hidden="true" />
-                                {feature}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        <motion.button
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          onClick={() => handleContactClick(pkg, category)}
-                          className={`mt-8 block w-full rounded-md px-3.5 py-2 text-center text-sm font-semibold leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${
-                            pkg.popular
-                              ? "bg-nexovate-blue-600 text-white hover:bg-nexovate-blue-500 focus-visible:outline-nexovate-blue-600"
-                              : "bg-gray-50 text-gray-900 hover:bg-gray-100 focus-visible:outline-gray-600"
-                          } dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600`}
-                        >
-                          {pkg.cta}
-                        </motion.button>
-                      </motion.div>
-                    ))}
-                  </div>
+                  <h2 className="text-2xl font-bold tracking-tight sm:text-3xl mb-12 text-center">
+                    <span className="text-white">{category.title}</span>
+                  </h2>
+
+                  <StaggerContainer staggerDelay={0.1}>
+                    <div className="mx-auto grid max-w-lg gap-6 grid-cols-1 lg:max-w-none lg:grid-cols-3">
+                      {category.packages.map((pkg, index) => (
+                        <StaggerItem key={`${category.title}-${pkg.name}`}>
+                          <TiltCard
+                            tiltAmount={pkg.popular ? 8 : 6}
+                            scaleOnHover={pkg.popular ? 1.03 : 1.02}
+                            className={`
+                              relative flex flex-col justify-between rounded-2xl p-8
+                              glass border transition-all duration-300
+                              ${pkg.popular
+                                ? "border-nexovate-blue-500/50 shadow-glow"
+                                : "border-white/10 hover:border-white/20"
+                              }
+                            `}
+                          >
+                            {/* Popular Badge */}
+                            {pkg.popular && (
+                              <motion.div
+                                className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-gradient-to-r from-nexovate-blue-500 to-accent-purple text-xs font-bold text-white"
+                                animate={{
+                                  boxShadow: [
+                                    "0 0 10px rgba(14,165,233,0.5)",
+                                    "0 0 25px rgba(14,165,233,0.8)",
+                                    "0 0 10px rgba(14,165,233,0.5)"
+                                  ]
+                                }}
+                                transition={{ duration: 2, repeat: Infinity }}
+                              >
+                                ⭐ Most Popular
+                              </motion.div>
+                            )}
+
+                            <div>
+                              {/* Package Name */}
+                              <h3 className="text-2xl font-bold tracking-tight text-white">{pkg.name}</h3>
+
+                              {/* Price */}
+                              <div className="mt-4 flex items-baseline gap-x-1">
+                                <span className={`text-4xl font-bold tracking-tight ${pkg.popular ? 'gradient-text' : 'text-white'}`}>
+                                  {pkg.price}
+                                </span>
+                              </div>
+
+                              {/* Features */}
+                              <ul role="list" className="mt-8 space-y-3">
+                                {pkg.features.map((feature, featureIdx) => (
+                                  <motion.li
+                                    key={feature}
+                                    className="flex gap-x-3 text-sm text-gray-300"
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: featureIdx * 0.1 }}
+                                  >
+                                    <CheckIcon
+                                      className={`h-5 w-5 flex-none ${pkg.popular ? 'text-nexovate-blue-400' : 'text-gray-500'}`}
+                                      aria-hidden="true"
+                                    />
+                                    {feature}
+                                  </motion.li>
+                                ))}
+                              </ul>
+                            </div>
+
+                            {/* CTA Button */}
+                            <motion.button
+                              whileHover={{ scale: 1.02 }}
+                              whileTap={{ scale: 0.98 }}
+                              onClick={() => handleContactClick(pkg, category)}
+                              className={`
+                                mt-8 block w-full rounded-xl px-4 py-3 text-center text-sm font-semibold transition-all duration-300
+                                ${pkg.popular
+                                  ? "bg-gradient-to-r from-nexovate-blue-600 to-accent-purple text-white hover:shadow-glow"
+                                  : "bg-white/10 text-white hover:bg-white/20 border border-white/10"
+                                }
+                              `}
+                            >
+                              {pkg.cta}
+                            </motion.button>
+                          </TiltCard>
+                        </StaggerItem>
+                      ))}
+                    </div>
+                  </StaggerContainer>
                 </div>
               </FadeInWhenVisible>
             ))}

@@ -13,6 +13,17 @@ import {
   ShoppingBagIcon,
 } from "@heroicons/react/24/outline";
 import ParticleBackground from "../components/ParticleBackground";
+import TiltCard from "../components/TiltCard";
+import {
+  FadeInWhenVisible,
+  StaggerContainer,
+  StaggerItem,
+  GradientText,
+  MagneticButton,
+  SpotlightCard,
+  FloatingElement,
+  BlurReveal
+} from "../components/Animations";
 
 const services = [
   {
@@ -20,68 +31,88 @@ const services = [
     description:
       "We build scalable and high-performance software systems using Laravel, .NET, Node.js, and Python — tailored for startups and enterprises at a fraction of global market rates. From dashboards to automation tools, we code reliable solutions that grow with your business.",
     icon: CodeBracketIcon,
+    gradient: "from-blue-500/20 to-cyan-500/20",
   },
   {
     name: "Full-Stack Web Development",
     description:
       "NexoVate specializes in modern, responsive, and SEO-friendly websites using React, Next.js, Angular, and TailwindCSS. Whether it's a landing page or a full enterprise system — we deliver fast, secure, and futuristic digital platforms.",
     icon: GlobeAltIcon,
+    gradient: "from-purple-500/20 to-pink-500/20",
   },
   {
     name: "Mobile App Development (iOS & Android)",
     description:
       "We design and develop mobile apps using Flutter and React Native — with seamless UI, smooth performance, and cloud-powered backends.",
     icon: DevicePhoneMobileIcon,
+    gradient: "from-green-500/20 to-emerald-500/20",
   },
   {
     name: "Graphic & Vector Design",
     description:
       "From branding kits to vector illustrations, our designers craft visuals that define your brand identity.",
     icon: PaintBrushIcon,
+    gradient: "from-orange-500/20 to-yellow-500/20",
   },
   {
     name: "UI/UX Design",
     description:
       "We design sleek, user-friendly, and conversion-optimized interfaces backed by user research.",
     icon: SparklesIcon,
+    gradient: "from-pink-500/20 to-rose-500/20",
   },
   {
     name: "Photo Editing",
     description:
       "Professional retouching, lighting fixes, and color correction for clean & branded visuals.",
     icon: CameraIcon,
+    gradient: "from-indigo-500/20 to-violet-500/20",
   },
   {
     name: "Video Editing",
     description:
       "From social media clips to cinematic edits — smooth transitions, effects, and full production.",
     icon: CameraIcon,
+    gradient: "from-red-500/20 to-orange-500/20",
   },
   {
     name: "SEO Services",
     description:
       "Keyword research, backlinks, on-page optimization, and SEO strategies that deliver real ranking results.",
     icon: MagnifyingGlassIcon,
+    gradient: "from-teal-500/20 to-cyan-500/20",
   },
   {
     name: "Digital Marketing",
     description:
       "We handle social media growth, ad campaigns, content marketing, and brand management.",
     icon: GlobeAltIcon,
+    gradient: "from-amber-500/20 to-orange-500/20",
   },
   {
     name: "Website Maintenance & Support",
     description:
       "Updates, security patches, and performance optimization to keep your site running smoothly.",
     icon: WrenchScrewdriverIcon,
+    gradient: "from-slate-500/20 to-gray-500/20",
   },
-    {
+  {
     name: "Shopify Store Development",
     description:
       "We build premium, high-converting Shopify stores — custom themes, product setup, payment integrations, Shopify apps, and full store automation.",
     icon: ShoppingBagIcon,
+    gradient: "from-lime-500/20 to-green-500/20",
   },
 ];
+
+const technologies = {
+  frontend: ["HTML • CSS • JS", "React", "Next.js", "Angular", "TailwindCSS"],
+  backend: ["Laravel", ".NET • C#", "Node.js", "Express.js", "Python"],
+  fullstack: ["MERN Stack", "MEAN Stack"],
+  mobile: ["Flutter", "React Native"],
+  design: ["Canva", "Illustrator", "Photoshop"],
+  video: ["Premiere Pro", "After Effects"],
+};
 
 export default function Services() {
   return (
@@ -97,182 +128,230 @@ export default function Services() {
           keywords="web development, software development, mobile apps, vector design, SEO, UI/UX, photo editing, video editing, digital marketing, affordable packages"
         />
 
-        <div className="text-gray-900 dark:text-white py-24 sm:py-32">
+        <div className="py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            
+
             {/* Header */}
-            <div className="mx-auto max-w-2xl lg:text-center">
-              <h2 className="text-base font-semibold leading-7 text-nexovate-blue-600 dark:text-nexovate-blue-400">
-                Our Services
-              </h2>
-              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-                Professional Digital Services at Global Quality — Local Prices
-              </p>
-              <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-                We provide all-in-one digital solutions — from development and design to SEO and marketing — at rates lower than global competitors.
-              </p>
-            </div>
+            <FadeInWhenVisible>
+              <div className="mx-auto max-w-2xl lg:text-center">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5 }}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-nexovate-blue-500/10 border border-nexovate-blue-500/20 mb-6"
+                >
+                  <span className="w-2 h-2 rounded-full bg-nexovate-blue-400 animate-pulse" />
+                  <span className="text-sm text-nexovate-blue-400 font-medium">Our Services</span>
+                </motion.div>
+
+                <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl mb-6">
+                  <GradientText>Professional Digital Services</GradientText>
+                  <br />
+                  <span className="text-white">at Global Quality — Local Prices</span>
+                </h1>
+                <p className="text-lg leading-8 text-gray-400">
+                  We provide all-in-one digital solutions — from development and design to SEO and marketing — at rates lower than global competitors.
+                </p>
+              </div>
+            </FadeInWhenVisible>
 
             {/* Services Grid */}
-            <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-              <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
-                {services.map((service) => (
-                  <motion.div
-                    key={service.name}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4 }}
-                    className="flex flex-col"
-                  >
-                    <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900 dark:text-white">
-                      <service.icon
-                        className="h-6 w-6 flex-none text-nexovate-blue-600 dark:text-nexovate-blue-400"
-                        aria-hidden="true"
-                      />
-                      {service.name}
-                    </dt>
-                    <dd className="mt-4 text-base leading-7 text-gray-600 dark:text-gray-300">
-                      {service.description}
-                    </dd>
-                  </motion.div>
-                ))}
-              </dl>
+            <div className="mx-auto mt-20 max-w-2xl lg:mt-24 lg:max-w-none">
+              <StaggerContainer staggerDelay={0.1}>
+                <dl className="grid max-w-xl grid-cols-1 gap-6 lg:max-w-none lg:grid-cols-2">
+                  {services.map((service, index) => (
+                    <StaggerItem key={service.name}>
+                      <TiltCard
+                        tiltAmount={6}
+                        className={`
+                          p-6 rounded-2xl 
+                          bg-gradient-to-br ${service.gradient}
+                          backdrop-blur-xl border border-white/10
+                          hover:border-white/20 transition-all duration-300
+                          group cursor-default
+                        `}
+                      >
+                        <dt className="flex items-center gap-x-4 text-lg font-semibold leading-7 text-white">
+                          <motion.div
+                            className="p-3 rounded-xl bg-white/10 group-hover:bg-white/20 transition-colors"
+                            whileHover={{ rotate: 5, scale: 1.1 }}
+                          >
+                            <service.icon
+                              className="h-6 w-6 text-nexovate-blue-400 icon-glow"
+                              aria-hidden="true"
+                            />
+                          </motion.div>
+                          {service.name}
+                        </dt>
+                        <dd className="mt-4 text-base leading-7 text-gray-400">
+                          {service.description}
+                        </dd>
+                      </TiltCard>
+                    </StaggerItem>
+                  ))}
+                </dl>
+              </StaggerContainer>
             </div>
 
-            {/* ------------------------- */}
-            {/* TECHNOLOGIES SECTION */}
-            {/* ------------------------- */}
+            {/* Technologies Section */}
+            <FadeInWhenVisible delay={0.2}>
+              <div className="mt-32">
+                <div className="text-center mb-16">
+                  <h2 className="text-3xl font-bold mb-4">
+                    <GradientText>Technologies We Use</GradientText>
+                  </h2>
+                  <p className="text-gray-400">Cutting-edge tech stack for modern solutions</p>
+                </div>
 
-            <div className="mt-28">
-              <h2 className="text-center text-3xl font-bold text-gray-900 dark:text-white mb-10">
-                Technologies We Use
-              </h2>
+                {/* First Row */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                  {/* Frontend */}
+                  <div>
+                    <h3 className="text-xl font-bold mb-4 text-white flex items-center gap-2">
+                      <span className="w-3 h-3 rounded-full bg-nexovate-blue-500" />
+                      Frontend
+                    </h3>
+                    <div className="space-y-2">
+                      {technologies.frontend.map((item) => (
+                        <motion.div
+                          key={item}
+                          className="p-3 rounded-xl glass border border-white/10 font-medium text-gray-300 hover:text-white hover:border-nexovate-blue-500/50 transition-all duration-300 cursor-default"
+                          whileHover={{ x: 5, scale: 1.02 }}
+                        >
+                          {item}
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
 
-              {/* FIRST ROW */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+                  {/* Backend */}
+                  <div>
+                    <h3 className="text-xl font-bold mb-4 text-white flex items-center gap-2">
+                      <span className="w-3 h-3 rounded-full bg-accent-purple" />
+                      Backend
+                    </h3>
+                    <div className="space-y-2">
+                      {technologies.backend.map((item) => (
+                        <motion.div
+                          key={item}
+                          className="p-3 rounded-xl glass border border-white/10 font-medium text-gray-300 hover:text-white hover:border-accent-purple/50 transition-all duration-300 cursor-default"
+                          whileHover={{ x: 5, scale: 1.02 }}
+                        >
+                          {item}
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
 
-                {/* Frontend */}
-                <div>
-                  <h3 className="text-xl font-bold mb-4 text-black dark:text-white">Frontend</h3>
-                  <div className="space-y-3">
-                    {["HTML • CSS • JS", "React", "Next.js", "Angular", "TailwindCSS"].map((item) => (
-                      <div
-                        key={item}
-                        className="p-3 rounded-xl bg-gray-100 dark:bg-gray-700 font-semibold
-                        transition-all duration-300 transform hover:scale-105 hover:shadow-lg
-                        hover:bg-nexovate-blue-600 hover:text-white"
-                      >
-                        {item}
-                      </div>
-                    ))}
+                  {/* Full Stack */}
+                  <div>
+                    <h3 className="text-xl font-bold mb-4 text-white flex items-center gap-2">
+                      <span className="w-3 h-3 rounded-full bg-accent-cyan" />
+                      Full-Stack
+                    </h3>
+                    <div className="space-y-2">
+                      {technologies.fullstack.map((item) => (
+                        <motion.div
+                          key={item}
+                          className="p-3 rounded-xl glass border border-white/10 font-medium text-gray-300 hover:text-white hover:border-accent-cyan/50 transition-all duration-300 cursor-default"
+                          whileHover={{ x: 5, scale: 1.02 }}
+                        >
+                          {item}
+                        </motion.div>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
-                {/* Backend */}
-                <div>
-                  <h3 className="text-xl font-bold mb-4 text-black dark:text-white">Backend</h3>
-                  <div className="space-y-3">
-                    {["Laravel", ".NET • C#", "Node.js", "Express.js", "Python"].map((item) => (
-                      <div
-                        key={item}
-                        className="p-3 rounded-xl bg-gray-100 dark:bg-gray-700 font-semibold
-                        transition-all duration-300 transform hover:scale-105 hover:shadow-lg
-                        hover:bg-nexovate-blue-600 hover:text-white"
-                      >
-                        {item}
-                      </div>
-                    ))}
+                {/* Second Row */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mt-8">
+                  {/* Mobile */}
+                  <div>
+                    <h3 className="text-xl font-bold mb-4 text-white flex items-center gap-2">
+                      <span className="w-3 h-3 rounded-full bg-green-500" />
+                      Mobile
+                    </h3>
+                    <div className="space-y-2">
+                      {technologies.mobile.map((item) => (
+                        <motion.div
+                          key={item}
+                          className="p-3 rounded-xl glass border border-white/10 font-medium text-gray-300 hover:text-white hover:border-green-500/50 transition-all duration-300 cursor-default"
+                          whileHover={{ x: 5, scale: 1.02 }}
+                        >
+                          {item}
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Design */}
+                  <div>
+                    <h3 className="text-xl font-bold mb-4 text-white flex items-center gap-2">
+                      <span className="w-3 h-3 rounded-full bg-pink-500" />
+                      Design
+                    </h3>
+                    <div className="space-y-2">
+                      {technologies.design.map((item) => (
+                        <motion.div
+                          key={item}
+                          className="p-3 rounded-xl glass border border-white/10 font-medium text-gray-300 hover:text-white hover:border-pink-500/50 transition-all duration-300 cursor-default"
+                          whileHover={{ x: 5, scale: 1.02 }}
+                        >
+                          {item}
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Video */}
+                  <div>
+                    <h3 className="text-xl font-bold mb-4 text-white flex items-center gap-2">
+                      <span className="w-3 h-3 rounded-full bg-orange-500" />
+                      Video & Motion
+                    </h3>
+                    <div className="space-y-2">
+                      {technologies.video.map((item) => (
+                        <motion.div
+                          key={item}
+                          className="p-3 rounded-xl glass border border-white/10 font-medium text-gray-300 hover:text-white hover:border-orange-500/50 transition-all duration-300 cursor-default"
+                          whileHover={{ x: 5, scale: 1.02 }}
+                        >
+                          {item}
+                        </motion.div>
+                      ))}
+                    </div>
                   </div>
                 </div>
-
-                {/* Full Stack */}
-                <div>
-                  <h3 className="text-xl font-bold mb-4 text-black dark:text-white">Full-Stack</h3>
-                  <div className="space-y-3">
-                    {["MERN Stack", "MEAN Stack"].map((item) => (
-                      <div
-                        key={item}
-                        className="p-3 rounded-xl bg-gray-100 dark:bg-gray-700 font-semibold
-                        transition-all duration-300 transform hover:scale-105 hover:shadow-lg
-                        hover:bg-nexovate-blue-600 hover:text-white"
-                      >
-                        {item}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
               </div>
-
-              {/* SECOND ROW */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto mt-14">
-
-                {/* Mobile */}
-                <div>
-                  <h3 className="text-xl font-bold mb-4 text-black dark:text-white">Mobile</h3>
-                  <div className="space-y-3">
-                    {["Flutter", "React Native"].map((item) => (
-                      <div
-                        key={item}
-                        className="p-3 rounded-xl bg-gray-100 dark:bg-gray-700 font-semibold
-                        transition-all duration-300 transform hover:scale-105 hover:shadow-lg
-                        hover:bg-nexovate-blue-600 hover:text-white"
-                      >
-                        {item}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Design */}
-                <div>
-                  <h3 className="text-xl font-bold mb-4 text-black dark:text-white">Design</h3>
-                  <div className="space-y-3">
-                    {["Canva", "Illustrator", "Photoshop"].map((item) => (
-                      <div
-                        key={item}
-                        className="p-3 rounded-xl bg-gray-100 dark:bg-gray-700 font-semibold
-                        transition-all duration-300 transform hover:scale-105 hover:shadow-lg
-                        hover:bg-nexovate-blue-600 hover:text-white"
-                      >
-                        {item}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Video */}
-                <div>
-                  <h3 className="text-xl font-bold mb-4 text-black dark:text-white">Video & Motion</h3>
-                  <div className="space-y-3">
-                    {["Premiere Pro", "After Effects"].map((item) => (
-                      <div
-                        key={item}
-                        className="p-3 rounded-xl bg-gray-100 dark:bg-gray-700 font-semibold
-                        transition-all duration-300 transform hover:scale-105 hover:shadow-lg
-                        hover:bg-nexovate-blue-600 hover:text-white"
-                      >
-                        {item}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-              </div>
-            </div>
+            </FadeInWhenVisible>
 
             {/* CTA */}
-            <div className="mt-20 text-center">
-              <p className="text-lg text-gray-600 dark:text-gray-300 mb-4">
-                Want a custom package or combination of services? Let’s create your digital growth plan today.
-              </p>
-              <Link
-                to="/contact"
-                className="inline-block rounded-md bg-nexovate-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-nexovate-blue-500"
-              >
-                Get in Touch
-              </Link>
-            </div>
+            <FadeInWhenVisible delay={0.3}>
+              <div className="mt-24 text-center">
+                <div className="glass rounded-3xl p-12 max-w-3xl mx-auto border border-white/10">
+                  <h3 className="text-2xl font-bold text-white mb-4">
+                    Want a custom package?
+                  </h3>
+                  <p className="text-gray-400 mb-8">
+                    Let's create your digital growth plan today.
+                  </p>
+                  <MagneticButton strength={0.15}>
+                    <Link
+                      to="/contact"
+                      className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-nexovate-blue-600 to-accent-purple px-8 py-4 text-base font-semibold text-white shadow-lg hover:shadow-glow transition-all duration-300"
+                    >
+                      Get in Touch
+                      <motion.span
+                        animate={{ x: [0, 5, 0] }}
+                        transition={{ duration: 1.5, repeat: Infinity }}
+                      >
+                        →
+                      </motion.span>
+                    </Link>
+                  </MagneticButton>
+                </div>
+              </div>
+            </FadeInWhenVisible>
 
           </div>
         </div>

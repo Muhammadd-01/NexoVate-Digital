@@ -10,10 +10,10 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Chatbot from "./components/Chatbot";
 import WhatsAppButton from "./components/WhatsAppButton";
-import ParticleBackground from "./components/ParticleBackground"; 
+import ParticleBackground from "./components/ParticleBackground";
 import AnimatedBackground from "./components/AnimatedBackground";
-import ScrollToTop from "./components/ScrollToTop";
 import AutoScrollToTop from "./components/AutoScrollToTop";
+import { CustomCursor, ScrollToTop } from "./components/CustomCursor";
 
 // Pages
 import Home from "./pages/Home";
@@ -53,6 +53,9 @@ function App() {
 
   return (
     <div className={`${theme === "dark" ? "dark" : ""}`}>
+      {/* Custom Cursor - only on desktop */}
+      <CustomCursor />
+
       <div className="flex flex-col min-h-screen">
         {location.pathname === "/" && (
           <AnimatedBackground>
@@ -95,15 +98,22 @@ function App() {
 
         <Footer />
 
+        {/* Fixed action buttons */}
         <div
-          className="fixed bottom-4 right-4 z-40 flex flex-col items-end space-y-4"
-          style={{ position: "fixed", bottom: "1rem", right: "1rem", width: "auto" }}
+          className="fixed bottom-4 left-4 z-40 flex flex-col items-start space-y-4"
+          style={{ position: "fixed", bottom: "1rem", left: "1rem", width: "auto" }}
         >
           <AutoScrollToTop />
-          <Chatbot />
           <WhatsAppButton />
-          <ScrollToTop />
         </div>
+
+        {/* Chat widget on right */}
+        <div className="fixed bottom-24 right-8 z-40">
+          <Chatbot />
+        </div>
+
+        {/* Smooth scroll to top - now with progress ring */}
+        <ScrollToTop />
 
         <Toaster position="top-right" />
       </div>
