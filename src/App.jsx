@@ -13,7 +13,7 @@ import WhatsAppButton from "./components/WhatsAppButton";
 import ParticleBackground from "./components/ParticleBackground";
 import AnimatedBackground from "./components/AnimatedBackground";
 import AutoScrollToTop from "./components/AutoScrollToTop";
-import { CustomCursor, ScrollToTop } from "./components/CustomCursor";
+import { ScrollToTop } from "./components/CustomCursor";
 
 // Pages
 import Home from "./pages/Home";
@@ -27,6 +27,8 @@ import BlogPost from "./pages/BlogPost";
 import Career from "./pages/Career";
 import Contact from "./pages/Contact";
 import Team from "./pages/Team";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 
 // New pages
 import Login from "./pages/Login";
@@ -37,6 +39,15 @@ function App() {
   const [error, setError] = React.useState(null);
   const { theme } = useContext(ThemeContext);
   const location = useLocation();
+  const [isScrolled, setIsScrolled] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 300);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   React.useEffect(() => {
     const handleError = (error) => {
@@ -53,8 +64,7 @@ function App() {
 
   return (
     <div className={`${theme === "dark" ? "dark" : ""}`}>
-      {/* Custom Cursor - only on desktop */}
-      <CustomCursor />
+
 
       <div className="flex flex-col min-h-screen">
         {location.pathname === "/" && (
@@ -86,6 +96,8 @@ function App() {
                 <Route path="/career" element={<Career />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/team" element={<Team />} />
+                <Route path="/privacy" element={<PrivacyPolicy />} />
+                <Route path="/terms" element={<TermsOfService />} />
 
                 {/* Login/Register/Profile routes */}
                 <Route path="/login" element={<Login />} />
@@ -98,18 +110,27 @@ function App() {
 
         <Footer />
 
-        {/* Fixed action buttons */}
-        <div
-          className="fixed bottom-4 left-4 z-40 flex flex-col items-start space-y-4"
-          style={{ position: "fixed", bottom: "1rem", left: "1rem", width: "auto" }}
-        >
+
+        {/* Fixed action buttons on Left */}
+        <div className="fixed bottom-4 left-4 z-40">
           <AutoScrollToTop />
-          <WhatsAppButton />
         </div>
 
-        {/* Chat widget on right */}
-        <div className="fixed bottom-24 right-8 z-40">
-          <Chatbot />
+        {/* Floating Actions on Right */}
+        <div
+          className="fixed right-8 z-40 flex flex-col items-center space-y-4 transition-all duration-500 ease-in-out"
+          style={{
+            bottom: isScrolled ? "104px" : "32px"
+          }}
+        >
+          <div className="relative group">
+            <Chatbot />
+          </div>
+          <div
+            className="transition-all duration-500 ease-in-out"
+          >
+            <WhatsAppButton />
+          </div>
         </div>
 
         {/* Smooth scroll to top - now with progress ring */}

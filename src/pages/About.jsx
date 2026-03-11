@@ -106,11 +106,14 @@ const About = () => {
                     </span>
                     Our Story
                   </h2>
-                  <p className="text-gray-300 mb-4 leading-relaxed">
-                    NexoVate Digital started with a simple idea: to provide businesses with high-quality digital solutions at affordable rates. The concept was born in late 2024, and since January 2025, we've been turning that vision into reality.
+                  <p className="text-gray-300 mb-6 leading-relaxed">
+                    NexoVate Digital was founded with a singular, ambitious mission: to bridge the gap between premium digital excellence and accessible innovation. What began as a conceptual spark in late 2024 evolved into a full-scale digital powerhouse by January 2025. We recognized that in an increasingly digital world, businesses needed more than just a website—they needed a comprehensive digital identity that could scale, engage, and convert.
+                  </p>
+                  <p className="text-gray-300 mb-6 leading-relaxed">
+                    Our journey started by assembling a diverse team of visionaries, developers, and creators who shared a passion for pixel-perfect precision and robust engineering. We didn't just want to build apps; we wanted to build the future of how brands interact with their audiences.
                   </p>
                   <p className="text-gray-300 leading-relaxed">
-                    Today, we deliver a wide range of services including full-stack web development, mobile apps, graphic and vector design, UI/UX, video and photo editing, SEO, and digital marketing. Our goal is to combine creativity, technology, and efficiency to help businesses grow and stand out online.
+                    Today, NexoVate Digital stands as a multi-disciplinary agency where boundaries between development, design, and marketing blur into a seamless experience. Whether we're architecting complex cloud infrastructures, crafting cinematic video content, or optimizing global SEO strategies, our DNA remains the same: a relentless pursuit of quality and a commitment to our clients' long-term success. We are not just a service provider; we are your strategic partner in the digital evolution.
                   </p>
                 </div>
               </SlideIn>

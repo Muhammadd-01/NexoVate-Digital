@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import { CheckCircleIcon } from "@heroicons/react/24/outline";
-import { FaProjectDiagram, FaUsers, FaUserTie, FaClock, FaReact, FaNodeJs, FaDocker, FaAws } from "react-icons/fa";
-import { SiFlutter, SiTailwindcss, SiTypescript, SiMongodb, SiFirebase, SiNextdotjs } from "react-icons/si";
+import { FaProjectDiagram, FaUsers, FaUserTie, FaClock, FaReact, FaNodeJs, FaDocker, FaAws, FaVideo } from "react-icons/fa";
+import { SiFlutter, SiTailwindcss, SiTypescript, SiMongodb, SiFirebase, SiNextdotjs, SiAdobephotoshop, SiAdobeillustrator, SiAdobepremierepro, SiAdobeaftereffects, SiFigma, SiCanva } from "react-icons/si";
+import { BiMoviePlay } from "react-icons/bi";
 import SEO from "../components/SEO";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Slider from "../components/Slider";
+import TechMarquee from "../components/TechMarquee";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {
@@ -60,9 +62,13 @@ const techStack = [
   { icon: SiFlutter, name: "Flutter", color: "#02569B" },
   { icon: SiTailwindcss, name: "Tailwind", color: "#06B6D4" },
   { icon: SiMongodb, name: "MongoDB", color: "#47A248" },
-  { icon: SiFirebase, name: "Firebase", color: "#FFCA28" },
-  { icon: FaDocker, name: "Docker", color: "#2496ED" },
-  { icon: FaAws, name: "AWS", color: "#FF9900" },
+  { icon: SiFigma, name: "Figma", color: "#F24E1E" },
+  { icon: SiAdobephotoshop, name: "Photoshop", color: "#31A8FF" },
+  { icon: SiAdobeillustrator, name: "Illustrator", color: "#FF9A00" },
+  { icon: SiAdobepremierepro, name: "Premiere Pro", color: "#PR0000" }, // Custom hex for Premiere
+  { icon: SiAdobeaftereffects, name: "After Effects", color: "#CF96FD" },
+  { icon: SiCanva, name: "Canva", color: "#00C4CC" },
+  { icon: FaVideo, name: "CapCut", color: "#ffffff" },
 ];
 
 const testimonials = [
@@ -248,24 +254,7 @@ export default function Home() {
         </motion.div>
 
         {/* Tech Stack Marquee */}
-        <div className="py-12 border-y border-white/5">
-          <div className="marquee">
-            <div className="marquee-content">
-              {[...techStack, ...techStack].map((tech, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-3 mx-8 text-gray-400 hover:text-white transition-colors group"
-                >
-                  <tech.icon
-                    className="w-8 h-8 transition-all duration-300 group-hover:drop-shadow-[0_0_10px_currentColor]"
-                    style={{ color: tech.color }}
-                  />
-                  <span className="text-sm font-medium whitespace-nowrap">{tech.name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        <TechMarquee items={techStack} />
 
         {/* Slider Section */}
         <Slider slides={slides} />

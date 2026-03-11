@@ -197,19 +197,17 @@ export default function Footer() {
         {/* Divider */}
         <div className="mt-10 pt-8 border-t border-white/10">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-500 order-3 sm:order-1">
               © {new Date().getFullYear()} NexoVate Digital. All rights reserved.
             </p>
-            <div className="flex items-center gap-2 text-sm text-gray-500">
-              <span>Crafted with</span>
-              <motion.span
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 1, repeat: Infinity }}
-                className="text-red-500"
-              >
-                ❤️
-              </motion.span>
-              <span>in Pakistan</span>
+            <div className="flex items-center gap-6 text-sm text-gray-500 order-1 sm:order-2">
+              <Link to="/privacy" className="hover:text-nexovate-blue-400 transition-colors">Privacy Policy</Link>
+              <Link to="/terms" className="hover:text-nexovate-blue-400 transition-colors">Terms of Service</Link>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-gray-500 order-2 sm:order-3">
+              <span>Innovation & Digital Excellence from Pakistan</span>
+              <span className="w-1 h-1 rounded-full bg-gray-600 mx-1" />
+              <span>Global Standards</span>
             </div>
           </div>
         </div>

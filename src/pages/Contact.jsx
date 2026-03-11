@@ -15,11 +15,13 @@ import {
   SpotlightCard,
   FloatingElement
 } from "../components/Animations";
+import InteractiveGlobe from "../components/InteractiveGlobe";
 
 const contactInfo = [
   {
     icon: MapPin,
     title: "Our Location",
+    cardHref: "https://www.google.com/maps/search/?api=1&query=Karachi,Pakistan",
     details: ["NexoVate Digital", "Karachi, Pakistan"],
     color: "from-blue-500/20 to-cyan-500/20",
     iconColor: "text-blue-400",
@@ -27,15 +29,24 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Phone",
+    cardHref: "tel:+92312858773",
     details: ["+92 312 858773"],
     color: "from-green-500/20 to-emerald-500/20",
     iconColor: "text-green-400",
   },
   {
     icon: Mail,
-    title: "Email",
+    title: "Primary Email",
+    cardHref: "mailto:nexovatedigital.co@gmail.com",
+    details: ["nexovatedigital.co@gmail.com"],
+    color: "from-purple-500/20 to-pink-500/20",
+    iconColor: "text-purple-400",
+  },
+  {
+    icon: Mail,
+    title: "Secondary Email",
+    cardHref: "mailto:contactnexovate@gmail.com",
     details: ["contactnexovate@gmail.com"],
-    href: "mailto:contactnexovate@gmail.com",
     color: "from-purple-500/20 to-pink-500/20",
     iconColor: "text-purple-400",
   },
@@ -60,6 +71,8 @@ export default function Contact() {
       }));
     }
   }, [location.state]);
+
+  const hasClients = false; // Toggle this to true when you have clients to show on the globe
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -165,52 +178,55 @@ export default function Contact() {
                     <div className="space-y-4">
                       {contactInfo.map((item, index) => (
                         <StaggerItem key={index}>
-                          <TiltCard
-                            tiltAmount={5}
-                            className={`p-5 rounded-xl bg-gradient-to-br ${item.color} backdrop-blur-xl border border-white/10 group`}
+                          <a
+                            href={item.cardHref}
+                            target={item.cardHref.startsWith("http") ? "_blank" : undefined}
+                            rel={item.cardHref.startsWith("http") ? "noopener noreferrer" : undefined}
+                            className="block"
                           >
-                            <div className="flex gap-x-4 items-start">
-                              <div className="p-3 rounded-lg bg-white/10 group-hover:bg-white/20 transition-colors">
-                                <item.icon className={`h-6 w-6 ${item.iconColor}`} />
-                              </div>
-                              <div>
-                                <h4 className="text-lg font-medium text-white">
-                                  {item.title}
-                                </h4>
-                                {item.details.map((detail, idx) => (
-                                  item.href ? (
-                                    <a
-                                      key={idx}
-                                      href={item.href}
-                                      className="block text-gray-400 hover:text-white transition-colors"
-                                    >
-                                      {detail}
-                                    </a>
-                                  ) : (
-                                    <p key={idx} className="text-gray-400">
+                            <TiltCard
+                              tiltAmount={5}
+                              className={`p-5 rounded-xl bg-gradient-to-br ${item.color} backdrop-blur-xl border border-white/10 group cursor-pointer transition-all hover:border-white/20 active:scale-[0.98]`}
+                            >
+                              <div className="flex gap-x-4 items-start">
+                                <div className="p-3 rounded-lg bg-white/10 group-hover:bg-white/20 transition-colors">
+                                  <item.icon className={`h-6 w-6 ${item.iconColor}`} />
+                                </div>
+                                <div>
+                                  <h4 className="text-lg font-medium text-white">
+                                    {item.title}
+                                  </h4>
+                                  {item.details.map((detail, idx) => (
+                                    <p key={idx} className="text-gray-400 group-hover:text-white transition-colors">
                                       {detail}
                                     </p>
-                                  )
-                                ))}
+                                  ))}
+                                </div>
                               </div>
-                            </div>
-                          </TiltCard>
+                            </TiltCard>
+                          </a>
                         </StaggerItem>
                       ))}
                     </div>
                   </StaggerContainer>
 
-                  {/* Map or additional info */}
-                  <motion.div
-                    className="mt-8 p-6 rounded-xl glass border border-white/10"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5 }}
-                  >
-                    <h4 className="text-lg font-medium text-white mb-2">Working Hours</h4>
-                    <p className="text-gray-400">Monday - Saturday: 10 AM - 8 PM (PKT)</p>
-                    <p className="text-gray-400 mt-1 text-sm">We typically respond within 24 hours</p>
-                  </motion.div>
+                  {/* Map Alternative: 3D Interactive Globe - Conditionally Rendered */}
+                  {hasClients && (
+                    <motion.div
+                      className="mt-8 overflow-hidden"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.5 }}
+                    >
+                      <InteractiveGlobe />
+
+                      <div className="mt-16 p-6 rounded-xl glass border border-white/10 text-center">
+                        <h4 className="text-lg font-medium text-white mb-2">Our Presence</h4>
+                        <p className="text-gray-400">Headquartered in Pakistan, we work with visionaries across the globe. From Silicon Valley to the GCC, our digital solutions know no borders.</p>
+                        <p className="text-gray-400 mt-4 text-sm font-medium">Monday - Saturday: 10 AM - 8 PM (PKT)</p>
+                      </div>
+                    </motion.div>
+                  )}
                 </div>
               </FadeInWhenVisible>
 

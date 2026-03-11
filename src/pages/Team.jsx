@@ -314,33 +314,6 @@ export default function Team() {
                 </div>
               </FadeInWhenVisible>
 
-              {/* Join CTA */}
-              <FadeInWhenVisible delay={0.3}>
-                <div className="mt-20 text-center">
-                  <div className="inline-block glass rounded-3xl p-10 border border-white/10 max-w-2xl">
-                    <h3 className="text-2xl font-bold text-white mb-4">
-                      Want to join our team?
-                    </h3>
-                    <p className="text-gray-400 mb-6">
-                      We're always looking for talented individuals to join our growing team.
-                    </p>
-                    <motion.a
-                      href="mailto:contactnexovate@gmail.com"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-nexovate-blue-600 to-accent-purple px-8 py-4 text-base font-semibold text-white shadow-lg hover:shadow-glow transition-all duration-300"
-                    >
-                      Send Your Resume
-                      <motion.span
-                        animate={{ x: [0, 5, 0] }}
-                        transition={{ duration: 1.5, repeat: Infinity }}
-                      >
-                        →
-                      </motion.span>
-                    </motion.a>
-                  </div>
-                </div>
-              </FadeInWhenVisible>
             </div>
           </div>
         </div>
