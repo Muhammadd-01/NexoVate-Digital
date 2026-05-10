@@ -44,7 +44,7 @@ const teamMembers = [
   {
     name: "Muhammad Affan",
     role: "CEO & Founder | Full-Stack Developer",
-    image: "/assets/Team-Member-images/AffanPic.jpeg",
+    image: "/assets/Team-Member-images/AffanPic.png",
     description:
       "Affan leads NexoVate.Co with technical mastery and vision. As a full-stack developer and creative strategist, he oversees all services — from web & app development to automation, AI, and business innovation.",
     portfolio: "https://affann-portfolio.vercel.app/",
