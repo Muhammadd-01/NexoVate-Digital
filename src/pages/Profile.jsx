@@ -1,5 +1,4 @@
 import React from "react";
-import AnimatedBackground from "../components/ParticleBackground";
 import SEO from "../components/SEO";
 
 export default function Profile() {

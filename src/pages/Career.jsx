@@ -1,6 +1,5 @@
 import { useState } from "react"
 import SEO from "../components/SEO"
-import ParticleBackground from "../components/ParticleBackground"
 import { motion } from "framer-motion"
 
 const positions = [
@@ -95,7 +94,6 @@ export default function Career() {
       />
       <div className="relative min-h-screen">
         <div className="absolute inset-0">
-          <ParticleBackground />
         </div>
         <div className="relative z-10 py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">

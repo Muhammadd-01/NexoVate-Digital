@@ -4,7 +4,6 @@ import SEO from "../components/SEO";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
 import { MapPin, Phone, Mail, Send, Clock } from "lucide-react";
-import ParticleBackground from "../components/ParticleBackground";
 import TiltCard from "../components/TiltCard";
 import {
   FadeInWhenVisible,
@@ -131,7 +130,6 @@ export default function Contact() {
   return (
     <div className="relative min-h-screen">
       <div className="absolute inset-0">
-        <ParticleBackground />
       </div>
 
       <div className="relative z-10">

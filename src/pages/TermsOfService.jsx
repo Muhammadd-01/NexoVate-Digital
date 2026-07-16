@@ -1,6 +1,5 @@
 import SEO from "../components/SEO";
 import { motion } from "framer-motion";
-import ParticleBackground from "../components/ParticleBackground";
 import { GradientText, FadeInWhenVisible } from "../components/Animations";
 
 const TermsOfService = () => {
@@ -39,7 +38,6 @@ const TermsOfService = () => {
             />
             <div className="relative min-h-screen py-24 sm:py-32 overflow-hidden">
                 <div className="absolute inset-0">
-                    <ParticleBackground />
                 </div>
 
                 <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8">

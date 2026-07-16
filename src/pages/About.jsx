@@ -1,7 +1,6 @@
 import SEO from "../components/SEO";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import ParticleBackground from "../components/ParticleBackground";
 import TiltCard from "../components/TiltCard";
 import {
   FadeInWhenVisible,
@@ -67,7 +66,6 @@ const About = () => {
       />
       <div className="relative min-h-screen">
         <div className="absolute inset-0">
-          <ParticleBackground />
         </div>
 
         <div className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">

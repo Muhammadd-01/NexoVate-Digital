@@ -1,7 +1,6 @@
 import SEO from "../components/SEO";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import ParticleBackground from "../components/ParticleBackground";
 import TiltCard from "../components/TiltCard";
 import {
   FadeInWhenVisible,
@@ -128,7 +127,6 @@ export default function Team() {
 
       <div className="relative min-h-screen">
         <div className="absolute inset-0">
-          <ParticleBackground />
         </div>
 
         {/* Floating decorative elements */}

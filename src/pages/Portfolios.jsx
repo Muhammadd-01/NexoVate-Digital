@@ -2,7 +2,6 @@ import SEO from "../components/SEO";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import ParticleBackground from "../components/ParticleBackground";
 import TiltCard from "../components/TiltCard";
 import {
   FadeInWhenVisible,
@@ -24,6 +23,7 @@ import {
   CheckBadgeIcon,
   RocketLaunchIcon,
 } from "@heroicons/react/24/outline";
+import { portfolioData } from "../data/portfolioData";
 
 const categoryIcons = {
   "Web Applications": CodeBracketIcon,
@@ -44,247 +44,6 @@ const categoryColors = {
   "Photo Editing": "from-red-500/20 to-rose-500/20",
   "Video Editing": "from-indigo-500/20 to-purple-500/20",
 };
-
-const portfolioData = [
-  {
-    category: "Web Applications",
-    description:
-      "High-performance and secure web apps developed using React, Laravel, and .NET — tailored for global scale and seamless UX.",
-    projects: [
-      {
-        title: "Storelytics",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000",
-        tags: ["React", "D3.js", "Express", "PostgreSQL"],
-        fullDescription: "Advanced e-commerce analytics platform designed for serious business owners. Transforms raw data into actionable insights with stunning visualizations and lightning-fast processing.",
-        features: ["Predictive sales forecasting", "Customer behavior heatmap", "Inventory management integration", "Flash-fast data processing"],
-        techStack: ["React", "D3.js", "Express", "PostgreSQL", "Socket.io"],
-        link: "https://storelytics.com"
-      },
-      {
-        title: "MediTrack",
-        image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1000",
-        tags: ["React", "Node.js", "MongoDB"],
-        fullDescription: "A comprehensive healthcare dashboard for patient management, appointment scheduling, and real-time health monitoring.",
-        features: ["Electronic Health Records", "Appointment Auto-reminders", "Secure Patient Portal", "Doctor Availability Tracking"],
-        techStack: ["React", "Node.js", "MongoDB", "Express", "Chart.js"],
-        link: "#"
-      },
-      {
-        title: "EduSmart LMS",
-        image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&q=80&w=1000",
-        tags: ["Laravel", "Vue.js", "MySQL"],
-        fullDescription: "An all-in-one learning management system for schools and corporate training, featuring interactive lessons and automated grading.",
-        features: ["Course Builder", "Interactive Quizzes", "Student Progress Reports", "Payment Integration"],
-        techStack: ["Laravel", "Vue.js", "PHP", "MySQL", "TailwindCSS"],
-        link: "#"
-      },
-    ],
-  },
-  {
-    category: "Professional Websites",
-    description:
-      "Elegant, SEO-optimized websites designed for startups, brands, and agencies — built to attract, engage, and convert.",
-    projects: [
-      {
-        title: "WatchHub",
-        image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=1000",
-        tags: ["Next.js", "TailwindCSS", "Stripe API", "Prisma"],
-        fullDescription: "A premium, secure marketplace for luxury timepieces. Built with high-end aesthetics, providing authentication services and global shipping tracking for watch enthusiasts.",
-        features: ["Multi-vendor support", "Escrow payment system", "Expert authentication process", "Real-time bidding"],
-        techStack: ["Next.js", "TailwindCSS", "Stripe API", "Prisma", "PostgreSQL"],
-        link: "https://watch-hub.com"
-      },
-      {
-        title: "Nexovate Official",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000",
-        tags: ["React", "TailwindCSS"],
-        fullDescription: "The digital home of Nexovate Digital, showcasing our expertise in design, development, and digital marketing with a premium glassmorphic aesthetic.",
-        features: ["Animated Backgrounds", "Contact Form Integration", "Case Study Showcase", "Fast Performance"],
-        techStack: ["React", "TailwindCSS", "Framer Motion", "Vite"],
-        link: "#"
-      },
-      {
-        title: "Healthify Medical",
-        image: "https://images.unsplash.com/photo-1504813184591-01572f98c85f?auto=format&fit=crop&q=80&w=1000",
-        tags: ["Next.js", "Strapi"],
-        fullDescription: "A modern medical portal for clinic information, specialist searches, and online consultation bookings.",
-        features: ["Clinic Locator", "Specialist Profiles", "Online Booking", "Health Blog"],
-        techStack: ["Next.js", "Strapi", "PostgreSQL", "TailwindCSS"],
-        link: "#"
-      },
-    ],
-  },
-  {
-    category: "Mobile Applications",
-    description:
-      "Native-like cross-platform apps using React Native & Flutter — built for performance, design, and real-world reliability.",
-    projects: [
-      {
-        title: "DeenSphere",
-        image: "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80&w=1000",
-        tags: ["React Native", "Firebase", "Node.js"],
-        fullDescription: "A comprehensive Islamic lifestyle app featuring precise prayer times, Quran with multiple translations, Qibla finder, and a community hub for spiritual growth.",
-        features: ["Offline Quran support", "Real-time Adhan notifications", "Islamic Events Calendar", "Zakat Calculator"],
-        techStack: ["React Native", "Firebase", "Node.js", "Cloud Functions", "RevenueCat"],
-        link: "https://deensphere.app"
-      },
-      {
-        title: "FitMate Tracker",
-        image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=1000",
-        tags: ["Flutter", "Firebase"],
-        fullDescription: "Personalized fitness tracking app that syncs with health devices to provide a complete view of your physical activity and health metrics.",
-        features: ["Workout Log", "Calorie Tracking", "Social Challenges", "Health Kit Integration"],
-        techStack: ["Flutter", "Dart", "Firebase", "Google Cloud"],
-        link: "#"
-      },
-      {
-        title: "QuickCart eCommerce",
-        image: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&q=80&w=1000",
-        tags: ["React Native", "Node.js"],
-        fullDescription: "High-performance shopping app with real-time inventory updates and seamless one-tap checkout.",
-        features: ["Push Notifications", "Inventory Tracking", "Payment Gateway", "Order History"],
-        techStack: ["React Native", "Node.js", "Express", "MongoDB"],
-        link: "#"
-      },
-    ],
-  },
-  {
-    category: "Graphic Design & Branding",
-    description:
-      "Visual storytelling that defines identity — from logos and posters to full-scale brand systems and digital assets.",
-    projects: [
-      {
-        title: "Aura Cosmetics",
-        image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=1000",
-        tags: ["Illustrator", "Photoshop"],
-        fullDescription: "A luxury cosmetic brand identity focusing on elegance and minimalism, including logo design, packaging, and social media assets.",
-        features: ["Premium Logo Design", "Packaging Layout", "Color Palette Curation", "Brand Guidelines"],
-        techStack: ["Adobe Illustrator", "Photoshop", "InDesign"],
-        link: "#"
-      },
-      {
-        title: "TechLaunch Branding",
-        image: "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=1000",
-        tags: ["Figma", "Logo Design"],
-        fullDescription: "Complete brand identity for a tech startup, including a modern, scalable logo, typography, and a comprehensive visual system.",
-        features: ["SVG Logo Assets", "Brand Style Guide", "Iconography Design", "Marketing Templates"],
-        techStack: ["Figma", "Adobe Illustrator"],
-        link: "#"
-      },
-      {
-        title: "Social Media Kit",
-        image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=1000",
-        tags: ["Canva", "Graphic Design"],
-        fullDescription: "A cohesive set of social media templates designed to maintain brand consistency across all digital platforms.",
-        features: ["Instagram Templates", "LinkedIn Header Design", "Cohesive Visual Theme", "Editable Assets"],
-        techStack: ["Canva", "Photoshop", "Figma"],
-        link: "#"
-      },
-    ],
-  },
-  {
-    category: "SEO & Marketing Campaigns",
-    description:
-      "From keyword domination to content virality — our SEO & ad campaigns consistently drive measurable growth.",
-    projects: [
-      {
-        title: "Digital Health SEO",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000",
-        tags: ["On-Page SEO", "Analytics"],
-        fullDescription: "A comprehensive SEO strategy for a health platform that increased organic traffic by 150% in 6 months.",
-        features: ["Keyword Research", "On-Page Optimization", "Backlink Building", "Ranking Analytics"],
-        techStack: ["Ahrefs", "Google Search Console", "Google Analytics"],
-        link: "#"
-      },
-      {
-        title: "E-commerce PPC",
-        image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1000",
-        tags: ["Google Ads", "Facebook Ads"],
-        fullDescription: "Strategic pay-per-click campaign for a global fashion retailer, focusing on ROI and customer acquisition.",
-        features: ["Ad Creative Design", "Conversion Tracking", "A/B Testing", "Retargeting Setup"],
-        techStack: ["Google Ads Manager", "Meta Ads Manager", "Analytics"],
-        link: "#"
-      },
-      {
-        title: "Content Strategy",
-        image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1000",
-        tags: ["Content Marketing", "Blog SEO"],
-        fullDescription: "Developing a top-tier content marketing strategy for a SaaS client to build authority and drive long-term organic growth.",
-        features: ["Topic Cluster Research", "SEO Writing", "Content Calendar", "Social Promotion"],
-        techStack: ["Semrush", "WordPress", "Grammarly"],
-        link: "#"
-      },
-    ],
-  },
-  {
-    category: "Photo Editing",
-    description:
-      "Pixel-perfect image refinement — from e-commerce product shots to high-end portrait retouching.",
-    projects: [
-      {
-        title: "Product Retouching",
-        image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1000",
-        tags: ["Photoshop", "eCommerce"],
-        fullDescription: "High-end product photo editing for luxury items, focusing on color accuracy, reflection cleanup, and background removal.",
-        features: ["Background Removal", "Color Correction", "Shadow Matching", "Dust/Scratch Removal"],
-        techStack: ["Adobe Photoshop", "Lightroom"],
-        link: "#"
-      },
-      {
-        title: "Portrait Enhancement",
-        image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=1000",
-        tags: ["Lightroom", "Portrait"],
-        fullDescription: "Professional skin retouching and facial feature enhancement for corporate and fashion portraits.",
-        features: ["Skin Softening", "Teeth Whitening", "Frequency Separation", "Eye Enhancement"],
-        techStack: ["Adobe Lightroom", "Photoshop"],
-        link: "#"
-      },
-      {
-        title: "Real Estate Editing",
-        image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1000",
-        tags: ["Interior", "HDR"],
-        fullDescription: "Specialized real estate image editing using HDR blending and sky replacement to make properties look their absolute best.",
-        features: ["HDR Blending", "Sky Replacement", "Vertical Alignment", "Window Pulls"],
-        techStack: ["Adobe Photoshop", "Enfuse"],
-        link: "#"
-      },
-    ],
-  },
-  {
-    category: "Video Editing",
-    description:
-      "Professional cinematic edits, reels, and ad-ready visuals — crafted to tell stories that convert attention into emotion.",
-    projects: [
-      {
-        title: "Commercial Reel",
-        image: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80&w=1000",
-        tags: ["Premiere Pro", "After Effects"],
-        fullDescription: "A high-octane 60-second commercial for a tech agency, featuring dynamic editing, text animations, and cinematic transitions.",
-        features: ["Cinematic Color Grading", "Sound Design", "VFX Integration", "High-Energy Pacing"],
-        techStack: ["Adobe Premiere Pro", "After Effects"],
-        link: "#"
-      },
-      {
-        title: "YouTube Content",
-        image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=1000",
-        tags: ["Editing", "Storytelling"],
-        fullDescription: "Professional editing for long-form educational YouTube content, focusing on engagement and visual storytelling.",
-        features: ["B-Roll Integration", "Motion Graphics", "Subtitle Animation", "Engagement Hooks"],
-        techStack: ["Adobe Premiere Pro", "Audition"],
-        link: "#"
-      },
-      {
-        title: "Wedding Highlight",
-        image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=1000",
-        tags: ["Cinematic", "Color Grade"],
-        fullDescription: "Emotional wedding highlight film capturing the most precious moments with soft, cinematic color grading and orchestral sound design.",
-        features: ["Multi-Cam Syncing", "Skin Tone Grading", "Emotional Pacing", "Speech-Music Blending"],
-        techStack: ["DaVinci Resolve", "Premiere Pro"],
-        link: "#"
-      },
-    ],
-  },
-];
 
 const ProjectModal = ({ project, isOpen, onClose }) => {
   if (!project) return null;
@@ -437,7 +196,6 @@ export default function Portfolios() {
     <div className="relative min-h-screen">
       {/* Background Animation */}
       <div className="absolute inset-0">
-        <ParticleBackground />
       </div>
 
       <div className="relative z-10">

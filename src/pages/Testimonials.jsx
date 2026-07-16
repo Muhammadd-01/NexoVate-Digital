@@ -1,5 +1,4 @@
 import SEO from "../components/SEO"
-import ParticleBackground from "../components/ParticleBackground"
 
 const testimonials = [
   {
@@ -33,7 +32,6 @@ export default function Testimonials() {
       />
       <div className="relative min-h-screen">
         <div className="absolute inset-0">
-          <ParticleBackground />
         </div>
         <div className="relative z-10">
           <div className="text-gray-900 dark:text-white py-24 sm:py-32">

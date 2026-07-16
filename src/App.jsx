@@ -10,8 +10,6 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Chatbot from "./components/Chatbot";
 import WhatsAppButton from "./components/WhatsAppButton";
-import ParticleBackground from "./components/ParticleBackground";
-import AnimatedBackground from "./components/AnimatedBackground";
 import AutoScrollToTop from "./components/AutoScrollToTop";
 import { ScrollToTop } from "./components/CustomCursor";
 
@@ -20,6 +18,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Packages from "./pages/Packages";
 import Services from "./pages/Services";
+import ServiceDetail from "./pages/ServiceDetail";
 import Portfolios from "./pages/Portfolios";
 import Testimonials from "./pages/Testimonials";
 import Blog from "./pages/Blog";
@@ -67,12 +66,63 @@ function App() {
 
 
       <div className="flex flex-col min-h-screen">
-        {location.pathname === "/" && (
-          <AnimatedBackground>
-            <ParticleBackground key={location.pathname} />
-          </AnimatedBackground>
-        )}
+        {/* Global Spatial Background */}
+        <div className="fixed inset-0 -z-10 bg-[#050505] overflow-hidden">
+          {/* Subtle Video Layer */}
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            className="absolute inset-0 w-full h-full object-cover opacity-20"
+          >
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-connection-background-27218-large.mp4" type="video/mp4" />
+          </video>
 
+          {/* Animated Spatial Orbs */}
+          <motion.div
+            animate={{
+              scale: [1, 1.2, 1],
+              x: [0, 100, 0],
+              y: [0, -50, 0],
+            }}
+            transition={{
+              duration: 15,
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
+            className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-nexovate-blue-600/20 blur-[120px]"
+          />
+          <motion.div
+            animate={{
+              scale: [1, 1.5, 1],
+              x: [0, -100, 0],
+              y: [0, 100, 0],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
+            className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-accent-purple/20 blur-[150px]"
+          />
+          <motion.div
+            animate={{
+              scale: [1, 1.1, 1],
+              x: [0, 50, 0],
+              y: [0, 50, 0],
+            }}
+            transition={{
+              duration: 18,
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
+            className="absolute top-[40%] left-[30%] w-[30%] h-[30%] rounded-full bg-teal-500/10 blur-[100px]"
+          />
+
+          {/* Dark Overlay for readability */}
+          <div className="absolute inset-0 bg-black/40" />
+        </div>
         <Header />
 
         <div className="overflow-x-hidden flex-grow">
@@ -89,6 +139,7 @@ function App() {
                 <Route path="/about" element={<About />} />
                 <Route path="/packages" element={<Packages />} />
                 <Route path="/services" element={<Services />} />
+                <Route path="/services/:id" element={<ServiceDetail />} />
                 <Route path="/portfolios" element={<Portfolios />} />
                 <Route path="/testimonials" element={<Testimonials />} />
                 <Route path="/blog" element={<Blog />} />

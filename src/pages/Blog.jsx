@@ -1,7 +1,6 @@
 import SEO from "../components/SEO"
 import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
-import ParticleBackground from "../components/ParticleBackground"
 
 const posts = [
   {
@@ -46,7 +45,6 @@ export default function Blog() {
     <>
       <div className="relative min-h-screen">
         <div className="absolute inset-0">
-          <ParticleBackground />
         </div>
         <div className="relative z-10">
           <SEO
