@@ -34,6 +34,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Profile from "./pages/Profile";
 
+import { servicesData } from "./data/servicesData";
+
 function App() {
   const [error, setError] = React.useState(null);
   const { theme } = useContext(ThemeContext);
@@ -61,6 +63,39 @@ function App() {
     return <div className="p-4 text-red-600">An error occurred: {error.message}</div>;
   }
 
+  const getDynamicBackground = () => {
+    const path = location.pathname;
+    
+    // Check if it's a specific service page
+    if (path.startsWith("/services/")) {
+      const serviceId = path.split("/")[2];
+      const service = servicesData.find(s => s.id === serviceId);
+      if (service && service.bgImage) {
+        return { type: "image", url: service.bgImage };
+      }
+    }
+    
+    // Map other routes to specific themes
+    if (path === "/portfolios") {
+      return { type: "image", url: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" };
+    } else if (path === "/about") {
+      return { type: "image", url: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" };
+    } else if (path === "/contact") {
+      return { type: "image", url: "https://images.unsplash.com/photo-1423666639041-f56000c27a9a?q=80&w=2074&auto=format&fit=crop" };
+    } else if (path === "/packages") {
+      return { type: "image", url: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2072&auto=format&fit=crop" };
+    } else if (path === "/team") {
+      return { type: "image", url: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop" };
+    } else if (path === "/services") {
+      return { type: "image", url: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop" };
+    }
+    
+    // Default video for Home and others
+    return { type: "video", url: "https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-connection-background-27218-large.mp4" };
+  };
+
+  const background = getDynamicBackground();
+
   return (
     <div className={`${theme === "dark" ? "dark" : ""}`}>
 
@@ -68,16 +103,35 @@ function App() {
       <div className="flex flex-col min-h-screen">
         {/* Global Spatial Background */}
         <div className="fixed inset-0 -z-10 bg-[#050505] overflow-hidden">
-          {/* Subtle Video Layer */}
-          <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline 
-            className="absolute inset-0 w-full h-full object-cover opacity-20"
-          >
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-connection-background-27218-large.mp4" type="video/mp4" />
-          </video>
+          {/* Dynamic Background Layer */}
+          <AnimatePresence mode="wait">
+            {background.type === "video" ? (
+              <motion.video 
+                key={background.url}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.2 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1 }}
+                autoPlay 
+                loop 
+                muted 
+                playsInline 
+                className="absolute inset-0 w-full h-full object-cover"
+              >
+                <source src={background.url} type="video/mp4" />
+              </motion.video>
+            ) : (
+              <motion.div
+                key={background.url}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.15 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1 }}
+                className="absolute inset-0 w-full h-full object-cover bg-center bg-cover"
+                style={{ backgroundImage: `url(${background.url})` }}
+              />
+            )}
+          </AnimatePresence>
 
           {/* Animated Spatial Orbs */}
           <motion.div

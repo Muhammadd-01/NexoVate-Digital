@@ -27,13 +27,23 @@ export default function ServiceDetail() {
     budget: "",
     timeline: "",
     details: "",
+    customFieldsData: {},
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [hoveredProject, setHoveredProject] = useState(null);
 
   useEffect(() => {
     const foundService = servicesData.find((s) => s.id === id);
     if (foundService) {
       setService(foundService);
+      // Initialize custom fields if they exist
+      if (foundService.customFields) {
+        const initialCustomData = {};
+        foundService.customFields.forEach(field => {
+          initialCustomData[field.id] = "";
+        });
+        setFormData(prev => ({ ...prev, customFieldsData: initialCustomData }));
+      }
     } else {
       // If service not found, redirect to services page
       navigate("/services");
@@ -50,7 +60,18 @@ export default function ServiceDetail() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    // Check if the input is a custom field
+    if (service?.customFields?.some(field => field.id === name)) {
+      setFormData(prev => ({
+        ...prev,
+        customFieldsData: {
+          ...prev.customFieldsData,
+          [name]: value
+        }
+      }));
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
   };
 
   const isValidEmail = (email) => {
@@ -224,6 +245,19 @@ export default function ServiceDetail() {
                       ))}
                     </div>
                   </StaggerContainer>
+                  
+                  <div className="mt-10 flex justify-center">
+                    <Link 
+                      to="/portfolios"
+                      className="group relative inline-flex items-center justify-center gap-3 rounded-full bg-gradient-to-r from-nexovate-blue-600 to-accent-purple px-8 py-4 text-sm font-bold text-white shadow-lg hover:shadow-glow transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+                    >
+                      <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+                      <span className="relative z-10 flex items-center gap-2">
+                        View All Projects
+                        <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                      </span>
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>
@@ -310,6 +344,31 @@ export default function ServiceDetail() {
                       </select>
                     </div>
                   </div>
+
+                  {/* Dynamic Custom Fields */}
+                  {service?.customFields && service.customFields.length > 0 && (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 p-5 rounded-2xl bg-nexovate-blue-900/10 border border-nexovate-blue-500/20">
+                      {service.customFields.map((field) => (
+                        <div key={field.id} className={service.customFields.length === 1 ? "sm:col-span-2" : ""}>
+                          <label htmlFor={field.id} className="block text-sm font-medium text-nexovate-blue-300 mb-1">{field.label}</label>
+                          {field.type === "select" && (
+                            <select 
+                              id={field.id} 
+                              name={field.id} 
+                              value={formData.customFieldsData[field.id] || ""} 
+                              onChange={handleChange} 
+                              className="w-full rounded-xl bg-black/40 border border-white/10 px-4 py-3 text-white focus:border-nexovate-blue-500 focus:ring-1 focus:ring-nexovate-blue-500 transition-all outline-none appearance-none"
+                            >
+                              <option value="" disabled>Select {field.label}</option>
+                              {field.options.map(opt => (
+                                <option key={opt} value={opt}>{opt}</option>
+                              ))}
+                            </select>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  )}
 
                   <div>
                     <label htmlFor="details" className="block text-sm font-medium text-gray-300 mb-1">Project Details *</label>
