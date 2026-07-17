@@ -654,3 +654,325 @@ export const MarqueeText = ({ text, className = "", speed = 30 }) => {
   );
 };
 
+// ================================================
+// ANIMATED BORDER / SHINE CARD
+// ================================================
+export const AnimatedBorderCard = ({ children, className = "" }) => {
+  return (
+    <div className={`relative group ${className}`}>
+      {/* Animated rotating gradient border */}
+      <div
+        className="absolute -inset-[1px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        style={{
+          background: "linear-gradient(135deg, #0ea5e9, #a855f7, #22d3ee, #0ea5e9)",
+          backgroundSize: "300% 300%",
+          animation: "gradient-shift 3s ease infinite",
+        }}
+      />
+      <div className="relative rounded-2xl bg-black/90 backdrop-blur-sm z-10">
+        {children}
+      </div>
+    </div>
+  );
+};
+
+// ================================================
+// GLOW PULSE CARD
+// ================================================
+export const GlowCard = ({ children, className = "", color = "blue" }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const glowColors = {
+    blue: "rgba(14,165,233,0.4)",
+    purple: "rgba(168,85,247,0.4)",
+    cyan: "rgba(34,211,238,0.4)",
+    pink: "rgba(236,72,153,0.4)",
+  };
+  return (
+    <motion.div
+      className={`relative rounded-2xl ${className}`}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+      animate={{
+        boxShadow: isHovered
+          ? `0 0 40px ${glowColors[color]}, 0 0 80px ${glowColors[color]}`
+          : "0 0 0px transparent",
+      }}
+      transition={{ duration: 0.4 }}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+// ================================================
+// ANIMATED PROGRESS BAR
+// ================================================
+export const AnimatedProgressBar = ({ label, percentage, color = "from-nexovate-blue-400 to-accent-cyan", delay = 0 }) => {
+  return (
+    <div className="mb-4">
+      <div className="flex justify-between mb-1">
+        <span className="text-sm font-medium text-gray-300">{label}</span>
+        <span className="text-sm font-bold text-nexovate-blue-400">{percentage}%</span>
+      </div>
+      <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+        <motion.div
+          className={`h-full bg-gradient-to-r ${color} rounded-full`}
+          initial={{ width: 0 }}
+          whileInView={{ width: `${percentage}%` }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, delay, ease: [0.25, 0.1, 0.25, 1] }}
+        />
+      </div>
+    </div>
+  );
+};
+
+// ================================================
+// PULSING BADGE
+// ================================================
+export const PulsingBadge = ({ text, color = "bg-nexovate-blue-500" }) => {
+  return (
+    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10">
+      <span className="relative flex h-2.5 w-2.5">
+        <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${color} opacity-75`}></span>
+        <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${color}`}></span>
+      </span>
+      <span className="text-xs font-semibold text-gray-300 tracking-wider uppercase">{text}</span>
+    </div>
+  );
+};
+
+// ================================================
+// SCROLL REVEAL TEXT (word by word)
+// ================================================
+export const ScrollRevealText = ({ text, className = "" }) => {
+  const words = text.split(" ");
+  return (
+    <motion.p
+      className={className}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={{
+        visible: { transition: { staggerChildren: 0.04 } },
+        hidden: {},
+      }}
+    >
+      {words.map((word, i) => (
+        <motion.span
+          key={i}
+          className="inline-block mr-1"
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
+          }}
+        >
+          {word}
+        </motion.span>
+      ))}
+    </motion.p>
+  );
+};
+
+// ================================================
+// FLOATING BUBBLES (decorative bg element)
+// ================================================
+export const FloatingBubbles = ({ count = 6, className = "" }) => {
+  const bubbles = Array.from({ length: count }, (_, i) => ({
+    id: i,
+    size: Math.random() * 80 + 20,
+    x: Math.random() * 100,
+    duration: Math.random() * 10 + 8,
+    delay: Math.random() * 5,
+  }));
+
+  return (
+    <div className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}>
+      {bubbles.map((b) => (
+        <motion.div
+          key={b.id}
+          className="absolute rounded-full bg-gradient-to-br from-nexovate-blue-500/10 to-accent-purple/10 border border-white/5"
+          style={{ width: b.size, height: b.size, left: `${b.x}%`, bottom: "-10%" }}
+          animate={{ y: [0, -800], opacity: [0, 0.6, 0] }}
+          transition={{ duration: b.duration, delay: b.delay, repeat: Infinity, ease: "easeOut" }}
+        />
+      ))}
+    </div>
+  );
+};
+
+// ================================================
+// ANIMATED TIMELINE ITEM
+// ================================================
+export const TimelineItem = ({ year, title, description, icon: Icon, index = 0 }) => {
+  const isLeft = index % 2 === 0;
+  return (
+    <motion.div
+      className={`flex items-center gap-8 mb-12 ${isLeft ? "flex-row" : "flex-row-reverse"}`}
+      initial={{ opacity: 0, x: isLeft ? -60 : 60 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.6, delay: index * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+    >
+      <div className={`flex-1 ${isLeft ? "text-right" : "text-left"}`}>
+        <span className="text-xs font-bold text-nexovate-blue-400 uppercase tracking-wider">{year}</span>
+        <h3 className="text-xl font-bold text-white mt-1">{title}</h3>
+        <p className="text-gray-400 mt-1 text-sm">{description}</p>
+      </div>
+      {/* Center dot */}
+      <div className="flex-shrink-0 flex flex-col items-center">
+        <motion.div
+          className="w-14 h-14 rounded-2xl bg-gradient-to-br from-nexovate-blue-600/30 to-accent-purple/30 border border-nexovate-blue-500/40 flex items-center justify-center"
+          whileHover={{ scale: 1.15, rotate: 5 }}
+        >
+          {Icon && <Icon className="w-6 h-6 text-nexovate-blue-400" />}
+        </motion.div>
+        <div className="w-[2px] h-12 bg-gradient-to-b from-nexovate-blue-500/50 to-transparent mt-2" />
+      </div>
+      <div className="flex-1" />
+    </motion.div>
+  );
+};
+
+// ================================================
+// SPARKLE EFFECT (decorative stars around element)
+// ================================================
+export const SparkleWrapper = ({ children, className = "" }) => {
+  const sparkles = [
+    { top: "-8px", left: "20%", size: 12, delay: 0 },
+    { top: "10%", right: "-10px", size: 8, delay: 0.4 },
+    { bottom: "10%", left: "-8px", size: 10, delay: 0.8 },
+    { bottom: "-8px", right: "25%", size: 14, delay: 1.2 },
+    { top: "40%", left: "-12px", size: 8, delay: 0.6 },
+  ];
+  return (
+    <div className={`relative inline-block ${className}`}>
+      {sparkles.map((s, i) => (
+        <motion.svg
+          key={i}
+          style={{ position: "absolute", ...s, width: s.size, height: s.size }}
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          className="text-nexovate-blue-400"
+          animate={{ scale: [0, 1, 0], rotate: [0, 180, 360], opacity: [0, 1, 0] }}
+          transition={{ duration: 2, delay: s.delay, repeat: Infinity, repeatDelay: 1 }}
+        >
+          <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" />
+        </motion.svg>
+      ))}
+      {children}
+    </div>
+  );
+};
+
+// ================================================
+// ANIMATED NUMBER TICKER
+// ================================================
+export const NumberTicker = ({ from = 0, to, suffix = "", prefix = "", duration = 2, delay = 0, className = "" }) => {
+  const nodeRef = useRef(null);
+  return (
+    <motion.span
+      className={className}
+      ref={nodeRef}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ delay }}
+    >
+      {prefix}
+      <motion.span>
+        {to}{suffix}
+      </motion.span>
+    </motion.span>
+  );
+};
+
+// ================================================
+// GRADIENT BORDER BUTTON
+// ================================================
+export const GradientBorderButton = ({ children, onClick, className = "" }) => {
+  return (
+    <motion.button
+      onClick={onClick}
+      className={`relative group ${className}`}
+      whileHover={{ scale: 1.04 }}
+      whileTap={{ scale: 0.97 }}
+    >
+      {/* Animated gradient border */}
+      <span
+        className="absolute inset-0 rounded-xl opacity-100"
+        style={{
+          background: "linear-gradient(135deg, #0ea5e9, #a855f7, #22d3ee)",
+          padding: "1.5px",
+        }}
+      />
+      <span className="relative flex items-center justify-center gap-2 rounded-xl bg-black px-6 py-3 text-sm font-semibold text-white group-hover:bg-black/80 transition-colors">
+        {children}
+      </span>
+    </motion.button>
+  );
+};
+
+// ================================================
+// ROTATING GRADIENT RING (decorative)
+// ================================================
+export const RotatingRing = ({ size = 200, className = "" }) => {
+  return (
+    <div
+      className={`relative flex items-center justify-center ${className}`}
+      style={{ width: size, height: size }}
+    >
+      <motion.div
+        className="absolute inset-0 rounded-full"
+        style={{
+          background: `conic-gradient(from 0deg, #0ea5e9, #a855f7, #22d3ee, #0ea5e9)`,
+          padding: "2px",
+        }}
+        animate={{ rotate: 360 }}
+        transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+      >
+        <div className="w-full h-full rounded-full bg-black" />
+      </motion.div>
+    </div>
+  );
+};
+
+// ================================================
+// HOVER ZOOM IMAGE CARD
+// ================================================
+export const ZoomImageCard = ({ src, alt, title, description, className = "" }) => {
+  return (
+    <motion.div
+      className={`relative overflow-hidden rounded-2xl group cursor-pointer ${className}`}
+      whileHover={{ scale: 1.02 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+    >
+      <motion.img
+        src={src}
+        alt={alt}
+        className="w-full h-full object-cover"
+        whileHover={{ scale: 1.08 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+      <motion.div
+        className="absolute bottom-0 left-0 right-0 p-6"
+        initial={{ y: 20, opacity: 0.8 }}
+        whileHover={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.3 }}
+      >
+        {title && <h3 className="text-xl font-bold text-white">{title}</h3>}
+        {description && (
+          <motion.p
+            className="text-gray-300 text-sm mt-1"
+            initial={{ opacity: 0, height: 0 }}
+            whileHover={{ opacity: 1, height: "auto" }}
+            transition={{ duration: 0.3 }}
+          >
+            {description}
+          </motion.p>
+        )}
+      </motion.div>
+    </motion.div>
+  );
+};

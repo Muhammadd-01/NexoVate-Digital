@@ -6,21 +6,31 @@ export const ThemeProvider = ({ children }) => {
   // Always start with dark mode
   const [theme, setTheme] = useState("dark");
 
-  // Ensure dark mode is applied before any rendering
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     const finalTheme = savedTheme || "dark";
 
     setTheme(finalTheme);
-    document.documentElement.classList.add("dark");
-    localStorage.setItem("theme", "dark");
+    if (finalTheme === "dark") {
+      document.documentElement.classList.add("dark");
+      document.documentElement.classList.remove("light");
+    } else {
+      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.add("light");
+    }
   }, []);
 
-  // Even if someone tries to toggle, it stays dark
   const toggleTheme = () => {
-    setTheme("dark");
-    document.documentElement.classList.add("dark");
-    localStorage.setItem("theme", "dark");
+    const newTheme = theme === "dark" ? "light" : "dark";
+    setTheme(newTheme);
+    if (newTheme === "dark") {
+      document.documentElement.classList.add("dark");
+      document.documentElement.classList.remove("light");
+    } else {
+      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.add("light");
+    }
+    localStorage.setItem("theme", newTheme);
   };
 
   return (

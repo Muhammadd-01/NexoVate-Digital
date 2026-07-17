@@ -7,7 +7,7 @@ export default function PageHero({ title, description, bgImage }) {
   const bgToUse = bgImage || defaultBg;
 
   return (
-    <div className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
+    <div className="relative pt-36 pb-20 lg:pt-44 lg:pb-28 overflow-hidden">
       {/* Background Image with Dark Overlay */}
       <div className="absolute inset-0 z-0">
         <div 

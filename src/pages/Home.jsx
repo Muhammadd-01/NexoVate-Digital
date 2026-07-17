@@ -18,7 +18,17 @@ import {
   FloatingElement,
   MagneticButton,
   HoverLiftCard,
-  IconBounce
+  IconBounce,
+  AnimatedBorderCard,
+  GlowCard,
+  AnimatedProgressBar,
+  PulsingBadge,
+  ScrollRevealText,
+  FloatingBubbles,
+  SparkleWrapper,
+  RotatingRing,
+  ZoomImageCard,
+  GradientBorderButton,
 } from "../components/Animations";
 import TiltCard from "../components/TiltCard";
 import CountUp from "react-countup";
@@ -178,11 +188,37 @@ export default function Home() {
         </div>
 
         {/* Hero Section */}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
-          <div className="py-24 sm:py-32 lg:pb-40">
+        <div className="relative min-h-screen flex items-center justify-center pt-32 pb-20 overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            <motion.img 
+              initial={{ scale: 1.1, opacity: 0 }}
+              animate={{ scale: 1, opacity: 0.3 }}
+              transition={{ duration: 2, ease: "easeOut" }}
+              src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
+              alt="Space Tech Background" 
+              className="w-full h-full object-cover mix-blend-screen"
+            />
+            {/* Multi-layered gradient overlay for depth */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/60 to-[#030014]" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#030014]/90 via-transparent to-[#030014]/90" />
+          </div>
+
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }} 
+            animate={{ opacity: 1, scale: 1 }} 
+            transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+            className="relative z-10 w-full"
+          >
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
-              <div className="mx-auto max-w-3xl text-center">
-                {/* Main heading with gradient */}
+              <div className="mx-auto max-w-4xl text-center relative">
+                
+                {/* Spatial glass wrapper for hero content */}
+                <div className="bg-white/[0.02] backdrop-blur-xl p-8 sm:p-12 md:p-16 rounded-[3rem] border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] relative overflow-hidden group">
+                  {/* Inner dynamic glow */}
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[200%] h-[200%] bg-gradient-to-b from-nexovate-blue-500/20 to-transparent pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-1000" style={{ mixBlendMode: 'screen' }} />
+
+                  {/* Main heading with gradient */}
                 <motion.h1
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -248,10 +284,11 @@ export default function Home() {
                     <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
                   </Link>
                 </motion.div>
+                </div>
               </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
 
         {/* Tech Stack Marquee */}
         <TechMarquee items={techStack} />
@@ -393,6 +430,264 @@ export default function Home() {
           </div>
         </FadeInWhenVisible>
 
+        {/* ─── Skills & Technologies — Premium Redesign ─── */}
+        <div className="py-28 relative overflow-hidden">
+          {/* Background decoration */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-nexovate-blue-500/5 blur-[120px]" />
+            <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-accent-purple/5 blur-[100px]" />
+          </div>
+
+          <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
+            {/* Header */}
+            <FadeInWhenVisible>
+              <div className="text-center mb-20">
+                <PulsingBadge text="Our Expertise" color="bg-nexovate-blue-500" />
+                <h2 className="text-4xl sm:text-5xl font-bold mt-5 mb-4">
+                  <GradientText>Skills & Technologies</GradientText>
+                </h2>
+                <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+                  We master every layer of the modern stack — from pixel-perfect interfaces to bulletproof cloud infrastructure.
+                </p>
+              </div>
+            </FadeInWhenVisible>
+
+            {/* Top row: two progress-bar cards */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+              <SlideIn direction="left">
+                <div className="relative group h-full">
+                  {/* animated gradient border on hover */}
+                  <div className="absolute -inset-[1.5px] rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-700"
+                    style={{ background: "linear-gradient(135deg,#0ea5e9,#a855f7,#22d3ee,#0ea5e9)", backgroundSize:"300%", animation:"gradient-shift 4s ease infinite" }} />
+                  <div className="relative rounded-3xl p-8 h-full"
+                    style={{ background: "linear-gradient(135deg, rgba(14,165,233,0.06) 0%, rgba(168,85,247,0.04) 100%)", backdropFilter:"blur(20px)", border:"1px solid rgba(255,255,255,0.07)" }}>
+                    {/* Card header */}
+                    <div className="flex items-center gap-4 mb-8">
+                      <div className="w-12 h-12 rounded-2xl flex items-center justify-center"
+                        style={{ background:"linear-gradient(135deg,#0ea5e9,#0284c7)" }}>
+                        <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-white">Development Stack</h3>
+                        <p className="text-gray-500 text-sm">Full-stack & mobile expertise</p>
+                      </div>
+                    </div>
+                    {/* Skills with custom bars */}
+                    {[
+                      { label: "React / Next.js", pct: 95, from: "#0ea5e9", to: "#22d3ee" },
+                      { label: "Node.js / Express", pct: 88, from: "#a855f7", to: "#ec4899" },
+                      { label: "Flutter / Mobile", pct: 82, from: "#22d3ee", to: "#0ea5e9" },
+                      { label: "MongoDB / Firebase", pct: 90, from: "#22c55e", to: "#22d3ee" },
+                      { label: "AWS / Docker / DevOps", pct: 78, from: "#f97316", to: "#a855f7" },
+                    ].map((s, i) => (
+                      <div key={i} className="mb-5">
+                        <div className="flex justify-between items-center mb-2">
+                          <span className="text-sm font-medium text-gray-300">{s.label}</span>
+                          <motion.span
+                            className="text-sm font-bold"
+                            style={{ color: s.from }}
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.1 + 0.3 }}
+                          >{s.pct}%</motion.span>
+                        </div>
+                        <div className="h-2.5 rounded-full overflow-hidden" style={{ background:"rgba(255,255,255,0.06)" }}>
+                          <motion.div
+                            className="h-full rounded-full relative overflow-hidden"
+                            style={{ background: `linear-gradient(90deg, ${s.from}, ${s.to})` }}
+                            initial={{ width: 0 }}
+                            whileInView={{ width: `${s.pct}%` }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1.4, delay: i * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+                          >
+                            {/* shimmer */}
+                            <motion.div
+                              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                              animate={{ x: ["-100%", "200%"] }}
+                              transition={{ duration: 2, delay: i * 0.15 + 1, ease: "easeInOut" }}
+                            />
+                          </motion.div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </SlideIn>
+
+              <SlideIn direction="right">
+                <div className="relative group h-full">
+                  <div className="absolute -inset-[1.5px] rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-700"
+                    style={{ background:"linear-gradient(135deg,#ec4899,#a855f7,#0ea5e9,#ec4899)", backgroundSize:"300%", animation:"gradient-shift 4s ease infinite" }} />
+                  <div className="relative rounded-3xl p-8 h-full"
+                    style={{ background:"linear-gradient(135deg,rgba(236,72,153,0.06) 0%,rgba(168,85,247,0.04) 100%)", backdropFilter:"blur(20px)", border:"1px solid rgba(255,255,255,0.07)" }}>
+                    <div className="flex items-center gap-4 mb-8">
+                      <div className="w-12 h-12 rounded-2xl flex items-center justify-center"
+                        style={{ background:"linear-gradient(135deg,#ec4899,#a855f7)" }}>
+                        <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-white">Design & Creative</h3>
+                        <p className="text-gray-500 text-sm">Visual craft & brand identity</p>
+                      </div>
+                    </div>
+                    {[
+                      { label: "UI/UX Design & Figma", pct: 93, from: "#ec4899", to: "#a855f7" },
+                      { label: "Adobe Photoshop / Illustrator", pct: 90, from: "#3b82f6", to: "#0ea5e9" },
+                      { label: "Video Editing & Motion Graphics", pct: 85, from: "#a855f7", to: "#ec4899" },
+                      { label: "Branding & Identity Design", pct: 88, from: "#eab308", to: "#f97316" },
+                      { label: "SEO & Digital Marketing", pct: 80, from: "#22c55e", to: "#22d3ee" },
+                    ].map((s, i) => (
+                      <div key={i} className="mb-5">
+                        <div className="flex justify-between items-center mb-2">
+                          <span className="text-sm font-medium text-gray-300">{s.label}</span>
+                          <motion.span
+                            className="text-sm font-bold"
+                            style={{ color: s.from }}
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.1 + 0.3 }}
+                          >{s.pct}%</motion.span>
+                        </div>
+                        <div className="h-2.5 rounded-full overflow-hidden" style={{ background:"rgba(255,255,255,0.06)" }}>
+                          <motion.div
+                            className="h-full rounded-full relative overflow-hidden"
+                            style={{ background:`linear-gradient(90deg,${s.from},${s.to})` }}
+                            initial={{ width: 0 }}
+                            whileInView={{ width:`${s.pct}%` }}
+                            viewport={{ once: true }}
+                            transition={{ duration:1.4, delay:i*0.1, ease:[0.25,0.1,0.25,1] }}
+                          >
+                            <motion.div
+                              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                              animate={{ x:["-100%","200%"] }}
+                              transition={{ duration:2, delay:i*0.15+1 }}
+                            />
+                          </motion.div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </SlideIn>
+            </div>
+
+            {/* Bottom row: tech chip icons */}
+            <FadeInWhenVisible delay={0.3}>
+              <div className="rounded-3xl p-8"
+                style={{ background:"rgba(255,255,255,0.02)", backdropFilter:"blur(20px)", border:"1px solid rgba(255,255,255,0.06)" }}>
+                <p className="text-center text-sm text-gray-500 uppercase tracking-[0.2em] font-semibold mb-8">Technologies We Work With</p>
+                <div className="flex flex-wrap justify-center gap-3">
+                  {[
+                    { name:"React", color:"#61DAFB" }, { name:"Next.js", color:"#ffffff" },
+                    { name:"TypeScript", color:"#3178C6" }, { name:"Node.js", color:"#339933" },
+                    { name:"Flutter", color:"#02569B" }, { name:"MongoDB", color:"#47A248" },
+                    { name:"Firebase", color:"#FFCA28" }, { name:"AWS", color:"#FF9900" },
+                    { name:"Docker", color:"#2496ED" }, { name:"GraphQL", color:"#E10098" },
+                    { name:"Figma", color:"#F24E1E" }, { name:"Tailwind", color:"#06B6D4" },
+                    { name:"Python", color:"#3776AB" }, { name:"Shopify", color:"#96BF48" },
+                  ].map((tech, i) => (
+                    <motion.div
+                      key={tech.name}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.04, duration: 0.4 }}
+                      whileHover={{ scale: 1.1, y: -2 }}
+                      className="px-4 py-2 rounded-full text-sm font-semibold cursor-default transition-all duration-300"
+                      style={{
+                        background: `${tech.color}15`,
+                        border: `1px solid ${tech.color}40`,
+                        color: tech.color,
+                      }}
+                    >
+                      {tech.name}
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </FadeInWhenVisible>
+          </div>
+        </div>
+
+        {/* ─── NEW: Why Choose Us — Glow Cards ─── */}
+        <FadeInWhenVisible>
+          <div className="py-24 relative">
+            <div className="mx-auto max-w-7xl px-6 lg:px-8">
+              <div className="text-center mb-16">
+                <PulsingBadge text="Why NexoVate" color="bg-accent-purple" />
+                <h2 className="text-3xl sm:text-4xl font-bold mt-4 mb-4">
+                  <GradientText>Why Choose Us?</GradientText>
+                </h2>
+                <p className="text-gray-400 max-w-xl mx-auto">
+                  We combine creativity, technology, and strategy to deliver digital experiences that stand out.
+                </p>
+              </div>
+
+              <StaggerContainer staggerDelay={0.12}>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {[
+                    { icon: "🚀", title: "Fast Delivery", desc: "We build rapidly without cutting corners — sprint-based delivery you can rely on.", color: "blue" },
+                    { icon: "🎨", title: "Premium Design", desc: "Every pixel is crafted with precision for aesthetics, usability, and conversion.", color: "purple" },
+                    { icon: "🔒", title: "Secure by Default", desc: "Industry-standard security practices are baked in from day one.", color: "cyan" },
+                    { icon: "📈", title: "Scalable Solutions", desc: "Built to grow with you. From startup to enterprise, we architect for scale.", color: "blue" },
+                    { icon: "🤝", title: "Dedicated Support", desc: "Our team is always just a message away with round-the-clock responsiveness.", color: "pink" },
+                    { icon: "🌍", title: "Global Reach", desc: "We've helped clients across 30+ countries build their digital presence.", color: "purple" },
+                  ].map((item, i) => (
+                    <StaggerItem key={i}>
+                      <GlowCard color={item.color} className="glass p-6 h-full">
+                        <SparkleWrapper className="mb-4 inline-block">
+                          <div className="text-4xl">{item.icon}</div>
+                        </SparkleWrapper>
+                        <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                        <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+                      </GlowCard>
+                    </StaggerItem>
+                  ))}
+                </div>
+              </StaggerContainer>
+            </div>
+          </div>
+        </FadeInWhenVisible>
+
+        {/* ─── NEW: Portfolio Zoom Cards ─── */}
+        <FadeInWhenVisible>
+          <div className="py-24">
+            <div className="mx-auto max-w-7xl px-6 lg:px-8">
+              <div className="text-center mb-16">
+                <PulsingBadge text="Our Work" color="bg-accent-cyan" />
+                <h2 className="text-3xl sm:text-4xl font-bold mt-4 mb-4">
+                  <GradientText>Work We're Proud Of</GradientText>
+                </h2>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-[400px]">
+                <ZoomImageCard
+                  src="https://images.unsplash.com/photo-1661956602116-aa6865609028?auto=format&fit=crop&w=800&q=80"
+                  alt="E-Commerce"
+                  title="E-Commerce Platform"
+                  description="AI-powered shopping with seamless UX"
+                  className="md:row-span-2 h-full"
+                />
+                <ZoomImageCard
+                  src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80"
+                  alt="Healthcare"
+                  title="Healthcare App"
+                  description="Secure patient management system"
+                  className="h-full"
+                />
+                <ZoomImageCard
+                  src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&w=800&q=80"
+                  alt="FinTech"
+                  title="FinTech Platform"
+                  description="Scalable financial technology"
+                  className="h-full"
+                />
+              </div>
+            </div>
+          </div>
+        </FadeInWhenVisible>
+
         {/* Testimonials Section */}
         <FadeInWhenVisible>
           <div className="py-24">
@@ -417,7 +712,7 @@ export default function Home() {
 
             <div className="relative mx-auto max-w-7xl px-6 lg:px-8 text-center">
               <motion.h2
-                className="text-3xl sm:text-4xl font-bold text-white mb-6"
+                className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 drop-shadow-2xl"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -437,7 +732,7 @@ export default function Home() {
               <MagneticButton strength={0.15}>
                 <Link
                   to="/contact"
-                  className="group inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 text-lg font-semibold text-nexovate-blue-600 shadow-xl hover:bg-gray-100 transition-all duration-300"
+                  className="group inline-flex items-center gap-3 rounded-full bg-white/10 backdrop-blur-md border border-white/30 px-10 py-5 text-lg font-semibold text-white shadow-2xl hover:bg-white hover:text-nexovate-blue-600 transition-all duration-500"
                   onClick={handleConfetti}
                 >
                   Get Started Today

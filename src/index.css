@@ -38,6 +38,22 @@ html {
 body {
   @apply bg-black text-white;
   overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Light Mode Global Inversion */
+html.light {
+  filter: invert(1) hue-rotate(180deg);
+  background: white;
+}
+
+html.light img, 
+html.light video, 
+html.light iframe, 
+html.light canvas,
+html.light .preserve-colors,
+html.light [style*="background-image"] {
+  filter: invert(1) hue-rotate(180deg);
 }
 
 /* Optimized transitions - exclude transforms for performance */

@@ -1,7 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useState, useEffect, useContext } from "react";
+import { Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 import { motion, AnimatePresence } from "framer-motion";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -17,6 +18,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   useEffect(() => {
     setMobileMenuOpen(false);
@@ -33,22 +35,22 @@ export default function Header() {
 
   return (
     <motion.header
-      initial={{ opacity: 0, y: -40 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: -40, x: "-50%" }}
+      animate={{ opacity: 1, y: 0, x: "-50%" }}
       transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
       className={`
-        sticky top-0 z-50 transition-all duration-500
+        fixed top-2 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 transition-all duration-500 rounded-full
         ${scrolled
-          ? "bg-black/80 backdrop-blur-xl shadow-lg shadow-black/20 border-b border-white/5"
-          : "bg-transparent"
+          ? "bg-black/70 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] border border-white/10 py-1"
+          : "bg-black/20 backdrop-blur-md border border-white/5 py-3"
         }
       `}
     >
-      {/* Gradient line at top */}
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-nexovate-blue-500 to-transparent opacity-50" />
+      {/* Curved gradient glow at top */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-nexovate-blue-500 to-transparent opacity-50" />
 
       <nav
-        className="relative mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-8"
+        className="relative mx-auto flex w-full items-center justify-between px-6 lg:px-8"
         aria-label="Global"
       >
         {/* Logo (Left) */}
@@ -111,41 +113,76 @@ export default function Header() {
           ))}
         </div>
 
-        {/* Mobile Menu Button (Right) */}
-        <div className="flex lg:hidden">
+        {/* Right Section: Theme Toggle & Mobile Menu */}
+        <div className="flex flex-1 justify-end items-center gap-3">
+          {/* Theme Toggle Button */}
           <motion.button
-            type="button"
-            className="relative -m-2.5 inline-flex items-center justify-center rounded-xl p-2.5 text-white overflow-hidden group"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            whileTap={{ scale: 0.95 }}
+            whileTap={{ scale: 0.9, rotate: 180 }}
+            whileHover={{ scale: 1.1 }}
+            onClick={toggleTheme}
+            className="relative p-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white transition-all duration-300 group overflow-hidden"
           >
-            <span className="sr-only">Toggle menu</span>
-            {/* Button background */}
-            <div className="absolute inset-0 bg-white/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
             <AnimatePresence mode="wait">
-              {mobileMenuOpen ? (
+              {theme === "dark" ? (
                 <motion.div
-                  key="close"
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
+                  key="sun"
+                  initial={{ rotate: -90, opacity: 0, scale: 0 }}
+                  animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                  exit={{ rotate: 90, opacity: 0, scale: 0 }}
+                  transition={{ duration: 0.3 }}
                 >
-                  <XMarkIcon className="h-6 w-6 relative z-10" aria-hidden="true" />
+                  <SunIcon className="w-5 h-5 text-yellow-400" />
                 </motion.div>
               ) : (
                 <motion.div
-                  key="menu"
-                  initial={{ rotate: 90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: -90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
+                  key="moon"
+                  initial={{ rotate: 90, opacity: 0, scale: 0 }}
+                  animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                  exit={{ rotate: -90, opacity: 0, scale: 0 }}
+                  transition={{ duration: 0.3 }}
                 >
-                  <Bars3Icon className="h-6 w-6 relative z-10" aria-hidden="true" />
+                  <MoonIcon className="w-5 h-5 text-nexovate-blue-400" />
                 </motion.div>
               )}
             </AnimatePresence>
           </motion.button>
+
+          {/* Mobile Menu Button */}
+          <div className="flex lg:hidden">
+            <motion.button
+              type="button"
+              className="relative -m-2.5 inline-flex items-center justify-center rounded-xl p-2.5 text-white overflow-hidden group"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span className="sr-only">Toggle menu</span>
+              {/* Button background */}
+              <div className="absolute inset-0 bg-white/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <AnimatePresence mode="wait">
+                {mobileMenuOpen ? (
+                  <motion.div
+                    key="close"
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <XMarkIcon className="h-6 w-6 relative z-10" aria-hidden="true" />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="menu"
+                    initial={{ rotate: 90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: -90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Bars3Icon className="h-6 w-6 relative z-10" aria-hidden="true" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.button>
+          </div>
         </div>
       </nav>
 
@@ -157,10 +194,10 @@ export default function Header() {
             animate={{ opacity: 1, height: "auto", y: 0 }}
             exit={{ opacity: 0, height: 0, y: -10 }}
             transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="lg:hidden overflow-hidden"
+            className="lg:hidden overflow-hidden mt-4 rounded-3xl mx-2 border border-white/10 shadow-2xl relative"
           >
             {/* Glassmorphism background */}
-            <div className="absolute inset-0 bg-black/90 backdrop-blur-xl -z-10" />
+            <div className="absolute inset-0 bg-black/80 backdrop-blur-2xl -z-10" />
 
             <motion.div
               className="space-y-1 px-4 pb-4 pt-2"
